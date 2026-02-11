@@ -447,6 +447,10 @@ input:-webkit-autofill:active {
   transition: var(--transition-1);
 }
 
+.bg-gray {
+  background-color: #ecf0f4;
+}
+
 .container {
   max-width: 1340px;
   margin: 0 auto;
@@ -12545,16 +12549,16 @@ ul {
 .ibt-btn.ibt-btn-outline::before {
   content: "";
   position: absolute;
-  padding: 1px; /* border ki width */
+  padding: 1px;
   border-radius: 12px;
-  background: -webkit-linear-gradient(left, #4875c8, #7061c8);
-  background: linear-gradient(90deg, #4875c8, #7061c8);
+  background: -webkit-linear-gradient(left, #4875c8, #022d66);
+  background: linear-gradient(90deg, #4875c8, #022d66);
   -webkit-mask: -webkit-linear-gradient(#fff 0 0) content-box, -webkit-linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 .ibt-btn.ibt-btn-outline::after {
-  background: var(--gradient-btn-1);
+  background: var(--color-primary);
   opacity: 0;
 }
 .ibt-btn.ibt-btn-outline > * {
@@ -21785,9 +21789,9 @@ ul {
 .service-sec15 {
   position: relative;
 }
-.service-sec15 .sec-title {
+/* .service-sec15 .sec-title {
   max-width: 700px;
-}
+} */
 @media (max-width: 820px) {
   .service-sec15 .sec-title {
     margin-bottom: 30px !important;
