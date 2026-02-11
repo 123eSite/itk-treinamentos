@@ -6379,7 +6379,7 @@ input[type=submit]:hover {
  */
 #themeBtn {
   position: fixed;
-  top: 50%;
+  bottom: 50px;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -12632,7 +12632,7 @@ ul {
   mask-composite: exclude;
 }
 .ibt-btn.ibt-btn-outline-3::after {
-  background: var(--gradient-3);
+  background: var(--gradient-1);
   opacity: 0;
 }
 .ibt-btn.ibt-btn-outline-3 > * {
@@ -12688,11 +12688,14 @@ ul {
   opacity: 1;
 }
 .ibt-btn.ibt-btn-rounded {
-  border-radius: var(--radius-4xl);
-  padding: 13px 45px;
+  border-radius: var(--radius-lg);
+  padding: 13px 26px;
 }
-.ibt-btn.ibt-btn-rounded.ibt-btn-outline::before, .ibt-btn.ibt-btn-rounded.ibt-btn-outline::after, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-2::before, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-2::after, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-3::before, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-3::after {
+.ibt-btn.ibt-btn-rounded.ibt-btn-outline::before, .ibt-btn.ibt-btn-rounded.ibt-btn-outline::after, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-2::before, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-2::after {
   border-radius: var(--radius-4xl);
+}
+.ibt-btn.ibt-btn-rounded.ibt-btn-outline-3::before, .ibt-btn.ibt-btn-rounded.ibt-btn-outline-3::after {
+  border-radius: var(--radius-lg);
 }
 
 .lg-toolbar .lg-icon,
@@ -13293,10 +13296,15 @@ ul {
   bottom: 14px;
   right: 14px;
   background-color: var(--color-content-white);
-  width: 500px;
+  max-width: 450px;
   border-radius: 25px;
-  padding: 33px 9px;
-  padding-left: 252px;
+  padding: 33px 40px;
+}
+.exp-box h3 {
+  font-size: 20px;
+  color: var(--color-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
 }
 @media (max-width: 820px) {
   .exp-box {
@@ -13327,15 +13335,26 @@ ul {
     left: 11px;
   }
 }
+.exp-box a {
+  background-color: var(--color-primary);
+  color: var(--color-content-white);
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 400;
+  margin-bottom: 0;
+  font-family: var(--font-primary);
+  color: var(--color-content-white);
+}
 .exp-box p {
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 25px;
   font-weight: 400;
   margin-bottom: 0;
   font-family: var(--font-primary);
   color: var(--color-content-black2);
-  max-width: 203px;
 }
 @media (max-width: 1366px) {
   .exp-box p {
@@ -13353,6 +13372,9 @@ ul {
   .exp-box p {
     font-size: 14px;
   }
+}
+.exp-box .badge {
+  background-color: var(--color-primary);
 }
 
 .video-img {
