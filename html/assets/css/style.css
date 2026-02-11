@@ -96,7 +96,7 @@
     All Extend Here
 =======================*/
 /*----------------------
-    Bg Image  
+    Bg Image
 ------------------------*/
 /**
  * Reset Styels
@@ -554,9 +554,9 @@ input:-webkit-autofill:active {
 
 /*-- Variables --*/
 :root {
-  --color-primary: #45d0bd;
-  --color-secondary: #ef6464;
-  --color-secondary-alt: #f57e7e;
+  --color-primary: #022d66;
+  --color-secondary: #00204B;
+  --color-secondary-alt: #00214c;
   --color-content-white: #ffffff;
   --color-content-black: #000000;
   --color-content-black2: #333333;
@@ -569,8 +569,9 @@ input:-webkit-autofill:active {
   --color-surface-light-1: #ecf0f4;
   --color-surface-light-3: #f5f5f5;
   --color-body: #333333;
-  --gradient-1: linear-gradient(159deg, #a2f5ff 2.13%, #ea84c2 95.42%);
-  --gradient-3: linear-gradient(113deg, #45d0bd 2.7%, #44b6e9 98.55%);
+  --gradient-1: linear-gradient(159deg, #519cff 2.13%, #00204B 95.42%);
+  --gradient-blue: linear-gradient(107deg, #022D66 38%, #00214C 61%);
+  --gradient-3: linear-gradient(113deg, #519cff 2.7%, #00204B 98.55%);
   --gradient-btn-1: linear-gradient(102deg, #8258c8 0.77%, #6766c8 32.11%, #2c84c8 100.27%);
   --border-width: 2px;
   --border-width-1: 1px;
@@ -657,7 +658,7 @@ input:-webkit-autofill:active {
   }
 }
 /*-------------------------------------------------------
-                    Height and width 
+                    Height and width
 --------------------------------------------------------*/
 .ibt-h-auto {
   height: auto;
@@ -1387,7 +1388,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*-----------------------------
-    ibt Border Radius  
+    ibt Border Radius
 -------------------------------*/
 .ibt-radius-0 {
   border-radius: 0px !important;
@@ -1754,7 +1755,7 @@ textarea:-ms-input-placeholder {
  * Author https://themeforest.net/user/ib-themes
  */
 /*=========================
-    Section Separation 
+    Section Separation
 ==========================*/
 .ibt-section-gap {
   padding-top: 120px;
@@ -5901,7 +5902,7 @@ cite,
 }
 
 /*---------------------------
-      List Style 
+      List Style
 ---------------------------*/
 ul,
 ol {
@@ -7660,7 +7661,7 @@ input[type=submit]:hover {
  * Author https://themeforest.net/user/ib-themes
  */
 /*------------------------------
-    Popup Menu Styles  
+    Popup Menu Styles
 --------------------------------*/
 .side-menu {
   position: fixed;
@@ -8622,7 +8623,7 @@ input[type=submit]:hover {
   font-family: "fontello";
   font-weight: 400;
   cursor: pointer;
-  color: #333333;
+  color: var(--color-secondary);
 }
 .header-logo .menu-toggle:hover::before {
   opacity: 0;
@@ -8630,9 +8631,9 @@ input[type=submit]:hover {
 .header-logo .menu-toggle:hover::after {
   opacity: 1;
 }
-@media (max-width: 1366px) {
+@media (max-width: 1399px) {
   .header-logo .menu-toggle {
-    margin-right: 33px;
+    margin-right: 12px;
   }
 }
 @media (max-width: 1201px) {
@@ -8690,13 +8691,16 @@ input[type=submit]:hover {
   line-height: 40px;
   text-transform: uppercase;
   color: var(--color-content-black2);
-  padding: 0 42px 0 22px;
+  padding: 0 22px 0 22px;
   height: 40px;
   border-radius: 10px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.menu-style1 > ul > li > a::before {
+.menu-style1 > ul > li.menu-item-has-children > a {
+  padding: 0 42px 0 22px;
+}
+.menu-style1 > ul > li.menu-item-has-children > a::before {
   content: "";
   position: absolute;
   bottom: 15px;
@@ -8767,9 +8771,9 @@ input[type=submit]:hover {
   transition: opacity 200ms ease-in, transform 200ms ease-in, visibility 200ms ease-in, -webkit-transform 200ms ease-in;
   z-index: 999;
   border-radius: 20px;
-  background: var(--color-heading);
+  background: var(--color-secondary);
   border: 0;
-  padding: 40px 45px 40px 50px;
+  padding: 24px 32px 24px 32px;
   position: absolute;
   top: 100%;
   width: -webkit-max-content;
@@ -8884,7 +8888,7 @@ input[type=submit]:hover {
 }
 .main-menu > ul li .sub-menu {
   display: block;
-  width: 286px;
+  width: 240px;
   margin-top: 5px;
 }
 .main-menu > ul li .sub-menu li {
@@ -8911,12 +8915,13 @@ input[type=submit]:hover {
   font-weight: 400;
   text-align: left;
   margin: 0 0 0 0;
-  padding: 10px 20px 10px 0;
+  padding: 8px 20px 8px 0;
   vertical-align: top;
   display: block;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border: 0;
+  max-width: 210px;
 }
 .main-menu > ul li .sub-menu li a:hover {
   padding-left: 20px;
@@ -9600,8 +9605,8 @@ input[type=submit]:hover {
 .top-bar-contacts li:last-child {
   margin-right: 0;
 }
-.top-bar-contacts li span {
-  color: #919191;
+.top-bar-contacts li span, .top-bar-contacts li i {
+  color: #fff;
 }
 .top-bar-contacts li a {
   color: var(--color-heading);
@@ -9707,7 +9712,7 @@ input[type=submit]:hover {
   }
 }
 .vs-header6 .header-top-content4 {
-  background-color: var(--color-surface-dark-2);
+  background: var(--gradient-blue);
   border: 0;
   margin-top: 8px;
 }
@@ -12620,8 +12625,8 @@ ul {
   position: absolute;
   padding: 2px; /* border ki width */
   border-radius: 12px;
-  background: -webkit-linear-gradient(left, #45d0bd, #44b6e9);
-  background: linear-gradient(90deg, #45d0bd, #44b6e9);
+  background: -webkit-linear-gradient(left, #519cff, #00204B);
+  background: linear-gradient(90deg, #519cff, #00204B);
   -webkit-mask: -webkit-linear-gradient(#fff 0 0) content-box, -webkit-linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -12635,7 +12640,7 @@ ul {
   z-index: 1;
 }
 .ibt-btn.ibt-btn-outline-3:hover {
-  color: var(--color-body);
+  color: var(--color-content-white);
 }
 .ibt-btn.ibt-btn-outline-3:hover::after {
   opacity: 1;
@@ -14117,10 +14122,10 @@ ul {
 
 .hero-sec-info3 {
   position: relative;
-  background-color: var(--color-content-white);
-  max-width: 606px;
-  padding: 82px 62px 100px;
-  border-radius: 25px;
+  /* background-color: var(--color-content-white); */
+  max-width: 70%;
+  padding: 100px 62px 100px;
+  /* border-radius: 25px; */
 }
 @media (max-width: 1025px) {
   .hero-sec-info3 {
@@ -14143,7 +14148,7 @@ ul {
   font-size: 60px;
   line-height: 70px;
   font-weight: 400;
-  color: var(--color-heading);
+  color: var(--color-content-white);
   letter-spacing: -0.03em;
 }
 @media (max-width: 1025px) {
@@ -14166,10 +14171,10 @@ ul {
 }
 .hero-sec-info3 p {
   margin-bottom: 42px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 30px;
-  color: var(--color-content-black2);
-  max-width: 504px;
+  color: var(--color-content-white);
+  max-width: 60%;
 }
 @media (max-width: 480px) {
   .hero-sec-info3 p {
@@ -39596,3 +39601,21 @@ blockquote {
           transform: rotate(90deg);
 }
 /*# sourceMappingURL=../maps/style.css.map */
+
+/* Responsive */
+@media (max-width: 1600px) {
+  .menu-style1 > ul > li.current-menu-item > a {
+      padding: 0 26px 0 22px;
+  }
+  header.sticky-active .menu-style1 {
+    margin-left: 0;
+  }
+}
+@media (max-width: 1399px) {
+  .menu-style1 > ul > li > a {
+    padding: 0 10px 0 10px;
+  }
+  .menu-style1 > ul > li.menu-item-has-children > a {
+    padding: 0 35px 0 10px;
+  }
+}
