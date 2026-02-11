@@ -6252,7 +6252,10 @@ input[type=submit]:hover {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  padding: 0 8px;
+  padding: 0 12px;
+}
+.sec-title .sub-title .sub-text {
+  padding-right: 2px;
 }
 .sec-title .sub-title::before {
   content: "[";
@@ -26701,7 +26704,7 @@ ul {
 .about-us-sec2 {
   position: relative;
 }
-.about-us-sec2::after {
+/* .about-us-sec2::after {
   content: "";
   position: absolute;
   top: -126%;
@@ -26711,7 +26714,7 @@ ul {
   background-image: url(../images/layers/about-layer.png);
   background-repeat: no-repeat;
   z-index: -1;
-}
+} */
 @media (max-width: 1440px) {
   .about-us-sec2::after {
     display: none;
@@ -26767,16 +26770,16 @@ ul {
   background-color: transparent;
   color: #ffffff;
   font-family: "Manrope", Sans-serif;
-  font-size: 120px;
+  font-size: 100px;
   font-weight: 700;
   line-height: 90px;
   letter-spacing: -0.05em;
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-width: 3px;
   stroke-width: 2px;
   -webkit-text-stroke-color: rgba(0, 0, 0, 0);
   stroke: rgba(0, 0, 0, 0);
-  background-image: -webkit-linear-gradient(347deg, #8258c8 0%, #2c84c8 100%);
-  background-image: linear-gradient(103deg, #8258c8 0%, #2c84c8 100%);
+  background-image: -webkit-linear-gradient(347deg, #022d66 0%, #2c84c8 100%);
+  background-image: linear-gradient(103deg, #022d66 0%, #2c84c8 100%);
   -webkit-background-clip: text;
 }
 @media (max-width: 1025px) {
