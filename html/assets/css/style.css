@@ -10575,11 +10575,11 @@ header .ibt-btn {
   line-height: 24px;
   display: inline-block;
   margin-bottom: 0;
-  color: #BEBEBE;
+  color: #fff;
 }
 .footer-box p a,
 .footer-box span a {
-  color: #BEBEBE;
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -37850,7 +37850,7 @@ blockquote {
  */
 .main-sec {
   position: relative;
-  background-color: #0F1010;
+  background: var(--gradient-blue);
   border-radius: 25px;
   margin: 0 20px 20px;
 }
@@ -37903,7 +37903,7 @@ blockquote {
     top: -5%;
   }
 }
-.main-sec::after {
+/* .main-sec::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -37913,7 +37913,7 @@ blockquote {
   background-image: url(../images/layers/layer1-3.png);
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .contact-sec {
   position: relative;
