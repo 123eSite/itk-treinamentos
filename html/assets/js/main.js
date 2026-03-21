@@ -1721,7 +1721,7 @@ var ThemeToggle = {
 var AieroParallax = {
   init: function () {
     const parallaxSections = document.querySelectorAll(
-      ".contact-banner3, .newsletter-banner, .video-banner4"
+      ".contact-banner3, .newsletter-banner, .video-banner4, .hero-style8"
     );
     if (!parallaxSections.length) return;
 
@@ -2125,7 +2125,7 @@ document.addEventListener("DOMContentLoaded", function () {
   LenisScroll.init();
   GsapAnimations.init();
   AieroEffects.init();
-  OGLDeformEffect.init(".hero-style8", "assets/images/bg/hero8.png");
+  // OGLDeformEffect.init(".hero-style8", "assets/images/bg/hero8.png");
   OGLDeformEffect.init(".main-sec6", "assets/images/bg/intro-bg.png");
 
   // Media
