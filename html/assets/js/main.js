@@ -2107,6 +2107,106 @@ var LenisScroll = {
   },
 };
 
+// ============================
+// Âncoras com Lenis (href="#id")
+// ============================
+// Use: <a href="#minha-secao" class="scroll-to-id">…</a>
+// O alvo deve ser um elemento com id="minha-secao".
+// Opcional: data-scroll-offset="96" (px, sobrescreve o offset automático do header)
+var LenisAnchorScroll = {
+  linkSelector: "a.scroll-to-id[href^='#']",
+
+  defaultGap: 16,
+
+  getHeaderOffset: function () {
+    var header = document.querySelector(".sticky-active");
+    if (!header) return this.defaultGap;
+    return Math.round(header.offsetHeight + this.defaultGap);
+  },
+
+  scrollNative: function (targetEl, offsetPx) {
+    var y =
+      targetEl.getBoundingClientRect().top +
+      window.scrollY -
+      offsetPx;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  },
+
+  init: function () {
+    var self = this;
+
+    document.addEventListener(
+      "click",
+      function (e) {
+        var link = e.target.closest(self.linkSelector);
+        if (!link) return;
+
+        if (
+          e.button !== 0 ||
+          e.metaKey ||
+          e.ctrlKey ||
+          e.shiftKey ||
+          e.altKey
+        ) {
+          return;
+        }
+
+        var href = link.getAttribute("href");
+        if (!href || href === "#") {
+          e.preventDefault();
+          var lenisTop = LenisScroll.getInstance();
+          if (lenisTop) {
+            LenisScroll.scrollTo(0, { duration: 1.2 });
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+          if (history.replaceState) {
+            history.replaceState(
+              null,
+              "",
+              window.location.pathname + window.location.search
+            );
+          }
+          return;
+        }
+
+        var raw = href.slice(1);
+        var id;
+        try {
+          id = decodeURIComponent(raw);
+        } catch (err) {
+          id = raw;
+        }
+
+        if (!id) return;
+
+        var targetEl = document.getElementById(id);
+        if (!targetEl) return;
+
+        e.preventDefault();
+
+        var offsetPx = self.getHeaderOffset();
+        if (link.hasAttribute("data-scroll-offset")) {
+          var custom = parseInt(link.getAttribute("data-scroll-offset"), 10);
+          if (!isNaN(custom)) offsetPx = custom;
+        }
+
+        var lenis = LenisScroll.getInstance();
+        if (lenis) {
+          LenisScroll.scrollTo(targetEl, { offset: -offsetPx });
+        } else {
+          self.scrollNative(targetEl, offsetPx);
+        }
+
+        if (history.replaceState) {
+          history.replaceState(null, "", link.getAttribute("href"));
+        }
+      },
+      false
+    );
+  },
+};
+
 // Pure JS modules (NO jQuery dependency)
 document.addEventListener("DOMContentLoaded", function () {
   // Side menus (ensure DOM ready and after layout/UI elements)
@@ -2123,6 +2223,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Visual effects / animations
   LenisScroll.init();
+  LenisAnchorScroll.init();
   GsapAnimations.init();
   AieroEffects.init();
   // OGLDeformEffect.init(".hero-style8", "assets/images/bg/hero8.png");
