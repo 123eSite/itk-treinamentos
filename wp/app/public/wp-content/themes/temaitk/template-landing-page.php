@@ -1,0 +1,974 @@
+<?php
+/**
+ * Template Name: Landing Page
+ */
+get_header( 'lp' );
+?>
+<!-- hero-style8 -->
+<section class="hero-style8">
+    <div class="parallax-wrap">
+        <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/1900x900/Banner-Principal-1920x900.png"
+            alt="Banner" class="parallax-img">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="hero-content8 text-center">
+                    <div class="date"> 10 a 12 de abril</div>
+                    <img width="200"
+                        src="<?php bloginfo('template_url'); ?>/assets/images/leader-training-lp-logo.webp"
+                        alt="Logo Leader Training" class="logo-leader-training">
+                    <h2 class="title">Participe da maior imersão de desenvolvimento pessoal do Brasil</h2>
+                    <p>Você merece viver o dia com leveza, com alegria, coragem e força.<br>
+                        Você precisa desfrutar do seu dia, da sua semana, da vida!
+                    </p>
+                    <a href="#oque-e" class="ibt-btn scroll-to-id">
+                        <span>Quero iniciar a minha transformação</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <span>Descubra</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+</section>
+<!-- End hero-style8 -->
+
+<!-- about-us-sec9 -->
+<section id="oque-e" class="about-us-sec9 ibt-section-gapTop">
+    <div class="container3">
+        <div class="title-area">
+            <div class="sec-title">
+                <span class="sub-title">Leader Training</span>
+                <h2 class="title animated-heading">O que é o Leader Training</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="anxiety-video-wrap">
+                    <video id="anxietyVideo" class="w-100" autoplay loop muted playsinline controls>
+                        <source src="<?php bloginfo('template_url'); ?>/assets/videos/video.mp4" type="video/mp4">
+                    </video>
+                    <button class="anxiety-video-play-btn" type="button" data-video-target="anxietyVideo"
+                        aria-label="Reproduzir vídeo com som">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-6 d-lg-flex align-items-center">
+                <div class="about-info9 ps-lg-5">
+                    <p>O Leader Training é um programa de treinamento comportamental. Através dele você tem a
+                        possibilidade de crescimento e equilíbrio na sua vida pessoal, profissional e familiar.
+                    </p>
+                    <p>É um processo realizado em três dias, através de dinâmicas em grupos, meditações,
+                        terapias e vivências, conduzidas por uma equipe de profissionais altamente qualificada e
+                        com uma enorme experiência, que irão levá-lo a um outro nível de consciência e
+                        performance.</p>
+                    <div class="d-flex justify-content-center align-items-center gap-3">
+                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id">
+                            <span>Quero garantir minha vaga</span>
+                        </a>
+                        <img width="260"
+                            src="<?php bloginfo('template_url'); ?>/assets/images/logos/logo-itk-positivo.png"
+                            alt="ITK Treinamentos">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End about-us-sec9 -->
+
+<!-- marquee-sec -->
+<section class="marquee-sec small">
+    <h2 style="display:none;">Marquee Section</h2>
+    <div class="marquee">
+        <div class="marquee-inner">
+            <span>.ballVocê sabe como você funciona?</span>
+            <span>Você tem claro o que te faz feliz?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você sabe aonde encontrar sua força?</span>
+            <span>Estas e muitas outras questões você vai viver nesta imersão!</span>
+            <span>Você sabe como você funciona?</span>
+            <span>Você tem claro o que te faz feliz?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você sabe aonde encontrar sua força?</span>
+            <span>Estas e muitas outras questões você vai viver nesta imersão!</span>
+            <span>Você sabe como você funciona?</span>
+            <span>Você tem claro o que te faz feliz?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você sabe aonde encontrar sua força?</span>
+            <span>Estas e muitas outras questões você vai viver nesta imersão!</span>
+            <span>Você sabe como você funciona?</span>
+            <span>Você tem claro o que te faz feliz?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você tem definido e por escrito o que é sucesso para você?</span>
+            <span>Você sabe aonde encontrar sua força?</span>
+            <span>Estas e muitas outras questões você vai viver nesta imersão!</span>
+        </div>
+    </div>
+</section>
+<!-- End marquee-sec -->
+
+<!-- service-sec22 -->
+<section class="service-sec22">
+    <div class="container3">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="ser-card22">
+                    <div class="ser-content22">
+                        <h4 class="title">O que é trabalhado no Leader Training</h4>
+                        <p>Nestes três dias, trabalhamos de forma prática e vivencial os quatros sentimentos
+                            básicos do ser humano: medo, tristeza, raiva e alegria. Muitas vezes não
+                            reconhecemos os nossos sentimentos no nosso dia a dia e acabamos apenas reagindo às
+                            situações que nos acontecem. A habilidade de lidar com esses sentimentos e adquirir
+                            inteligência emocional de forma prática poderá te ajudar a viver de forma mais
+                            harmônica e leve.
+                        </p>
+                        <p>Além disso, muitas vezes ficamos congelados ou presos em situações que aconteceram no
+                            nosso passado e estão mal resolvidas e têm um impacto muito forte nos dias de hoje.
+                            O equilíbrio emocional sempre foi importante em nossas vidas. O Leader Training do
+                            ITK Treinamentos, vem todos estes anos, trabalhando com os aspectos emocionais do
+                            ser humano. Como resultado, os participantes se tornam mais conscientes de seus
+                            medos e capacidades, mais capazes de lidar com as situações estressantes do dia a
+                            dia e passam a se relacionar melhor consigo e, consequentemente, com os outros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="ser-card22 v2">
+                    <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/750x750/750x750.png"
+                        alt="Leader Training">
+                    <div class="inner-content2">
+                        <h4 class="profection">Milhares de pessoas transformadas em<br> 30 anos de atuação</h4>
+                        <div class="ser-counter22">
+                            <div class="counter-box22">
+                                <span class="counter-text">+</span>
+                                <span class="counter-number percent-counter" data-target="100">0</span>
+                                <span class="counter-text">k</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ser-video-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End service-sec22 -->
+
+<!-- feature-sec1 -->
+<section class="feature-sec1 ibt-section-gap">
+    <div class="container3">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="sec-title">
+                    <span class="sub-title">Saúde e bem-estar</span>
+                    <h2 class="title animated-heading">As seis saúdes fundamentais para uma vida saudável e abundante
+                    </h2>
+                    <p>O treinamento está desenhado de forma a equilibrar também as seis saúdes que consideramos
+                        fundamentais para uma vida saudável e abundante, sendo elas:</p>
+                </div>
+            </div>
+            <div class="col-lg-7 d-flex align-items-center">
+                <div class="row text-center">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="feature-card">
+                            <img width="80"
+                                src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/icones/saude-fisica.webp"
+                                alt="Saúde física">
+                            <h4 class="title">Saúde Física</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="feature-card">
+                            <img width="80"
+                                src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/icones/saude-espiritual.webp"
+                                alt="Saúde espiritual">
+                            <h4 class="title">Saúde Espiritual</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="feature-card">
+                            <img width="80"
+                                src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/icones/saude-familiar.webp"
+                                alt="Saúde familiar">
+                            <h4 class="title">Saúde Familiar</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="feature-card">
+                            <img width="80"
+                                src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/icones/saude-social.webp"
+                                alt="Saúde social">
+                            <h4 class="title">Saúde Social</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="feature-card">
+                            <img width="80"
+                                src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/icones/saude-financeira.webp"
+                                alt="Saúde financeira">
+                            <h4 class="title">Saúde Financeira</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="feature-card">
+                            <img width="80"
+                                src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/icones/saude-ecologica.webp"
+                                alt="Saúde ecológica">
+                            <h4 class="title">Saúde Ecológica</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
+                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id">
+                            <span>Quero garantir minha vaga</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End feature-sec1 -->
+
+<!-- feature-sec8 -->
+<section class="feature-sec8 no-tab ibt-section-gapBottom">
+    <div class="container3">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="feature-img8">
+                    <div class="empty4"></div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/790x768/790x768.png"
+                                alt="Leader Training - A Imersão">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="feature-tabs8">
+                    <div class="sec-title">
+                        <span class="sub-title">A Imersão</span>
+                        <h2 class="title animated-heading">Como funciona o Leader Training</h2>
+                    </div>
+                    <ul class="nav nav-tabs8" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <div class="feature-block8">
+                                <h4 class="title">01. Experiência transformadora e intensiva</h4>
+                                <p>Uma experiência transformadora e intensiva de três dias de imersão total.
+                                    Neste ambiente de aprendizado rico e estimulante, você poderá explorar
+                                    e desenvolver suas habilidades de liderança de forma abrangente.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <div class="feature-block8">
+                                <h4 class="title">02. Ambiente favorável para o desenvolvimento pessoal</h4>
+                                <p>Realizado em um hotel especialmente selecionado, fora do ambiente de
+                                    trabalho. Isso ajuda os participantes a se desconectarem da rotina e
+                                    se concentrarem plenamente no próprio desenvolvimento pessoal.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <div class="feature-block8">
+                                <h4 class="title">03. Aprendizagem acelerada e eficaz</h4>
+                                <p>A carga horária é de 36 horas, distribuídas em três dias. Essa
+                                    intensidade permite um mergulho profundo nos conceitos e práticas,
+                                    promovendo uma aprendizagem mais acelerada e eficaz.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End feature-sec8 -->
+
+<!-- feature-sec9 -->
+<section class="feature-sec9 ibt-section-gapBottom">
+    <div class="container3">
+        <div class="row">
+            <div class="col-lg-6 d-lg-flex align-items-center">
+                <div class="feature-content9 pe-lg-5">
+                    <div class="sec-title">
+                        <span class="sub-title">Para quem</span>
+                        <h2 class="title animated-heading">A quem se destina o treinamento</h2>
+                        <p>O Leader Training é um programa aberto a todos que buscam autodescoberta e
+                            uma consciência mais profunda sobre seus sentimentos e emoções. A imersão
+                            proporciona as ferramentas necessárias para uma compreensão mais completa de si
+                            mesmo.
+                        </p>
+                        <p>Independentemente da sua área de atuação ou nível hierárquico, o treinamento
+                            fortalece as suas habilidades interpessoais e aprimora a sua inteligência
+                            emocional, expandindo também a sua capacidade de comunicação e autogestão.
+                        </p>
+                        <p>Como resultado desse profundo autoconhecimento, você será capaz de
+                            enriquecer seus relacionamentos pessoais e profissionais. É o caminho ideal
+                            para maximizar o seu potencial de liderança e impulsionar uma verdadeira
+                            transformação de vida.
+                        </p>
+                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id mt-4">
+                            <span>Quero garantir minha vaga</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-img9 mt-0">
+                    <div class="empty4"></div>
+                    <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/750x750.png"
+                        alt="A quem se destina o Leader Training">
+                    <div class="ser-video-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End feature-sec9 -->
+
+<!-- team-section2 -->
+<section class="team-section2 ibt-section-gapTop">
+    <div class="container3">
+        <div class="title-area">
+            <div class="row align-items-end mb-0">
+                <div class="col-xl-8 col-lg-8">
+                    <div class="sec-title">
+                        <span class="sub-title">team</span>
+                        <h2 class="title animated-heading">Com quem você vai aprender</h2>
+                    </div>
+                    <p>A proposta é ajudá-lo a identificar seus limites, desbloquear os recursos necessários
+                        para lidar com eles, despertar o líder que você é e buscar seus equilíbrio
+                        emocional, trazendo uma vida de harmonia e abundância, você despertará a consciência
+                        de seus recursos e aprenderá a usá-los.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member2">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <a href="#"><img
+                                    src="<?php bloginfo('template_url'); ?>/assets/images/Tadashi-Kadomoto-scaled-e1756330599930.jpg"
+                                    alt="Tadashi Kadomoto"></a>
+                            <div class="team-shap"></div>
+                        </div>
+                        <div class="team-content">
+                            <div class="share-box">
+                                <span class="share-icon fa fa-share-alt"></span>
+                                <ul class="social-links">
+                                    <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <h4 class="name"><a href="#" title="">Tadashi Kadomoto</a></h4>
+                            <span class="designation">Cargo/Profissão</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member2">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <a href="#"><img
+                                    src="<?php bloginfo('template_url'); ?>/assets/images/Carla-Nacif-Kadomoto_Easy-Resize.com_-e1756331143495-773x1024.jpg"
+                                    alt="Carla Nacif Kadomoto"></a>
+                            <div class="team-shap"></div>
+                        </div>
+                        <div class="team-content">
+                            <div class="share-box">
+                                <span class="share-icon fa fa-share-alt"></span>
+                                <ul class="social-links">
+                                    <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <h4 class="name"><a href="#" title="">Carla Nacif Kadomoto</a></h4>
+                            <span class="designation">Terapeuta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member2">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <a href="#"><img
+                                    src="<?php bloginfo('template_url'); ?>/assets/images/Rafael-Kadomoto_Easy-Resize.com_-e1756331105600-773x1024.jpg"
+                                    alt="Rafael Kadomoto"></a>
+                            <div class="team-shap"></div>
+                        </div>
+                        <div class="team-content">
+                            <div class="share-box">
+                                <span class="share-icon fa fa-share-alt"></span>
+                                <ul class="social-links">
+                                    <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <h4 class="name"><a href="#" title="">Rafael Kadomoto</a></h4>
+                            <span class="designation">Terapeuta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member2">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <a href="#"><img
+                                    src="<?php bloginfo('template_url'); ?>/assets/images/Bruno-Cesar-Malatrasi-Silva_Easy-Resize.com_-e1756331126781-773x1024.jpg"
+                                    alt="Bruno Malatrasi"></a>
+                            <div class="team-shap"></div>
+                        </div>
+                        <div class="team-content">
+                            <div class="share-box">
+                                <span class="share-icon fa fa-share-alt"></span>
+                                <ul class="social-links">
+                                    <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <h4 class="name"><a href="#" title="">Bruno Malatrasi</a></h4>
+                            <span class="designation">Terapeuta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End team-section2 -->
+
+<!-- main-sec3 -->
+<section class="main-sec3">
+
+    <!-- service-sec15 -->
+    <div class="service-sec15 ibt-section-gapTop">
+        <div class="title-area">
+            <div class="container">
+                <div class="row end">
+                    <div class="col-lg-7">
+                        <div class="sec-title mb-0">
+                            <span class="sub-title">Atualmente</span>
+                            <h2 class="title animated-heading">A importância do Leader Training nos dias de hoje</h2>
+                            <p>O treinamento Leader Training continua sendo uma parte importante do
+                                desenvolvimento pessoal e profissional nos dias de hoje. Aqui estão algumas
+                                razões pelas quais o Leader Training é relevante e importante:</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="sec-btn-box">
+                            <div class="slider-btn5">
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="swiper no-shape ser-slider15">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Desenvolvimento-de-Habilidades-de-Lideranca.png"
+                                    alt="Desenvolvimento de Habilidades de Liderança">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Desenvolvimento de Habilidades de Liderança</a>
+                                </h4>
+                                <p>Os líderes eficazes são fundamentais em todos os tipos de organizações, desde
+                                    empresas até organizações sem fins lucrativos e governamentais. O Leader
+                                    Training ajuda a desenvolver habilidades de liderança essenciais, como
+                                    comunicação, tomada de decisões, resolução de conflitos e habilidades
+                                    interpessoais.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Adaptacao-Mudancas.png"
+                                    alt="Adaptação às Mudanças">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Adaptação às Mudanças</a></h4>
+                                <p>O mundo está passando por mudanças constantes, impulsionadas pela tecnologia,
+                                    economia globalizada e outros fatores. Os líderes precisam ser capazes de se
+                                    adaptar a essas mudanças e orientar suas equipes de maneira eficaz. O Leader
+                                    Training inclui treinamento em liderança ágil e flexível.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Motivacao-e-Engajamento-da-Equipe.png"
+                                    alt="Motivação e Engajamento da Equipe">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Motivação e Engajamento da Equipe</a></h4>
+                                <p>Líderes treinados são mais capazes de motivar suas equipes, criar um ambiente
+                                    de trabalho positivo e inspirar o engajamento da equipe. Isso é crucial para
+                                    o sucesso de qualquer organização.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Tomada-de-Decisoes-Eficazes.png"
+                                    alt="Tomada de Decisões Eficazes">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Tomada de Decisões Eficazes</a></h4>
+                                <p>Líderes são frequentemente chamados a tomar decisões difíceis. O treinamento
+                                    de liderança ajuda a melhorar a capacidade de tomar decisões informadas e
+                                    equilibradas, considerando as necessidades da organização e das pessoas
+                                    envolvidas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Desenvolvimento-de-Habilidades-de-Comunicacao.png"
+                                    alt="Desenvolvimento de Habilidades de Comunicação">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Desenvolvimento de Habilidades de Comunicação</a>
+                                </h4>
+                                <p>A comunicação eficaz é uma habilidade-chave para os líderes. O Leader
+                                    Training geralmente inclui o desenvolvimento de habilidades de comunicação,
+                                    tanto na comunicação interpessoal quanto na comunicação estratégica.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/3080x400-Promocao-da-Diversidade-e-Inclusao.png"
+                                    alt="Promoção da Diversidade e Inclusão">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Promoção da Diversidade e Inclusão</a></h4>
+                                <p>Nos dias de hoje, é fundamental que os líderes estejam cientes da importância
+                                    da diversidade e da inclusão. O treinamento de liderança muitas vezes aborda
+                                    essas questões e ajuda os líderes a criar ambientes de trabalho mais
+                                    inclusivos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-resolucao-de-conflitos.png"
+                                    alt="Resolução de Conflitos">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Resolução de Conflitos</a></h4>
+                                <p>Conflitos são inevitáveis em qualquer organização. Líderes treinados estão
+                                    melhor preparados para lidar com conflitos de maneira construtiva, evitando
+                                    que eles se tornem prejudiciais para a equipe e a organização.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Crescimento-Pessoal.png"
+                                    alt="Crescimento Pessoal">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Crescimento Pessoal</a></h4>
+                                <p>O treinamento de liderança também é valioso do ponto de vista do crescimento
+                                    pessoal. Ele ajuda os líderes a desenvolver uma compreensão mais profunda de
+                                    si mesmos, suas habilidades e seus valores, o que pode melhorar sua
+                                    autoconfiança.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Sucesso-a-Longo-Prazo.png"
+                                    alt="Sucesso a Longo Prazo">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Sucesso a Longo Prazo</a></h4>
+                                <p>As organizações que investem no desenvolvimento de líderes geralmente têm um
+                                    desempenho melhor a longo prazo. Líderes treinados estão mais bem preparados
+                                    para enfrentar desafios e aproveitar oportunidades.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ser-card15 bg-gray">
+                            <div class="ser-img15">
+                                <img src="<?php bloginfo('template_url'); ?>/assets/images/imagens-site/380x400/380x400-Impacto-Social.png"
+                                    alt="Impacto Social">
+                            </div>
+                            <div class="ser-content15">
+                                <h4 class="title"><a href="#" title="">Impacto Social</a></h4>
+                                <p>Líderes não são apenas importantes nas organizações, mas também desempenham
+                                    um papel vital na sociedade em geral. Líderes éticos e bem treinados podem
+                                    ter um impacto positivo nas comunidades em que operam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End service-sec15 -->
+
+</section>
+<!-- End main-sec3 -->
+
+<!-- testimonial-sec2 -->
+<section class="testimonial-sec2 no-blur">
+    <div class="container3">
+        <div class="testi-title">
+            <ul class="rating">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <h2 class="title">Confira o que dizem as pessoas que já participaram do Leader Training</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="video-wrapper-gsap" style="position: relative; width: 100%; height: 100%;">
+                    <div class="iframe-scroll-overlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer;">
+                    </div>
+                    <iframe class="responsive-iframe"
+                        src="https://www.youtube.com/embed/QmBBF0uQlHU?si=SIWoAM2QqOuNG-7K" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="video-wrapper-gsap" style="position: relative; width: 100%; height: 100%;">
+                    <div class="iframe-scroll-overlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer;">
+                    </div>
+                    <iframe class="responsive-iframe"
+                        src="https://www.youtube.com/embed/Ca_FH8nfVSM?si=aSQmVl8druFIY1r6" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="video-wrapper-gsap" style="position: relative; width: 100%; height: 100%;">
+                    <div class="iframe-scroll-overlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer;">
+                    </div>
+                    <iframe class="responsive-iframe"
+                        src="https://www.youtube.com/embed/NsfNLhjb4jA?si=dKV6-imealrYpfZ5" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="video-wrapper-gsap" style="position: relative; width: 100%; height: 100%;">
+                    <div class="iframe-scroll-overlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer;">
+                    </div>
+                    <iframe class="responsive-iframe"
+                        src="https://www.youtube.com/embed/jTeK5ropXZw?si=Ew_i_XpxwdyMJG71" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End testimonial-sec2 -->
+
+<!-- faq-sec -->
+<section class="faq-sec ibt-section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="faq-content">
+                    <div class="sec-title">
+                        <span class="sub-title">Perguntas Frequentes</span>
+                        <h2 class="title animated-heading">Tire suas dúvidas sobre o Leader Training</h2>
+                    </div>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Política de cancelamento
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Cancelamento até 7 dias antes do início do treinamento: reembolso com
+                                        retenção de 10% do valor OU crédito de 100% do valor para outro
+                                        treinamento.</p>
+                                    <p>Cancelamento com menos de 7 dias antes do início do treinamento: crédito
+                                        de 100% do valor para outro treinamento.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Informações importantes (Local do treinamento)
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>
+                                        <strong>Local:</strong> Hotel Fazenda Santa Monica – Louveira/SP.<br>
+                                        <strong>Check-in:</strong> Sexta-feira, das 18h às 20h.<br>
+                                        <strong>Início do treinamento:</strong> Sexta-feira, às 20:59h
+                                        (pontualmente).<br>
+                                        <strong>Encerramento:</strong> Domingo, a partir das 20:30h.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Qual horário de início e término do treinamento?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>O credenciamento inicia na sexta-feira às 18:00h. O treinamento começa
+                                        pontualmente às 20:59h (recomenda-se chegada até às 19:00h). O término
+                                        está previsto para domingo às 21:00h.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Quem pode participar do treinamento?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Todas as pessoas maiores de 18 anos dispostas a olhar para si, exceto
+                                        mulheres grávidas, pacientes psiquiátricos e dependentes químicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Vou dividir o quarto com outras pessoas?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Os quartos são duplos ou triplos. Se houver disponibilidade, é possível
+                                        solicitar um apartamento individual mediante o pagamento da diária
+                                        correspondente.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Qual idade mínima para participar do treinamento?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>A partir de 18 anos. Menores a partir de 16 anos podem participar com
+                                        autorização assinada de um dos pais que já tenha realizado o treinamento.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Posso realizar o treinamento com amigos ou familiares?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Sim, porém recomendamos que você tire um tempo para você. Um tempo para
+                                        estar consigo mesmo. Por isso, nossa orientação é que se possível, você
+                                        venha sozinho.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-0">
+                            <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    Como funciona a hospedagem?
+                                </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Você irá se hospedar no hotel onde acontece o treinamento junto com toda
+                                        a equipe, de sexta-feira a domingo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End faq-sec -->
+
+<!-- main-sec v6 -->
+<section class="main-sec v6">
+
+    <!-- contact-sec / inscricao -->
+    <div id="inscricao" class="contact-sec ibt-section-gapTop">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="contact-content">
+                        <div class="sec-title white">
+                            <span class="sub-title">A maior referência do Brasil</span>
+                            <h2 class="title animated-heading">O Instituto ITK transformou a vida de mais de 100 mil
+                                pessoas nos últimos 30 anos.</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="contact-info">
+                                    <div class="call-center call-center--icon">
+                                        <span class="call-center__icon" aria-hidden="true"><i
+                                                class="fa-solid fa-graduation-cap"></i></span>
+                                        <div class="call-center__body">
+                                            <h4 class="title">Treinamento / Curso</h4>
+                                            <span class="nmbr text-white d-block">Leader Training</span>
+                                        </div>
+                                    </div>
+                                    <div class="call-center call-center--icon mb-0">
+                                        <span class="call-center__icon" aria-hidden="true"><i
+                                                class="fa-solid fa-location-dot"></i></span>
+                                        <div class="call-center__body">
+                                            <h4 class="title">Local</h4>
+                                            <span class="nmbr text-white d-block">Louveira, SP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="contact-info">
+                                    <div class="call-center call-center--icon">
+                                        <span class="call-center__icon" aria-hidden="true"><i
+                                                class="fa-solid fa-clock"></i></span>
+                                        <div class="call-center__body">
+                                            <h4 class="title">Horário do treinamento</h4>
+                                            <span class="nmbr text-white d-block">Pontualmente às 20:59</span>
+                                        </div>
+                                    </div>
+                                    <div class="call-center call-center--icon mb-0">
+                                        <span class="call-center__icon" aria-hidden="true"><i
+                                                class="fa-solid fa-sack-dollar"></i></span>
+                                        <div class="call-center__body">
+                                            <h4 class="title">Valor do treinamento</h4>
+                                            <span class="nmbr text-white d-block">Consultar</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form action="#" method="post" class="custom-form">
+                            <h2 style="font-size: 28px; line-height: 1.3;">Próxima data: <span
+                                    style="color: var(--color-primary);">10 a 12 de abril</span></h2>
+                            <p>Preencha o formulário abaixo para fazer sua inscrição que entraremos em contato.</p>
+                            <input type="text" id="name" name="name" placeholder="* Seu Nome Completo" required>
+                            <input type="email" id="email" name="email" placeholder="* Seu Melhor E-mail" required>
+                            <input type="text" id="phone" name="phone" placeholder="* (DDD) + WhatsApp" required>
+                            <div>
+                                <label for="source" class="mb-2">Como você conheceu o ITK?</label>
+                                <select id="source" name="source">
+                                    <option value="">—Escolha uma opção—</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Google">Google</option>
+                                    <option value="Indicação">Indicação de amigo/familiar</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="ibt-btn ibt-btn-secondary"
+                                style="width: 100%; justify-content: center;">
+                                <span>Falar com a equipe!</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End contact-sec -->
+
+    <!-- footer-style1 -->
+    <footer class="footer-style1">
+        <div class="footer-botom">
+            <div class="container">
+                <div class="footer-box">
+                    <p><a href="#">©ITK Treinamentos</a> <?php echo date('Y'); ?>. Todos os direitos reservados.</p>
+                    <span><a href="#">Política de cookies</a> | <a href="#">Política de privacidade</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer-style1 -->
+
+</section>
+<!-- End main-sec v6 -->
+
+<?php get_footer(); ?>
