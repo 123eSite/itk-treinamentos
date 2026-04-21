@@ -1,0 +1,961 @@
+{
+    "key": "group_lp_leader_training",
+    "title": "LP: Leader Training",
+    "fields": [
+        {
+            "key": "field_lp_conteudo",
+            "label": "Conteúdo da LP",
+            "name": "conteudo_lp",
+            "type": "flexible_content",
+            "required": 0,
+            "button_label": "Adicionar seção",
+            "min": 0,
+            "max": 0,
+            "layouts": [
+                {
+                    "key": "layout_lp_hero",
+                    "name": "hero",
+                    "label": "Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_hero_imagem_banner",
+                            "label": "Imagem banner",
+                            "name": "imagem_banner",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_hero_logo_principal",
+                            "label": "Logo principal (curso/evento)",
+                            "name": "logo_principal",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_hero_data_evento",
+                            "label": "Data do evento",
+                            "name": "data_evento",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_hero_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_hero_texto",
+                            "label": "Texto",
+                            "name": "texto",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_hero_botao_texto",
+                            "label": "Texto do botão",
+                            "name": "botao_texto",
+                            "type": "text",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_oque_e",
+                    "name": "oque_e",
+                    "label": "O que é",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_oque_e_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_oque_e_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_oque_e_video",
+                            "label": "Vídeo",
+                            "name": "video",
+                            "type": "file",
+                            "return_format": "array",
+                            "library": "all",
+                            "mime_types": "mp4,webm",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_oque_e_logo_marca",
+                            "label": "Logo da marca",
+                            "name": "logo_marca",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_oque_e_paragrafo_1",
+                            "label": "Parágrafo 1",
+                            "name": "paragrafo_1",
+                            "type": "textarea",
+                            "rows": 4,
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_oque_e_paragrafo_2",
+                            "label": "Parágrafo 2",
+                            "name": "paragrafo_2",
+                            "type": "textarea",
+                            "rows": 4,
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_oque_e_botao_texto",
+                            "label": "Texto do botão",
+                            "name": "botao_texto",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_oque_e_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_oque_e_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_marquee",
+                    "name": "marquee",
+                    "label": "Marquee (faixa animada)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_marquee_frases",
+                            "label": "Frases",
+                            "name": "frases",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "table",
+                            "button_label": "Adicionar frase",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_marquee_frase",
+                                    "label": "Frase",
+                                    "name": "frase",
+                                    "type": "text",
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_marquee_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_marquee_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_trabalhado",
+                    "name": "trabalhado",
+                    "label": "O que é trabalhado",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_trabalhado_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_trabalhado_paragrafo_1",
+                            "label": "Parágrafo 1",
+                            "name": "paragrafo_1",
+                            "type": "textarea",
+                            "rows": 5,
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_trabalhado_paragrafo_2",
+                            "label": "Parágrafo 2",
+                            "name": "paragrafo_2",
+                            "type": "textarea",
+                            "rows": 5,
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_trabalhado_imagem",
+                            "label": "Imagem",
+                            "name": "imagem",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_trabalhado_legenda_contador",
+                            "label": "Legenda do contador",
+                            "name": "legenda_contador",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_trabalhado_numero_contador",
+                            "label": "Número do contador",
+                            "name": "numero_contador",
+                            "type": "number",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_trabalhado_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_trabalhado_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_seis_saudes",
+                    "name": "seis_saudes",
+                    "label": "As seis saúdes",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_seis_saudes_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_seis_saudes_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_seis_saudes_texto",
+                            "label": "Texto",
+                            "name": "texto",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_seis_saudes_botao_texto",
+                            "label": "Texto do botão",
+                            "name": "botao_texto",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_seis_saudes_saudes",
+                            "label": "Saúdes",
+                            "name": "saudes",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "table",
+                            "button_label": "Adicionar saúde",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_seis_saudes_icone",
+                                    "label": "Ícone",
+                                    "name": "icone",
+                                    "type": "image",
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_seis_saudes_nome",
+                                    "label": "Nome",
+                                    "name": "nome",
+                                    "type": "text",
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_seis_saudes_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_seis_saudes_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_como_funciona",
+                    "name": "como_funciona",
+                    "label": "Como funciona",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_como_funciona_imagem",
+                            "label": "Imagem",
+                            "name": "imagem",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_como_funciona_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_como_funciona_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_como_funciona_etapas",
+                            "label": "Etapas",
+                            "name": "etapas",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "block",
+                            "button_label": "Adicionar etapa",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_como_funciona_titulo_etapa",
+                                    "label": "Título da etapa",
+                                    "name": "titulo_etapa",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_como_funciona_texto_etapa",
+                                    "label": "Texto da etapa",
+                                    "name": "texto_etapa",
+                                    "type": "textarea",
+                                    "rows": 3,
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_como_funciona_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_como_funciona_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_para_quem",
+                    "name": "para_quem",
+                    "label": "A quem se destina",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_para_quem_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_para_quem_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_para_quem_paragrafos",
+                            "label": "Parágrafos",
+                            "name": "paragrafos",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "block",
+                            "button_label": "Adicionar parágrafo",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_para_quem_paragrafo",
+                                    "label": "Parágrafo",
+                                    "name": "paragrafo",
+                                    "type": "textarea",
+                                    "rows": 4,
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_para_quem_imagem",
+                            "label": "Imagem",
+                            "name": "imagem",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_para_quem_botao_texto",
+                            "label": "Texto do botão",
+                            "name": "botao_texto",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_para_quem_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_para_quem_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_equipe",
+                    "name": "equipe",
+                    "label": "Equipe",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_equipe_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_equipe_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_equipe_texto",
+                            "label": "Texto",
+                            "name": "texto",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_equipe_membros",
+                            "label": "Membros",
+                            "name": "membros",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "block",
+                            "button_label": "Adicionar membro",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_equipe_foto",
+                                    "label": "Foto",
+                                    "name": "foto",
+                                    "type": "image",
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_equipe_nome",
+                                    "label": "Nome",
+                                    "name": "nome",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_equipe_cargo",
+                                    "label": "Cargo",
+                                    "name": "cargo",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_equipe_linkedin",
+                                    "label": "LinkedIn",
+                                    "name": "linkedin",
+                                    "type": "url",
+                                    "required": 0
+                                },
+                                {
+                                    "key": "field_lp_equipe_instagram",
+                                    "label": "Instagram",
+                                    "name": "instagram",
+                                    "type": "url",
+                                    "required": 0
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_equipe_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_equipe_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_importancia",
+                    "name": "importancia",
+                    "label": "Importância (slider)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_importancia_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_importancia_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_importancia_texto",
+                            "label": "Texto",
+                            "name": "texto",
+                            "type": "textarea",
+                            "rows": 3,
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_importancia_cards",
+                            "label": "Cards",
+                            "name": "cards",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "block",
+                            "button_label": "Adicionar card",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_importancia_imagem_card",
+                                    "label": "Imagem",
+                                    "name": "imagem",
+                                    "type": "image",
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_importancia_titulo_card",
+                                    "label": "Título",
+                                    "name": "titulo_card",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_importancia_texto_card",
+                                    "label": "Texto",
+                                    "name": "texto_card",
+                                    "type": "textarea",
+                                    "rows": 4,
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_importancia_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_importancia_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_depoimentos",
+                    "name": "depoimentos",
+                    "label": "Depoimentos",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_depoimentos_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_depoimentos_videos",
+                            "label": "Vídeos",
+                            "name": "videos",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "table",
+                            "button_label": "Adicionar vídeo",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_depoimentos_url_youtube",
+                                    "label": "URL do YouTube (embed)",
+                                    "name": "url_youtube",
+                                    "type": "url",
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_depoimentos_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_depoimentos_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_faq",
+                    "name": "faq",
+                    "label": "FAQ",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_faq_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_faq_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_faq_perguntas",
+                            "label": "Perguntas",
+                            "name": "perguntas",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "block",
+                            "button_label": "Adicionar pergunta",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_faq_pergunta",
+                                    "label": "Pergunta",
+                                    "name": "pergunta",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_faq_resposta",
+                                    "label": "Resposta",
+                                    "name": "resposta",
+                                    "type": "wysiwyg",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0,
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_faq_cor_fundo",
+                            "label": "Cor de fundo",
+                            "name": "cor_fundo",
+                            "type": "radio",
+                            "choices": { "branco": "Branco", "cinza": "Cinza" },
+                            "allow_null": 1,
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_faq_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "type": "select",
+                            "choices": { "": "Nenhum", "superior": "Superior", "inferior": "Inferior", "ambos": "Superior e inferior" },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "required": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_lp_inscricao",
+                    "name": "inscricao",
+                    "label": "Inscrição + Formulário",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_lp_inscricao_subtitulo",
+                            "label": "Subtítulo",
+                            "name": "subtitulo",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_inscricao_titulo",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_inscricao_infos",
+                            "label": "Informações",
+                            "name": "infos",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "layout": "table",
+                            "button_label": "Adicionar informação",
+                            "sub_fields": [
+                                {
+                                    "key": "field_lp_inscricao_icone",
+                                    "label": "Ícone (classe Font Awesome)",
+                                    "name": "icone",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_inscricao_rotulo",
+                                    "label": "Rótulo",
+                                    "name": "rotulo",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_lp_inscricao_valor",
+                                    "label": "Valor",
+                                    "name": "valor",
+                                    "type": "text",
+                                    "required": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_lp_inscricao_titulo_formulario",
+                            "label": "Título do formulário",
+                            "name": "titulo_formulario",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_inscricao_data_formulario",
+                            "label": "Data em destaque",
+                            "name": "data_formulario",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_lp_inscricao_texto_formulario",
+                            "label": "Texto do formulário",
+                            "name": "texto_formulario",
+                            "type": "text",
+                            "required": 0
+                        },
+                        {
+                            "key": "field_lp_inscricao_shortcode_formulario",
+                            "label": "Shortcode do formulário (CF7)",
+                            "name": "shortcode_formulario",
+                            "type": "text",
+                            "required": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-landing-page.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1745193600
+}

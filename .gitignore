@@ -2,3 +2,32 @@
 html/assets/videos/
 wp/app/public/wp-content/themes/temaitk/assets/videos/
 wp/app/public/wp-content/themes/temareferencia/
+
+# WordPress core — não versionar
+wp/app/public/wp-admin/
+wp/app/public/wp-includes/
+wp/app/public/wp-content/languages/
+wp/app/public/wp-content/plugins/
+wp/app/public/wp-content/upgrade/
+wp/app/public/wp-content/upgrade-temp-backup/
+wp/app/public/wp-content/uploads/
+
+# Arquivos raiz do WordPress core
+wp/app/public/index.php
+wp/app/public/license.txt
+wp/app/public/readme.html
+wp/app/public/local-xdebuginfo.php
+wp/app/public/wp-activate.php
+wp/app/public/wp-blog-header.php
+wp/app/public/wp-comments-post.php
+wp/app/public/wp-config.php
+wp/app/public/wp-config-sample.php
+wp/app/public/wp-cron.php
+wp/app/public/wp-links-opml.php
+wp/app/public/wp-load.php
+wp/app/public/wp-login.php
+wp/app/public/wp-mail.php
+wp/app/public/wp-settings.php
+wp/app/public/wp-signup.php
+wp/app/public/wp-trackback.php
+wp/app/public/xmlrpc.php
