@@ -10,17 +10,14 @@
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
-            "conditional_logic": false,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "button_label": "Adicionar seção",
-            "min": 0,
-            "max": 0,
-            "layouts": [
-                {
+            "layouts": {
+                "layout_lp_hero": {
                     "key": "layout_lp_hero",
                     "name": "hero",
                     "label": "Hero",
@@ -160,7 +157,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_oque_e": {
                     "key": "layout_lp_oque_e",
                     "name": "oque_e",
                     "label": "O que é",
@@ -253,43 +250,24 @@
                         },
                         {
                             "key": "field_lp_oque_e_paragrafo_1",
-                            "label": "Parágrafo 1",
+                            "label": "Texto",
                             "name": "paragrafo_1",
                             "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "rows": 4,
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_lp_oque_e_paragrafo_2",
-                            "label": "Parágrafo 2",
-                            "name": "paragrafo_2",
-                            "aria-label": "",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": false,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "rows": 4,
                             "default_value": "",
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_lp_oque_e_botao_texto",
@@ -370,7 +348,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_marquee": {
                     "key": "layout_lp_marquee",
                     "name": "marquee",
                     "label": "Marquee (faixa animada)",
@@ -479,7 +457,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_trabalhado": {
                     "key": "layout_lp_trabalhado",
                     "name": "trabalhado",
                     "label": "O que é trabalhado",
@@ -507,43 +485,24 @@
                         },
                         {
                             "key": "field_lp_trabalhado_paragrafo_1",
-                            "label": "Parágrafo 1",
+                            "label": "Texto",
                             "name": "paragrafo_1",
                             "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "rows": 5,
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_lp_trabalhado_paragrafo_2",
-                            "label": "Parágrafo 2",
-                            "name": "paragrafo_2",
-                            "aria-label": "",
-                            "type": "textarea",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": false,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "rows": 5,
                             "default_value": "",
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_lp_trabalhado_imagem",
@@ -671,7 +630,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_seis_saudes": {
                     "key": "layout_lp_seis_saudes",
                     "name": "seis_saudes",
                     "label": "As seis saúdes",
@@ -886,7 +845,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_como_funciona": {
                     "key": "layout_lp_como_funciona",
                     "name": "como_funciona",
                     "label": "Como funciona",
@@ -1081,7 +1040,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_para_quem": {
                     "key": "layout_lp_para_quem",
                     "name": "para_quem",
                     "label": "A quem se destina",
@@ -1129,47 +1088,24 @@
                         },
                         {
                             "key": "field_lp_para_quem_paragrafos",
-                            "label": "Parágrafos",
+                            "label": "Texto",
                             "name": "paragrafos",
                             "aria-label": "",
-                            "type": "repeater",
+                            "type": "wysiwyg",
                             "instructions": "",
-                            "required": 1,
-                            "conditional_logic": false,
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "min": 1,
-                            "layout": "block",
-                            "button_label": "Adicionar parágrafo",
-                            "max": 0,
-                            "rows_per_page": 20,
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_lp_para_quem_paragrafo",
-                                    "label": "Parágrafo",
-                                    "name": "paragrafo",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": 1,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "rows": 4,
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "parent_repeater": "field_lp_para_quem_paragrafos"
-                                }
-                            ]
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_lp_para_quem_imagem",
@@ -1275,7 +1211,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_equipe": {
                     "key": "layout_lp_equipe",
                     "name": "equipe",
                     "label": "Equipe",
@@ -1527,7 +1463,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_importancia": {
                     "key": "layout_lp_importancia",
                     "name": "importancia",
                     "label": "Importância (slider)",
@@ -1743,7 +1679,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_depoimentos": {
                     "key": "layout_lp_depoimentos",
                     "name": "depoimentos",
                     "label": "Depoimentos",
@@ -1869,7 +1805,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_faq": {
                     "key": "layout_lp_faq",
                     "name": "faq",
                     "label": "FAQ",
@@ -2039,7 +1975,7 @@
                     "min": "",
                     "max": ""
                 },
-                {
+                "layout_lp_inscricao": {
                     "key": "layout_lp_inscricao",
                     "name": "inscricao",
                     "label": "Inscrição + Formulário",
@@ -2111,20 +2047,29 @@
                                     "label": "Ícone (classe Font Awesome)",
                                     "name": "icone",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "font-awesome",
                                     "instructions": "",
-                                    "required": 1,
-                                    "conditional_logic": false,
+                                    "required": 0,
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
+                                    "icon_sets": [
+                                        "classic_solid",
+                                        "classic_regular",
+                                        "brands"
+                                    ],
+                                    "default_label": "",
                                     "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "save_format": "class",
+                                    "allow_null": 0,
+                                    "show_preview": 1,
+                                    "enqueue_fa": 0,
+                                    "allow_in_bindings": 0,
+                                    "fa_live_preview": "",
+                                    "choices": [],
                                     "parent_repeater": "field_lp_inscricao_infos"
                                 },
                                 {
@@ -2255,7 +2200,10 @@
                     "min": "",
                     "max": ""
                 }
-            ]
+            },
+            "min": 0,
+            "max": 0,
+            "button_label": "Adicionar seção"
         }
     ],
     "location": [
@@ -2281,5 +2229,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776953613
+    "modified": 1779029168
 }

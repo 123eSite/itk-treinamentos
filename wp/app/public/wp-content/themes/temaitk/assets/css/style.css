@@ -38305,6 +38305,14 @@ blockquote {
   height: 175px;
   margin-bottom: 30px;
 }
+.custom-form .wpcf7-submit.ibt-btn-secondary {
+  width: 100%;
+  justify-content: center;
+  padding: 0;
+  height: 65px;
+  border-radius: var(--radius-lg);
+  margin: 0;
+}
 
 .contact-banner {
   position: relative;
@@ -40007,4 +40015,46 @@ blockquote {
   .menu-style1 > ul > li.menu-item-has-children > a {
     padding: 0 35px 0 14px;
   }
+}
+@media (max-width: 991px) {
+  .row-reverse {
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 767px) {
+  .hero-content8 .title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 16px;
+  }
+  .hero-content8 p {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .hero-content8 {
+    padding:0;
+  }
+  .ibt-btn {
+    font-size: 13px;
+    padding: 13px;
+    height: 50px;
+  }
+  .hero-scroll {
+    bottom: 20px;
+  }
+  .hero-scroll i {
+    display: block;
+    margin: 0px auto 0;
+    font-size: 13px;
+  }
+  .contact-content .sec-title .title {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .call-center {
+    margin-bottom: 16px;
+  }
+  .call-center--icon .title {
+    margin-bottom: 4px;
+}
 }

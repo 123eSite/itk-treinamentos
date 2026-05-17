@@ -1,7 +1,6 @@
 <?php
 $titulo  = get_sub_field( 'titulo' );
 $par1    = get_sub_field( 'paragrafo_1' );
-$par2    = get_sub_field( 'paragrafo_2' );
 $imagem  = get_sub_field( 'imagem' );
 $legenda = get_sub_field( 'legenda_contador' );
 $numero  = get_sub_field( 'numero_contador' );
@@ -16,8 +15,7 @@ $alt     = $imagem['alt'] ?: wp_strip_all_tags( $titulo );
                 <div class="ser-card22">
                     <div class="ser-content22">
                         <h4 class="title"><?php echo esc_html( $titulo ); ?></h4>
-                        <?php if ( $par1 ) : ?><p><?php echo esc_html( $par1 ); ?></p><?php endif; ?>
-                        <?php if ( $par2 ) : ?><p><?php echo esc_html( $par2 ); ?></p><?php endif; ?>
+                        <?php if ( $par1 ) : ?><p><?php echo $par1; ?></p><?php endif; ?>
                     </div>
                 </div>
             </div>

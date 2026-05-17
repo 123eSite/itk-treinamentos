@@ -2,7 +2,7 @@
 /**
  * Template Name: Landing Page
  */
-get_header( 'lp' );
+get_header();
 
 if ( have_rows( 'conteudo_lp' ) ) :
     while ( have_rows( 'conteudo_lp' ) ) : the_row();

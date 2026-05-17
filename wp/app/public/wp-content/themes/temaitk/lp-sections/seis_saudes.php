@@ -27,7 +27,7 @@ $classes   = temaitk_lp_section_classes( 'feature-sec1' );
                         $nome  = get_sub_field( 'nome' );
                         $alt   = $icone['alt'] ?: wp_strip_all_tags( $nome );
                     ?>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="col-lg-4 col-md-6 col-6">
                         <div class="feature-card">
                             <img width="80"
                                  src="<?php echo esc_url( $icone['sizes']['itk-icon'] ); ?>"
@@ -37,7 +37,7 @@ $classes   = temaitk_lp_section_classes( 'feature-sec1' );
                     </div>
                     <?php endwhile; endif; ?>
                     <?php if ( $botao ) : ?>
-                    <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb-5 mb-lg-0">
                         <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id">
                             <span><?php echo esc_html( $botao ); ?></span>
                         </a>

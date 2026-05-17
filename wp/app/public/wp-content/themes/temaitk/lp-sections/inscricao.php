@@ -37,7 +37,7 @@ $chunks = array_chunk( $infos, 2 );
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="contact-info">
                                     <?php foreach ( $chunk as $i => $info ) : ?>
-                                    <div class="call-center call-center--icon<?php echo ( $i === count( $chunk ) - 1 ) ? ' mb-0' : ''; ?>">
+                                    <div class="call-center call-center--icon<?php echo ( $i === count( $chunk ) - 1 ) ? ' mb-lg-0' : ''; ?>">
                                         <span class="call-center__icon" aria-hidden="true">
                                             <i class="<?php echo esc_attr( $info['icone'] ); ?>"></i>
                                         </span>
@@ -54,7 +54,7 @@ $chunks = array_chunk( $infos, 2 );
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="contact-form">
+                    <div class="contact-form custom-form">
                         <h2 style="font-size: 28px; line-height: 1.3;">
                             <?php echo esc_html( $titulo_formulario ); ?>
                             <?php if ( $data_formulario ) : ?>

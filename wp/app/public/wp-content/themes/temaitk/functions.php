@@ -10,13 +10,13 @@ add_image_size('itk-feature-square', 750, 1200, false); // Imagem quadrada de se
 add_image_size('itk-feature-wide', 790, 1200, false); // Imagem de feature com tabs
 add_image_size('itk-blog-card', 400, 300, true); // Cards de blog (col-lg-4)
 add_image_size('itk-icon', 80, 80, true); // Ícones de features
-add_image_size('itk-team-member', 323, 332, true); // Fotos da equipe
+add_image_size('itk-team-member', 361, 372, true); // Fotos da equipe
 
 register_nav_menus(array(
     'menu-principal' => __('Menu principal', 'temaitk'),
 ));
 
-// ─── Assets: global (home + LP usam o mesmo stack) ───────────────────────────
+// ─── Assets globais (Landing Pages) ──────────────────────────────────────────
 
 function temaitk_enqueue_assets()
 {
@@ -43,9 +43,7 @@ function temaitk_enqueue_assets()
     wp_enqueue_script('temaitk-scrolltrigger', $uri . '/assets/js/vendor/ScrollTrigger.min.js', ['temaitk-gsap'], null, true);
     wp_enqueue_script('temaitk-main', $uri . '/assets/js/main.js', ['temaitk-swiper', 'temaitk-scrolltrigger'], null, true);
 
-    // Scripts inline específicos da Landing Page
-    if (is_page_template('template-landing-page.php')) {
-        wp_add_inline_script('temaitk-main', "
+    wp_add_inline_script('temaitk-main', "
             document.querySelectorAll('.anxiety-video-play-btn').forEach(function(playBtn) {
                 var videoTargetId = playBtn.getAttribute('data-video-target');
                 var targetVideo = videoTargetId ? document.getElementById(videoTargetId) : null;
@@ -74,9 +72,11 @@ function temaitk_enqueue_assets()
                 });
             });
         ");
-    }
 }
 add_action('wp_enqueue_scripts', 'temaitk_enqueue_assets');
+
+// Contact Form 7: não envolver campos em <p>
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 // ─── Helper: classes CSS de seção para layouts da LP ─────────────────────────
 
@@ -91,4 +91,32 @@ function temaitk_lp_section_classes( $base = '' ) {
         $classes[] = 'bg-gray';
     }
     return implode( ' ', array_filter( $classes ) );
+}
+
+/**
+ * Converte URL do YouTube (watch, shorts, youtu.be, embed) para URL de embed do iframe.
+ */
+function temaitk_youtube_embed_url( $url ) {
+    $url = trim( (string) $url );
+    if ( $url === '' ) {
+        return '';
+    }
+
+    $video_id = '';
+
+    if ( preg_match( '#(?:youtube\.com/embed/|youtube-nocookie\.com/embed/)([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+        $video_id = $match[1];
+    } elseif ( preg_match( '#youtube\.com/shorts/([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+        $video_id = $match[1];
+    } elseif ( preg_match( '#youtu\.be/([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+        $video_id = $match[1];
+    } elseif ( preg_match( '#(?:[?&]v=|/v/)([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+        $video_id = $match[1];
+    }
+
+    if ( $video_id === '' ) {
+        return '';
+    }
+
+    return 'https://www.youtube.com/embed/' . $video_id;
 }
