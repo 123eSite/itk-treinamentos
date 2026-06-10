@@ -12748,29 +12748,10 @@ ul {
  * Author https://themeforest.net/user/ib-themes
  */
 .hero-style1 {
-  padding: 239px 0 21px;
+  padding: 100px 0 21px;
   background-color: #ecf0f4;
 }
-@media (max-width: 1440px) {
-  .hero-style1 {
-    padding-top: 239px;
-  }
-}
-@media (max-width: 1201px) {
-  .hero-style1 {
-    padding-top: 176px;
-  }
-}
-@media (max-width: 769px) {
-  .hero-style1 {
-    padding-top: 125px;
-  }
-}
-@media (max-width: 480px) {
-  .hero-style1 {
-    padding-top: 110px;
-  }
-}
+
 .hero-style1 .col-lg-9 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
@@ -12792,8 +12773,9 @@ ul {
 
 .hero-info {
   position: relative;
+  padding-bottom: 100px;
 }
-.hero-info::before {
+/* .hero-info::before {
   content: "";
   position: absolute;
   top: -17%;
@@ -12803,12 +12785,12 @@ ul {
   background-image: url(../images/layers/eclips-banner.png);
   background-repeat: no-repeat;
   background-size: cover;
-}
-@media (max-width: 1440px) {
+} */
+/* @media (max-width: 1440px) {
   .hero-info {
     padding: 0 40px;
   }
-}
+} */
 @media (max-width: 1201px) {
   .hero-info {
     padding: 0;
@@ -20302,6 +20284,9 @@ ul {
   min-width: 200px;
     min-height: 70px;
 }
+.ser-video-box.bg-gray {
+  background-color: #ecf0f4;
+}
 
 .ser-video-box .video-popup {
   position: static;
@@ -21998,7 +21983,7 @@ ul {
   width: 100%;
   height: 100%;
   background: var(--gradient-blue);
-  opacity: 0.5;
+  opacity: 0;
 }
 .ser-img15 img {
   width: 100%;
@@ -24920,11 +24905,12 @@ ul {
 .feature-card .title {
   font-size: 20px;
   line-height: 30px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   color: var(--color-heading);
   font-weight: 600;
   font-family: var(--font-secondary);
   letter-spacing: 1px;
+  min-height: 58px;
 }
 @media (max-width: 1201px) {
   .feature-card .title {
@@ -26054,7 +26040,7 @@ padding: 25px 30px 24px 30px;
   width: 215px;
   height: 62px;
   border-radius: 0 23px 0 25px;
-  background-color: var(--color-content-white);
+  background-color: #ecf0f4;
   z-index: 99;
 }
 .empty4::before {
@@ -27990,14 +27976,13 @@ position: absolute;
   font-size: 16px;
   line-height: 30px;
   margin-bottom: 30px;
-  color: var(--color-content-white);
   font-weight: 600;
 }
 .about-info10 p:nth-child(2) {
   font-weight: 500;
 }
 .about-info10 .ibt-btn {
-  color: var(--color-content-white);
+
 }
 
 /**
