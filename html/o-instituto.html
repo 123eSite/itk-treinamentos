@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITK Treinamentos</title>
+
+    <!-- Preconnect for faster font loading (PUT THIS FIRST!) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/icon.png">
+
+    <!-- Google Fonts (deferred) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" media="print"
+        onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+
+
+    <!-- Load Font Awesome CSS asynchronously -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" media="print" onload="this.media='all'">
+
+    <!-- fontello font css -->
+    <link rel="stylesheet" href="assets/css/plugins/fontello-enqueue.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/plugins/fontello-icons.css" media="print" onload="this.media='all'">
+
+    <!-- others css -->
+    <!-- Keep these normal - needed for initial page load -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+
+
+    <!-- Make these async - only used for specific components -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    </noscript>
+
+    <link rel="stylesheet" href="assets/css/plugins/lightgallery-bundle.min.css" media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/plugins/lightgallery-bundle.min.css">
+    </noscript>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+
+        <!-- <button id="themeBtn"><i class="far fa-moon"></i></button> -->
+        <div class="video-modal">
+            <div class="video-modal-content">
+                <span class="close-btn">&times;</span>
+                <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- search-popup -->
+        <div class="search-popup" data-popup="1">
+            <div class="search-popup-content">
+                <form>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="O que está pesquisando?" required>
+                </form>
+                <!-- <button type="button" class="close-popup"></button> -->
+            </div>
+        </div>
+
+        <!-- Side Menu -->
+        <!-- <div class="side-menu" id="sideMenu">
+            <div class="overlay" id="overlay"></div>
+            <a href="javascript:void(0)" class="close-btn" id="closeBtn"><i class="fa fa-close"></i> close</a>
+            <div class="menu-content">
+                <a href="#" class="logo">
+                    <img src="assets/images/logo2.svg" alt="logo">
+                </a>
+                <div class="sidebar-menu">
+                    <h4 class="title">contacts</h4>
+                    <p>USA, New York - 1060 <br> Str. First Avenue 1</p>
+                    <a href="tel:+13685678954" title="" class="nmbr">800 100 975 20 34</a>
+                    <a href="tel:8003508431" title="" class="nmbr">+ (123) 1800-234-5678</a>
+                    <a href="mailto:itk@itktreinamentos.com.br" class="email">itk@itktreinamentos.com.br</a>
+                    <a href="#" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <ul class="social-icon">
+                    <li><a href="www.facebook.com" title=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://x.com/i/flow/login?lang=en" title=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.linked.com" title=""><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.youtube.com" title=""><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div> -->
+
+        <!-- New Mobile Menu -->
+        <div data-menu="mobileMenu" class="side-menu2">
+            <div class="menu-btns">
+                <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                <button id="mobileCloseBtn2" class="close-btn"></button>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        O Instituto ITK
+                    </a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="#">
+                        Cursos e Treinamentos
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Leader Training</a></li>
+                        <li><a href="#">Leader Training 2</a></li>
+                        <li><a href="#">A Transformação através do amor</a></li>
+                        <li><a href="#">Constelações Familiares</a></li>
+                        <li><a href="#">Reiki nível I</a></li>
+                        <li><a href="#">Reiki nível II</a></li>
+                        <li><a href="#">Sob medida</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="#">
+                        Para Você
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Agenda</a></li>
+                        <li><a href="#">Projeto de vida</a></li>
+                        <li><a href="#">Mandala</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        Blog
+                    </a>
+                </li>
+            </ul>
+            <div class="menu-contact">
+                <span>Mais informações</span>
+                <a href="#" class="nmbr" title="(19) 99722-2250">(19) 99722-2250</a>
+                <a href="mailto:itk@itktreinamentos.com.br" title="" class="gmail">itk@itktreinamentos.com.br</a>
+            </div>
+            <div class="menu-links">
+                <span>Siga a gente:</span>
+                <ul class="social-icon">
+                    <li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" title=""><i class="fab fa-youtube"></i></a></li>
+                </ul>
+                <a href="#" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                    <span>Fale Conosco</span>
+                </a>
+            </div>
+        </div>
+        <!-- Overlay for Mobile Menu -->
+        <div class="overlay2"></div>
+
+        <!-- sticky header -->
+        <header class="sticky-active">
+            <div class="header-menu-area">
+                <div class="row gx-20 align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="header-logo">
+                            <!-- <a href="javascript:void(0)" class="menu-toggle"></a> -->
+                            <a href="#">
+                                <img width="300" src="assets/images/logos/logo-itk-positivo.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <nav class="main-menu menu-style1">
+                            <ul>
+                                <li>
+                                    <a href="#" class="active">
+                                        <span class="menu-item">Home</span>
+                                        <span class="menu-item2">Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="menu-item">O Instituto</span>
+                                        <span class="menu-item2">O Instituto</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <span class="menu-item">Cursos e Treinamentos</span>
+                                        <span class="menu-item2">Cursos e Treinamentos</span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Leader Training</a></li>
+                                        <li><a href="#">Leader Training 2</a></li>
+                                        <li><a href="#">A Transformação através do amor</a></li>
+                                        <li><a href="#">Constelações Familiares</a></li>
+                                        <li><a href="#">Reiki nível I</a></li>
+                                        <li><a href="#">Reiki nível II</a></li>
+                                        <li><a href="#">Sob medida</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">
+                                        <span class="menu-item">Para Você</span>
+                                        <span class="menu-item2">Para Você</span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Agenda</a></li>
+                                        <li><a href="#">Projeto de vida</a></li>
+                                        <li><a href="#">Mandala</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="menu-item">Blog</span>
+                                        <span class="menu-item2">Blog</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-auto d-none d-xl-block">
+                        <div class="btn-box">
+                            <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                            <a href="#" title="" class="ibt-btn ibt-btn-outline">
+                                <span>Fale Conosco</span>
+                                <i class="icon-arrow-top"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="hamburger popup-menu" data-menu="mobileMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+        <!-- End sticky header -->
+
+        <!--======== Header ========-->
+        <header class="vs-header6 header-int">
+            <div class="header-top4">
+                <div class="container-fluid">
+                    <div class="header-top-content4">
+                        <ul class="top-bar-socials">
+                            <li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" title=""><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                        <ul class="top-bar-contacts">
+                            <li>
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="tel:+18005291037">(19) 99722-2250</a>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:itk@itktreinamentos.com.br">itk@itktreinamentos.com.br</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-bag-shopping"></i>
+                                <a href="#">Acesse nossa loja</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!--vs-main-menu-wrapper start-->
+            <div class="header-bottom2">
+                <div class="container2 position-relative">
+                    <div class="header-menu-area m-0">
+                        <div class="row gx-20 align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <div class="header-logo">
+                                    <!-- <a href="javascript:void(0)" class="menu-toggle"></a> -->
+                                    <a href="#">
+                                        <img width="300" src="assets/images/logos/logo-itk-positivo.png" alt="logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-auto p-0">
+                                <nav class="main-menu menu-style1">
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="active">
+                                                <span class="menu-item">Home</span>
+                                                <span class="menu-item2">Home</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="menu-item">O Instituto</span>
+                                                <span class="menu-item2">O Instituto</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
+                                                <span class="menu-item">Cursos e Treinamentos</span>
+                                                <span class="menu-item2">Cursos e Treinamentos</span>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Leader Training</a></li>
+                                                <li><a href="#">Leader Training 2</a></li>
+                                                <li><a href="#">A Transformação através do amor</a></li>
+                                                <li><a href="#">Constelações Familiares</a></li>
+                                                <li><a href="#">Reiki nível I</a></li>
+                                                <li><a href="#">Reiki nível II</a></li>
+                                                <li><a href="#">Sob medida</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
+                                                <span class="menu-item">Para Você</span>
+                                                <span class="menu-item2">Para Você</span>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Agenda</a></li>
+                                                <li><a href="#">Projeto de vida</a></li>
+                                                <li><a href="#">Mandala</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="menu-item">Blog</span>
+                                                <span class="menu-item2">Blog</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-auto d-none d-xl-block">
+                                <div class="btn-box">
+                                    <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
+                                    <a href="#" title="" class="ibt-btn ibt-btn-outline">
+                                        <span>Fale Conosco</span>
+                                        <i class="icon-arrow-top"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="hamburger popup-menu" data-menu="mobileMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--vs-main-menu-wrapper end-->
+        </header>
+        <!--======== / Header ========-->
+
+        <!-- page-banner9 -->
+        <section class="bread-crums-section">
+            <div class="container2">
+                <div class="page-banner11">
+                    <img class="bg" src="assets/images/bg-banner-o-instituto.webp" alt="">
+                    <div class="shape"></div>
+                    <div class="shape3"></div>
+                    <div class="staff-text">ITK</div>
+                    <div class="page-content">
+                        <h1 class="title">O Instituto</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index.html" title="">Home</a></li>
+                        <li>/</li>
+                        <li>O Instituto</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End page-banner9 -->
+
+        <!-- about-us-sec2 -->
+
+        <!-- about-us-sec6 -->
+        <section class="about-us-sec6 ibt-section-gap">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="about-counter6">
+                            <div class="about-counter-content6">
+                                <div class="counter-box15">
+                                    <span class="counter-text">+</span>
+                                    <span class="counter-number percent-counter2" data-target="105">0</span>
+                                    <span class="counter-text">mil</span>
+                                </div>
+                                <span class="title">Pessoas treinadas</span>
+                            </div>
+                            <div class="about-counter-content6">
+                                <div class="counter-box15">
+                                    <span class="counter-text">+</span>
+                                    <span class="counter-number percent-counter2" data-target="1200">0</span>
+                                </div>
+                                <span class="title">Treinamentos Leader Training</span>
+                            </div>
+                            <div class="about-counter-content6">
+                                <div class="counter-box15">
+                                    <span class="counter-text">+</span>
+                                    <span class="counter-number percent-counter2" data-target="450">0</span>
+                                    <span class="counter-text">mil</span>
+                                </div>
+                                <span class="title">Seguidores nas redes sociais</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="about-content6">
+                            <div class="sec-title">
+                                <span class="sub-title">Sobre</span>
+                                <h2 class="title animated-heading">Conheça a história do ITK Treinamentos
+                                </h2>
+                            </div>
+                            <p>A história do ITK Treinamentos tem início em 2001 e é, na essência, a história do
+                                seu idealizador e fundador, Tadashi Kadomoto.
+                                Desde 1982, Tadashi Kadomoto já ministrava treinamentos para a área comercial,
+                                quando então tomou consciência de sua missão de vida: contribuir efetivamente
+                                para despertar nas pessoas o desejo da vida e a sua capacidade de ser feliz.
+                            </p>
+                            <p>Para Tadashi, apenas o fato de existir já pressupõe um agradecimento que, para
+                                ele, deveria ser transformado em ajuda ao próximo, para que ele pudesse viver
+                                bem consigo mesmo e em grupo. Dessa forma, inicia-se uma trajetória plena de
+                                amor ao próximo.
+                            </p>
+                            <p>O auto-conhecimento é o cerne da história de Tadashi e do ITK. Nesse caminho, o
+                                Instituto busca, com sua equipe multidisciplinar qualificada, contribuir para
+                                que alguém respire melhor, seja por um sorriso, uma vivência, um abraço ou mesmo
+                                uma flor. Como visão de futuro, o Instituto almeja ser um agente catalizador das
+                                coisas boas, na esperança de trazer mais amor às pessoas e Paz ao mundo.
+                            </p>
+                            <p>Assim, toda sua equipe, coordenada e inspirada pelo exemplo do seu fundador,
+                                trabalha para fazer seu papel transformador na vida das pessoas que procuram o
+                                Instituto, construindo assim um alicerce sólido, baseado na afetividade, na
+                                permanente troca, na solidariedade e no bem-viver.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End about-us-sec2 -->
+
+        <!-- service-sec15 -->
+        <div class="carousel-gallery">
+            <div class="container2">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria1.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria2.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria3.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria4.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria1.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria2.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria3.jpg" alt="Galeria">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/images/galeria4.jpg" alt="Galeria">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!-- End service-sec15 -->
+
+            <!-- service-sec22 -->
+            <section class="service-sec22 ibt-section-gap">
+                <div class="container3">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="ser-card22">
+                                <div class="ser-content22">
+                                    <!-- <img src="assets/images/layers/corss2.png" alt="AI Agency & Technology HTML Template" class="cross"> -->
+                                    <h4 class="title">O que é Psicologia Transpessoal?</h4>
+                                    <p>A Psicologia Transpessoal estuda os diferentes níveis de consciência e suas
+                                        relações com a percepção de realidade, crenças, valores, ação, doença e saúde
+                                        das pessoas. Nesse processo, evidencia uma fase adiantada da evolução humana,
+                                        posterior à instintiva, emocional e mental. Fundamentada em 1986 por Abraham
+                                        Maslow, James Fadiman, S. Grof, Victor Frankl e Antony Sutich, propicia,
+                                        simultaneamente, uma nova perspectiva diante da ciência e da religião.
+
+
+                                    </p>
+                                    <p>Vê o homem como um ser bio-psico-social e cósmico, reestabelecendo a
+                                        possibilidade de se viver a unidade fundamental, homem-cosmo. Inclui os aspectos
+                                        do desenvolvimento psíquico já estabelecidos pela psicologia clássica,
+                                        ampliando-os. Trabalha com o ser humano, de forma ampla, permitindo sua plena
+                                        integração e constante evolução e transformação.
+                                    </p>
+                                    <p>Atuando com a Psicologia Transpessoal o profissional conta com o conhecimento e o
+                                        aprendizado dos conceitos de Psicologia e Psicoterapia Transpessoal, além do
+                                        contato com as várias dimensões da consciência humana e suas aplicações na
+                                        psicologia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="ser-card22 v2">
+                                <img src="assets/images/imagens-site/750x750/750x750.png"
+                                    alt="AI Agency & Technology HTML Template">
+                                <div class="inner-content2">
+                                    <h4 class="profection">
+                                        “Que haja amor, compaixão e paz
+                                        entre todos os seres do universo.”
+                                    </h4>
+
+                                </div>
+                                <div class="ser-video-box">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- team-section2 -->
+            <section class="team-section2 ibt-section-gap">
+                <div class="container3">
+                    <div class="title-area">
+                        <div class="row align-items-end mb-0">
+                            <div class="col-xl-8 col-lg-8">
+                                <div class="sec-title">
+                                    <span class="sub-title">Nosso time</span>
+                                    <h2 class="title animated-heading">Equipe ITK Treinamentos</h2>
+
+                                </div>
+                                <p>Nossa equipe de terapeutas é apaixonada por ajudar pessoas a alcançar o bem-estar.
+                                    Com
+                                    experiência e compromisso, eles oferecem suporte terapêutico personalizado para
+                                    promover
+                                    transformação e crescimento pessoal.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Amine-Tarek-scaled.jpg"
+                                                alt="Equipe ITK - Amine Tarek"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Amine Tarek</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img
+                                                src="assets/images/Bruno-Cesar-Malatrasi-Silva_Easy-Resize.com_-e1756331126781-773x1024.jpg"
+                                                alt="Equipe ITK - Bruno Malatrasi"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Bruno Malatrasi</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img
+                                                src="assets/images/Carla-Nacif-Kadomoto_Easy-Resize.com_-e1756331143495-773x1024.jpg"
+                                                alt="Equipe ITK - Carla Nacif Kadomoto"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Carla Nacif Kadomoto</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img
+                                                src="assets/images/Carlos-Roberto-S.-M.-Ciarlo_Easy-Resize.com_.jpg"
+                                                alt="Equipe ITK - Carlos Roberto S. M. Ciarlo"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Carlos Roberto S. M. Ciarlo</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Elaine-Lopes_Easy-Resize.com_.jpg"
+                                                alt="Equipe ITK - Elaine Lopes"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Elaine Lopes</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Evelin-Elias_Easy-Resize.com_.jpg"
+                                                alt="Equipe ITK - Evelin Elias"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Evelin Elias</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Faustto-Oswaldo-de-Rosa-scaled.jpg"
+                                                alt="Equipe ITK - Faustto Rosa"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Faustto Rosa</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Felipe-Zillo-scaled.jpg"
+                                                alt="Equipe ITK - Felipe Zillo"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Felipe Zillo</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/itk-treinamentos-equipe-flavia-tonissi.jpg"
+                                                alt="Equipe ITK - Flávia Tonissi Arnosti"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Flávia Tonissi Arnosti</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img
+                                                src="assets/images/Gerson-Ramos-de-Almeida_Easy-Resize.com_.jpg"
+                                                alt="Equipe ITK - Gerson Ramos de Almeida"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Gerson Ramos de Almeida</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/itk-treinamentos-equipe-heloisa-helena.jpg"
+                                                alt="Equipe ITK - Heloisa Helena Lacerda Calil"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Heloisa Helena Lacerda Calil</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Ingrid-Prates-scaled.jpg"
+                                                alt="Equipe ITK - Ingrid Prates"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Ingrid Prates</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Ivana-Rodrigues_Easy-Resize.com_.jpg"
+                                                alt="Equipe ITK - Ivana Rodrigues"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Ivana Rodrigues</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Joao-de-Souza-Filho_Easy-Resize.com_.jpg"
+                                                alt="Equipe ITK - João de Souza Filho"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">João de Souza Filho</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Julia-Nacif-Kadomoto-scaled.jpg"
+                                                alt="Equipe ITK - Julia Kadomoto"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Julia Kadomoto</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/itk-treinamentos-equipe-maria-gomes.jpg"
+                                                alt="Equipe ITK - Maria Gomes de Carvalho Filha"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Maria Gomes de Carvalho Filha</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/itk-treinamentos-maria-tereza-vitor.jpg"
+                                                alt="Equipe ITK - Maria Tereza Vitor"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Maria Tereza Vitor</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Mariene-Rodrigues-scaled.jpg"
+                                                alt="Equipe ITK - Mariene Rodrigues"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Mariene Rodrigues</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Nielson-Roberto-Santana-scaled.jpg"
+                                                alt="Equipe ITK - Nielson Brambati"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Nielson Brambati</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img
+                                                src="assets/images/Rafael-Kadomoto_Easy-Resize.com_-e1756331105600-773x1024.jpg"
+                                                alt="Equipe ITK - Rafael Kadomoto"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Rafael Kadomoto</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/itk-treinamentos-equipe-robson-hamuche.jpg"
+                                                alt="Equipe ITK - Robson Hamuche"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Robson Hamuche</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Tadashi-Kadomoto-scaled-e1756330599930.jpg"
+                                                alt="Equipe ITK - Tadashi Kadomoto"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Tadashi Kadomoto</a></h4>
+                                        <span class="designation">Cargo/Profissão</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5-cols col-md-6 col-sm-6">
+                            <div class="team-member2">
+                                <div class="team-card">
+                                    <div class="team-img">
+                                        <a href="#"><img src="assets/images/Valdir-Pinto-de-Souza-Junior-scaled.jpg"
+                                                alt="Equipe ITK - Valdir Pinto de Souza Júnior"></a>
+                                        <div class="team-shap"></div>
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="share-box">
+                                            <span class="share-icon fa fa-share-alt"></span>
+                                            <ul class="social-links">
+                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
+                                                            class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="name"><a href="#" title="">Valdir Pinto de Souza Júnior</a></h4>
+                                        <span class="designation">Terapeuta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End team-section2 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- main-sec -->
+            <section class="main-sec v6">
+                <!-- contact-sec -->
+                <div class="contact-sec ibt-section-gapTop">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="contact-content">
+                                    <div class="sec-title white">
+                                        <span class="sub-title">Mais informações</span>
+                                        <h2 class="title animated-heading">Dê o próximo passo na sua jornada</h2>
+                                        <p>Estamos prontos para entender suas necessidades e indicar o treinamento ideal
+                                            para você ou para sua empresa. Entre em contato e fale com a nossa equipe.
+                                        </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <div class="contact-info">
+                                                <div class="call-center">
+                                                    <h4 class="title">Telefones</h4>
+                                                    <a href="tel:(19) 3254-2427" class="nmbr">(19) 3254-2427</a>
+                                                    <a href="#" class="nmbr">(19) 99722-2250</a>
+                                                </div>
+                                                <div class="call-center mb-0">
+                                                    <h4 class="title">Email</h4>
+                                                    <a href="mailto:itk@itktreinamentos.com.br"
+                                                        class="gmail">itk@itktreinamentos.com.br</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <div class="contact-info">
+                                                <div class="call-center">
+                                                    <h4 class="title">Endereço</h4>
+                                                    <p>Rua Pedro Santucci 50<br> Campinas, SP</p>
+                                                </div>
+                                                <div class="call-center mb-0">
+                                                    <h4 class="title">Siga a gente</h4>
+                                                    <ul class="social-icon">
+                                                        <li><a href="https://www.facebook.com/" target="_blank"
+                                                                title=""><i class="fab fa-facebook-f"></i></a></li>
+                                                        <li><a href="http://www.twitter.com/" target="_blank"
+                                                                title=""><i class="fab fa-instagram"></i></a></li>
+                                                        <li><a href="https://www.youtube.com/" target="_blank"
+                                                                title=""><i class="fab fa-youtube"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form">
+                                    <form action="#" method="post" class="custom-form">
+                                        <h2>Envie sua mensagem</h2>
+                                        <input type="text" id="name" name="name" placeholder="Nome" required>
+                                        <input type="email" id="email" name="email" placeholder="E-mail" required>
+                                        <input type="text" id="subject" name="subject" placeholder="Telefone" required>
+                                        <textarea id="message" name="message" rows="5" placeholder="Mensagem..."
+                                            required></textarea>
+
+                                        <button type="submit" class="ibt-btn ibt-btn-outline">
+                                            <span>Enviar</span>
+                                            <i class="icon-arrow-top"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End contact-sec -->
+
+                <!-- footer-style1 -->
+                <footer class="footer-style1">
+                    <div class="footer-top5">
+                        <div class="container">
+                            <div class="footer-content5">
+                                <h2 class="title">Cadastre-se para receber nossas novidades</h2>
+                                <div class="form-box5">
+                                    <form method="get" class="footer-form5">
+                                        <input type="text" placeholder="Email" required="">
+                                        <button class="ibt-btn">
+                                            <span>Subscribe</span>
+                                            <i class="icon-arrow-top"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-botom">
+                        <div class="container">
+                            <div class="footer-box">
+                                <p><a href="#">©ITK Treinamentos</a> 2026. Todos os direitos reservados.</p>
+                                <span><a href="#">Política de cookies</a> | <a href="#">Política de
+                                        privacidade</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- footer-style1 -->
+            </section>
+            <!-- End main-sec -->
+
+            <!-- Scroll Button -->
+            <!-- <button id="scrollBtn" title="Go to top">
+            <i class="fas fa-angle-up"></i>
+        </button> -->
+        </div>
+
+        <!-- Js Plugin -->
+        <script src="assets/js/bootstrap.min.js" defer></script>
+        <script src="assets/js/vendor/swiper-bundle.min.js" defer></script>
+        <script src="assets/js/vendor/lenis.min.js" defer></script>
+        <script src="assets/js/vendor/gsap.min.js" defer></script>
+        <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+        <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

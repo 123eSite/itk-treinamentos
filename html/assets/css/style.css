@@ -9726,6 +9726,7 @@ header .ibt-btn {
   overflow-x: clip;
   overflow-y: visible;
 }
+
 @media (max-width: 1201px) {
   .vs-header6 {
     background-color: var(--color-content-white);
@@ -22033,7 +22034,7 @@ ul {
 
 .ser-content15 {
   position: relative;
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
 .no-shape .ser-content15 {
   padding: 30px 4px;
@@ -27480,11 +27481,11 @@ padding: 25px 30px 24px 30px;
   }
 }
 .about-us-sec6 .sec-title {
-  max-width: 777px;
+  max-width: 600px;
 }
-.about-us-sec6 .sec-title p {
+/* .about-us-sec6 .sec-title p {
   max-width: 573px;
-}
+} */
 @media (max-width: 1201px) {
   .about-us-sec6 .sec-title p {
     max-width: 100%;
@@ -27538,8 +27539,8 @@ padding: 25px 30px 24px 30px;
 .about-counter-content6 {
   position: relative;
 }
-.about-counter-content6:first-child {
-  margin-bottom: 25px;
+.about-counter-content6 {
+  margin-bottom: 40px;
 }
 .about-counter-content6 .title {
   font-size: 20px;
@@ -27547,7 +27548,7 @@ padding: 25px 30px 24px 30px;
   line-height: 35px;
   color: var(--color-heading);
   display: inline-block;
-  margin-top: 22px;
+  margin-top: 0;
 }
 
 .about-counter6 {
@@ -30328,7 +30329,7 @@ position: absolute;
 
 .team-content {
   position: relative;
-  padding: 69px 38px 48px;
+  padding: 50px 20px 36px;
   border: 1px solid #E0E0E0;
   border-radius: 0 0 25px 25px;
   border-top: 0;
@@ -30336,11 +30337,12 @@ position: absolute;
   background-color: var(--color-content-white);
 }
 .team-content .name {
-  font-size: 20px;
-  line-height: 35px;
-  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 0;
   color: var(--color-heading);
   font-weight: 400;
+  min-height: 40px;
 }
 @media (max-width: 1025px) {
   .team-content .name {
@@ -30376,13 +30378,17 @@ position: absolute;
 }
 
 .team-section2 {
+
+        margin: 0 40px 50px;
   position: relative;
   z-index: 0;
-  padding: 50px 30px;
+  padding-left:30px;
+  padding-right:30px;
+
   background-color: #F0F2F4;
   border-radius: 25px;
 }
-.team-section2::before {
+/* .team-section2::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -30394,7 +30400,7 @@ position: absolute;
   height: 100%;
   background-image: url(../images/layers/team-layer.png);
   z-index: -1;
-}
+} */
 @media (max-width: 1440px) {
   .team-section2::before {
     display: none;
@@ -31887,10 +31893,9 @@ position: absolute;
   z-index: 99;
   border-radius: 20px 0 0 0;
 }
-@media (max-width: 769px) {
-  .shape {
-    display: none;
-  }
+.bread-crums-section .shape::before{
+  background-image: url(../images/layers/shape-bread-left-top.webp);
+  border-radius: 0;
 }
 
 .shape3::before {
@@ -31903,6 +31908,10 @@ position: absolute;
   background-image: url(../images/layers/shape1-6.png);
   z-index: 99;
 }
+
+.bread-crums-section .shape3::before{
+  background-image: url(../images/layers/shape-bread-right-bottom.webp);
+}
 @media (max-width: 769px) {
   .shape3 {
     display: none;
@@ -31913,6 +31922,7 @@ position: absolute;
   position: absolute;
   right: 142px;
   bottom: 29px;
+  z-index: 2;
   font-family: "Manrope Alt", Arial, Helvetica, sans-serif;
   text-transform: none;
   letter-spacing: -0.03em;
@@ -31954,9 +31964,10 @@ position: absolute;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: var(--color-content-white);
+  background-color: #ecf0f4;
   padding: 35px 82px 26px;
   border-radius: 0 25px 0 25px;
+  z-index: 1;
 }
 @media (max-width: 769px) {
   .breadcrumbs {
@@ -31978,6 +31989,10 @@ position: absolute;
   background-image: url(../images/layers/shape2-3.png);
   z-index: 99;
 }
+.bread-crums-section .breadcrumbs::before {
+  background-image: url(../images/layers/shape-bread-corner1.png);
+}
+
 .breadcrumbs::after {
   content: "";
   position: absolute;
@@ -31987,6 +32002,9 @@ position: absolute;
   height: 20px;
   background-image: url(../images/layers/shape2-2.png);
   z-index: 99;
+}
+.bread-crums-section .breadcrumbs::after {
+  background-image: url(../images/layers/shape-bread-corner2.png);
 }
 .breadcrumbs li {
   font-size: 14px;
@@ -32717,13 +32735,33 @@ position: absolute;
           transform: rotate(-90deg);
 }
 
-.page-banner11 {
+/* bread-crums-section */
+.bread-crums-section{
   position: relative;
-  background-image: url(../images/bg/page1-11.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #ecf0f4;
+  padding: 186px 0 32px;
+  border-radius: 0px 0px 25px 25px;
+}
+.bread-crums-section .page-content {
+  position: relative;
+  z-index: 2;
+}
+.bread-crums-section .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  border-radius: 32px;
+}
+.page-banner11 {
+  overflow: hidden;
+  position: relative;
+  background-color: #ecf0f4;
   padding: 217px 0 235px;
-  margin: 21px 20px 0;
+  margin: 0;
   border-radius: 28px;
 }
 @media (max-width: 769px) {
@@ -32747,6 +32785,19 @@ position: absolute;
   }
 }
 .page-banner11::before {
+  content: '';
+  position: absolute;
+  background: var(--gradient-blue);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  border-radius: 32px;
+}
+
+/* .page-banner11::before {
   content: "";
   position: absolute;
   top: -29%;
@@ -32768,7 +32819,7 @@ position: absolute;
     background-size: contain;
     top: -28%;
   }
-}
+} */
 
 /**
  * Template Name: Aiero | AI Agency & Technology HTML Template
@@ -39988,7 +40039,9 @@ blockquote {
   transform: translateY(8px);
   }
 }
-
+.carousel-gallery img {
+  border-radius: 30px;
+}
 
 
 /* Responsive */
@@ -40007,4 +40060,15 @@ blockquote {
   .menu-style1 > ul > li.menu-item-has-children > a {
     padding: 0 35px 0 14px;
   }
+}
+
+@media (min-width: 992px) {
+  .col-lg-5-cols {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+.carousel-gallery .swiper-wrapper {
+  transition-timing-function: linear !important;
 }

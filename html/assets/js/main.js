@@ -8,35 +8,7 @@
 
 "use strict";
 
-// ============================
-// Preloader
-// ============================
-var Preloader = {
-  init: function () {
-    const preloader = document.getElementById("preloader");
-    if (!preloader) return;
 
-    const transitionDuration = 500; // ms
-    const fallbackDelay = 3000; // ms
-
-    const hidePreloader = () => {
-      if (!preloader || preloader.dataset.hidden === "true") return;
-      preloader.dataset.hidden = "true"; // prevent double calls
-      preloader.style.transition = `opacity ${transitionDuration}ms ease`;
-      preloader.style.opacity = "0";
-      setTimeout(() => {
-        preloader.style.display = "none";
-      }, transitionDuration);
-    };
-
-    // Hide when the page fully loaded
-    window.addEventListener("load", hidePreloader, { once: true });
-
-    // Fallback in case some assets hang or slow CDN
-    setTimeout(hidePreloader, fallbackDelay);
-  },
-};
-// ============================
 // Side Menu (Primary)
 // ============================
 var SideMenu = {
@@ -2216,7 +2188,6 @@ document.addEventListener("DOMContentLoaded", function () {
   SidebarToggle.init();
 
   // Layout / core
-  Preloader.init();
   ThemeToggle.init();
   StickyHeader.init();
   AieroParallax.init();
@@ -2252,3 +2223,31 @@ document.addEventListener("DOMContentLoaded", function () {
  * END OF FILE
  * ============================
  */
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.querySelector('.carousel-gallery .swiper')) {
+    new Swiper('.carousel-gallery .swiper', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      speed: 4000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      slidesPerView: 1,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+      allowTouchMove: false,
+    });
+  }
+});
