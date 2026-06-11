@@ -33080,14 +33080,14 @@ position: absolute;
 
 .recent-post {
   position: relative;
-  padding-left: 92px;
+  padding-left: 0;
   margin-bottom: 18px;
 }
-.recent-post img {
+/* .recent-post img {
   position: absolute;
   top: 10px;
   left: 0;
-}
+} */
 .recent-post .sub-title {
   font-size: 14px;
   line-height: 30px;
@@ -40027,7 +40027,25 @@ blockquote {
 .carousel-gallery img {
   border-radius: 30px;
 }
-
+.entry-content.clr h2 {
+    font-size: 36px;
+    margin: 30px 0;
+}
+.entry-content.clr h3 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+.entry-content.clr h4 {
+    font-size: 22px;
+    margin: 20px 0;
+}
+.entry-content.clr ul {
+    margin: 0 0 20px 20px;
+    list-style: initial;
+}
+.entry-content.clr p {
+    margin: 0 0 20px;
+}
 
 /* Responsive */
 @media (max-width: 1600px) {
