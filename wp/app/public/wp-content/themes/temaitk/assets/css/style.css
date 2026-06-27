@@ -6,6 +6,16 @@
  * Author: ib-thems
  * Author https://themeforest.net/user/ib-themes
  */
+
+ body .feature-sec9 ul {
+  list-style:initial;
+  padding-left: 8px;
+ }
+ body .feature-sec9 ul li:before {
+  content: "•";
+  margin-left: -10px;
+}
+
 .ibt-link-hover a {
   position: relative;
 }
@@ -23541,6 +23551,7 @@ ul {
   background: var(--gradient-blue);
   padding: 100px 75px 100px;
   border-radius: 25px;
+  min-height: 100%;
 }
 @media (max-width: 1440px) {
   .ser-content22 {
@@ -23552,7 +23563,6 @@ ul {
   font-size: 48px;
   line-height: 48px;
   color: var(--color-content-white);
-  max-width: 450px;
   margin-bottom: 21px;
 }
 @media (max-width: 1440px) {
@@ -38139,7 +38149,7 @@ blockquote {
 
 .call-center {
   position: relative;
-  margin-bottom: 53px;
+  margin-bottom: 20px;
 }
 .call-center .title {
   font-size: 18px;

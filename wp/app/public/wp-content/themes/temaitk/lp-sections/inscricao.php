@@ -17,11 +17,12 @@ if ( have_rows( 'infos' ) ) {
         ];
     }
 }
-$chunks = array_chunk( $infos, 2 );
+$total         = count( $infos );
+$inner_classes = trim( 'contact-sec ' . temaitk_lp_section_classes( '', true, false ) );
 ?>
 <!-- main-sec v6 / inscricao -->
 <section class="main-sec v6">
-    <div id="inscricao" class="contact-sec ibt-section-gapTop">
+    <div id="inscricao" class="<?php echo esc_attr( $inner_classes ); ?>  ibt-section-gapTop">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -33,11 +34,10 @@ $chunks = array_chunk( $infos, 2 );
                             <h2 class="title animated-heading"><?php echo esc_html( $titulo ); ?></h2>
                         </div>
                         <div class="row">
-                            <?php foreach ( $chunks as $chunk ) : ?>
+                            <?php foreach ( $infos as $i => $info ) : ?>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="contact-info">
-                                    <?php foreach ( $chunk as $i => $info ) : ?>
-                                    <div class="call-center call-center--icon<?php echo ( $i === count( $chunk ) - 1 ) ? ' mb-lg-0' : ''; ?>">
+                                    <div class="call-center call-center--icon<?php echo ( $i === $total - 1 ) ? ' mb-lg-0' : ''; ?>">
                                         <span class="call-center__icon" aria-hidden="true">
                                             <i class="<?php echo esc_attr( $info['icone'] ); ?>"></i>
                                         </span>
@@ -46,7 +46,6 @@ $chunks = array_chunk( $infos, 2 );
                                             <span class="nmbr text-white d-block"><?php echo esc_html( $info['valor'] ); ?></span>
                                         </div>
                                     </div>
-                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <?php endforeach; ?>

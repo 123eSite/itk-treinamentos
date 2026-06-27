@@ -19,7 +19,7 @@ $classes    = temaitk_lp_section_classes( 'about-us-sec9' );
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 d-lg-flex align-items-center">
                 <div class="anxiety-video-wrap">
                     <video id="anxietyVideo" class="w-100" autoplay loop muted playsinline controls>
                         <source src="<?php echo esc_url( $video['url'] ); ?>" type="video/mp4">

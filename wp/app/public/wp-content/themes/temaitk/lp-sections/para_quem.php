@@ -5,7 +5,7 @@ $texto     = get_sub_field( 'paragrafos' );
 $imagem    = get_sub_field( 'imagem' );
 $botao     = get_sub_field( 'botao_texto' );
 $classes   = temaitk_lp_section_classes( 'feature-sec9' );
-$alt       = $imagem['alt'] ?: wp_strip_all_tags( $titulo );
+$alt       = ( is_array( $imagem ) && ! empty( $imagem['alt'] ) ) ? $imagem['alt'] : wp_strip_all_tags( $titulo );
 ?>
 <!-- feature-sec9 -->
 <section class="<?php echo esc_attr( $classes ); ?>">
@@ -30,12 +30,14 @@ $alt       = $imagem['alt'] ?: wp_strip_all_tags( $titulo );
                 </div>
             </div>
             <div class="col-lg-6">
+                <?php if ( is_array( $imagem ) && ! empty( $imagem['sizes']['itk-feature-square'] ) ) : ?>
                 <div class="feature-img9 mt-0">
                     <div class="empty4"></div>
                     <img src="<?php echo esc_url( $imagem['sizes']['itk-feature-square'] ); ?>"
                          alt="<?php echo esc_attr( $alt ); ?>">
                     <div class="ser-video-box"></div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

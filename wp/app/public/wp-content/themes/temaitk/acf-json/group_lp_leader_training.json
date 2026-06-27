@@ -2177,6 +2177,36 @@
                             "append": ""
                         },
                         {
+                            "key": "field_lp_inscricao_espaco",
+                            "label": "Espaçamento",
+                            "name": "espaco",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "": "Nenhum",
+                                "superior": "Superior",
+                                "inferior": "Inferior",
+                                "ambos": "Superior e inferior"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
                             "key": "field_lp_inscricao_shortcode_formulario",
                             "label": "Shortcode do formulário (CF7)",
                             "name": "shortcode_formulario",
@@ -2229,5 +2259,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779029168
+    "modified": 1750953600
 }

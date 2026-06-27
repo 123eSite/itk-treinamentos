@@ -93,14 +93,24 @@ add_filter( 'temaitk_clint_cf7_form_ids', function () {
 
 // ─── Helper: classes CSS de seção para layouts da LP ─────────────────────────
 
-function temaitk_lp_section_classes( $base = '' ) {
-    $classes = $base ? [ $base ] : [];
+function temaitk_lp_espaco_class() {
     switch ( get_sub_field( 'espaco' ) ) {
-        case 'superior': $classes[] = 'ibt-section-gapTop';    break;
-        case 'inferior': $classes[] = 'ibt-section-gapBottom'; break;
-        case 'ambos':    $classes[] = 'ibt-section-gap';       break;
+        case 'superior': return 'ibt-section-gapTop';
+        case 'inferior': return 'ibt-section-gapBottom';
+        case 'ambos':    return 'ibt-section-gap';
     }
-    if ( get_sub_field( 'cor_fundo' ) === 'cinza' ) {
+    return '';
+}
+
+function temaitk_lp_section_classes( $base = '', $apply_espaco = true, $apply_cor = true ) {
+    $classes = $base ? [ $base ] : [];
+    if ( $apply_espaco ) {
+        $espaco = temaitk_lp_espaco_class();
+        if ( $espaco ) {
+            $classes[] = $espaco;
+        }
+    }
+    if ( $apply_cor && get_sub_field( 'cor_fundo' ) === 'cinza' ) {
         $classes[] = 'bg-gray';
     }
     return implode( ' ', array_filter( $classes ) );
