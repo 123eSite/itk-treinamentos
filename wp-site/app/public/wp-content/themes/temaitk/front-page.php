@@ -3,83 +3,78 @@ get_header();
 ?>
 
         <!-- hero-style2 -->
+        <?php if( have_rows('hero_slides') ): ?>
         <section class="hero-style6">
             <div class="swiper hero-slider2">
                 <div class="swiper-wrapper">
+                    <?php while( have_rows('hero_slides') ): the_row(); 
+                        $hero_image = get_sub_field('hero_image');
+                        $hero_title = get_sub_field('hero_title');
+                        $hero_desc = get_sub_field('hero_desc');
+                        $hero_link = get_sub_field('hero_link');
+                        
+                        $hero_badge = get_sub_field('hero_badge');
+                        $hero_date = get_sub_field('hero_date');
+                        $hero_course_title = get_sub_field('hero_course_title');
+                        $hero_course_highlight = get_sub_field('hero_course_highlight');
+                        $hero_course_link = get_sub_field('hero_course_link');
+                    ?>
                     <div class="swiper-slide">
                         <div class="hero-content6">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/slider3.webp" alt="AI Agency & Technology HTML Template">
+                            <?php if( !empty($hero_image) ): ?>
+                            <img src="<?php echo esc_url($hero_image['sizes']['banner-principal']); ?>" alt="<?php echo esc_attr($hero_image['alt']); ?>">
+                            <?php endif; ?>
                             <div class="hero-text6">
                                 <div class="container2">
                                     <div class="hero-sec-info3 one-time">
-                                        <h2 class="title">Cursos e treinamentos<br> de desenvolvimento <br>e inteligência emocional
-                                        </h2>
+                                        <?php if( $hero_title ): ?>
+                                        <h2 class="title"><?php echo nl2br(esc_html($hero_title)); ?></h2>
+                                        <?php endif; ?>
                                         <div class="hero-btn2">
-                                            <p>Aprimore suas habilidades pessoais e profissionais com formações práticas, humanas e aplicáveis no dia a dia.
-                                            </p>
-                                            <a href="index6.html" target="_blank" title="" class="ibt-btn ibt-btn-secondary">
-                                                <span>Mais informações</span>
+                                            <?php if( $hero_desc ): ?>
+                                            <p><?php echo nl2br(esc_html($hero_desc)); ?></p>
+                                            <?php endif; ?>
+                                            <?php if( $hero_link ): ?>
+                                            <a href="<?php echo esc_url($hero_link['url']); ?>" target="<?php echo esc_attr($hero_link['target'] ? $hero_link['target'] : '_self'); ?>" title="<?php echo esc_attr($hero_link['title']); ?>" class="ibt-btn ibt-btn-secondary">
+                                                <span><?php echo esc_html($hero_link['title']); ?></span>
                                                 <i class="icon-arrow-top"></i>
                                             </a>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php if( $hero_course_title || $hero_badge ): ?>
                             <div class="exp-box">
                                 <div class="text-center text-lg-start w-100">
+                                    <?php if( $hero_badge || $hero_date ): ?>
                                     <div class="d-inline-flex align-items-center mb-2">
-                                        <span class="badge me-2">PRÓXIMA TURMA</span>
-                                        <span class="text-secondary small fw-bold"><i class="far fa-calendar-alt me-1"></i> 06 a 08 de Março</span>
+                                        <?php if( $hero_badge ): ?><span class="badge me-2"><?php echo esc_html($hero_badge); ?></span><?php endif; ?>
+                                        <?php if( $hero_date ): ?><span class="text-secondary small fw-bold"><i class="far fa-calendar-alt me-1"></i> <?php echo esc_html($hero_date); ?></span><?php endif; ?>
                                     </div>
-                                    <h3>Leader Training — Desperte seu Lider
-                                        Interior</h3>
+                                    <?php endif; ?>
+                                    <?php if( $hero_course_title ): ?>
+                                    <h3><?php echo nl2br(esc_html($hero_course_title)); ?></h3>
+                                    <?php endif; ?>
+                                    
+                                    <?php if( $hero_course_highlight || $hero_course_link ): ?>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <p class="text-secondary mb-0">Últimas vagas para<br> a imersão de março.</p>
-                                        <a href="#" target="_blank">
-                                            <span>Garanta sua vaga</span>
+                                        <?php if( $hero_course_highlight ): ?>
+                                        <p class="text-secondary mb-0"><?php echo nl2br(esc_html($hero_course_highlight)); ?></p>
+                                        <?php endif; ?>
+                                        <?php if( $hero_course_link ): ?>
+                                        <a href="<?php echo esc_url($hero_course_link['url']); ?>" target="<?php echo esc_attr($hero_course_link['target'] ? $hero_course_link['target'] : '_self'); ?>">
+                                            <span><?php echo esc_html($hero_course_link['title']); ?></span>
                                         </a>
+                                        <?php endif; ?>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
+                            <?php endif; ?>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="hero-content6">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/slider2.webp" alt="AI Agency & Technology HTML Template">
-                            <div class="hero-text6">
-                                <div class="container2">
-                                    <div class="hero-sec-info3 one-time">
-                                        <h2 class="title">Aprenda, cresça e transforme sua forma de agir e liderar
-                                        </h2>
-                                        <div class="hero-btn2">
-                                            <p>Treinamentos pensados para fortalecer sua mente, sua comunicação e sua capacidade de tomar decisões com equilíbrio.
-                                            </p>
-                                            <a href="index6.html" target="_blank" title="" class="ibt-btn ibt-btn-secondary">
-                                                <span>Mais informações</span>
-                                                <i class="icon-arrow-top"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="exp-box">
-                                <div class="text-center text-lg-start w-100">
-                                    <div class="d-inline-flex align-items-center mb-2">
-                                        <span class="badge me-2">PRÓXIMA TURMA</span>
-                                        <span class="text-secondary small fw-bold"><i class="far fa-calendar-alt me-1"></i> 06 a 08 de Março</span>
-                                    </div>
-                                    <h3>Leader Training — Desperte seu Lider
-                                        Interior</h3>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <p class="text-secondary mb-0">Últimas vagas para<br> a imersão de março.</p>
-                                        <a href="#" target="_blank">
-                                            <span>Garanta sua vaga</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endwhile; ?>
                 </div>
                 <div class="slider-btn">
                     <div class="swiper-button-next"></div>
@@ -87,67 +82,89 @@ get_header();
                 </div>
             </div>
         </section>
+        <?php endif; ?>
         <!-- End hero-style2 -->
 
         <!-- about-us-sec2 -->
+        <?php 
+        $about_subtitle = get_field('about_subtitle');
+        $about_title = get_field('about_title');
+        $about_counter_number = get_field('about_counter_number');
+        $about_counter_prefix = get_field('about_counter_prefix');
+        $about_counter_suffix = get_field('about_counter_suffix');
+        $about_counter_desc = get_field('about_counter_desc');
+        $about_text = get_field('about_text');
+        $about_link = get_field('about_link');
+        
+        if( $about_title || $about_text ):
+        ?>
         <section class="about-us-sec2 ibt-section-gap">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="about-content2">
                             <div class="sec-title">
-                                <span class="sub-title">Sobre</span>
-                                <h2 class="title animated-heading">O ITK transformou a vida de milhares de pessoas nos últimos 30 anos
-                                </h2>
+                                <?php if( $about_subtitle ): ?><span class="sub-title"><?php echo esc_html($about_subtitle); ?></span><?php endif; ?>
+                                <?php if( $about_title ): ?><h2 class="title animated-heading"><?php echo nl2br(esc_html($about_title)); ?></h2><?php endif; ?>
                             </div>
+                            <?php if( $about_counter_number ): ?>
                             <div class="about-counter">
                                 <div class="counter-box4">
-                                    <span class="counter-text">+</span>
-                                    <span class="counter-text">100</span>
-                                    <span class="counter-text">mil</span>
+                                    <?php if( $about_counter_prefix ): ?><span class="counter-text"><?php echo esc_html($about_counter_prefix); ?></span><?php endif; ?>
+                                    <span class="counter-text"><?php echo esc_html($about_counter_number); ?></span>
+                                    <?php if( $about_counter_suffix ): ?><span class="counter-text"><?php echo esc_html($about_counter_suffix); ?></span><?php endif; ?>
                                 </div>
-                                <span class="solutions">Pessoas transformadas</span>
+                                <?php if( $about_counter_desc ): ?><span class="solutions"><?php echo esc_html($about_counter_desc); ?></span><?php endif; ?>
                             </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-info2">
-                            <p>O ITK Treinamentos é especializado em treinamento comportamental, desenvolvimento pessoal e crescimento, com a missão de ajudar os participantes a se conscientizarem de sua missão neste mundo. Nossos programas visam destacar as repercussões, tanto positivas quanto negativas, de cada ação, palavra e gesto, capacitando-os para gerar impactos significativos.
-
-
-                            </p>
-                            <p>Acreditamos no poder transformador das pessoas e buscamos guiá-las em sua jornada de autodescoberta e autodesenvolvimento, capacitando-as a criar um futuro mais promissor para si mesmas e para a sociedade como um todo.
-                            </p>
-                            <a href="#" title="" class="ibt-btn ibt-btn-outline">
-                                <span>Conheça o Instituto</span>
+                            <?php echo $about_text; ?>
+                            <?php if( $about_link ): ?>
+                            <a href="<?php echo esc_url($about_link['url']); ?>" target="<?php echo esc_attr($about_link['target'] ? $about_link['target'] : '_self'); ?>" title="<?php echo esc_attr($about_link['title']); ?>" class="ibt-btn ibt-btn-outline">
+                                <span><?php echo esc_html($about_link['title']); ?></span>
                                 <i class="icon-arrow-top"></i>
                             </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
         <!-- End about-us-sec2 -->
 
         <!-- testimonials-sec -->
+        <?php 
+        $testi_subtitle = get_field('testi_subtitle');
+        $testi_title = get_field('testi_title');
+        $testi_desc = get_field('testi_desc');
+        $testi_image = get_field('testi_image');
+        
+        if( have_rows('testimonials') || $testi_title ):
+        ?>
         <section class="testimonials-sec ibt-section-gapBottom">
             <div class="container2">
                 <div class="row">
                     <div class="col-lg-7">
+                        <?php if( have_rows('testimonials') ): ?>
                         <div class="swiper testi-slider">
                             <div class="swiper-wrapper">
+                                <?php while( have_rows('testimonials') ): the_row(); 
+                                    $author_logo = get_sub_field('author_logo');
+                                    $text = get_sub_field('text');
+                                    $author_details = get_sub_field('author_details');
+                                ?>
                                 <div class="swiper-slide">
-                                    <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/favicon.png" alt="AI Agency & Technology HTML Template">
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit eius aliquam sunt ipsum, quod atque suscipit, reiciendis iste culpa magni similique adipisci possimus dolores. Recusandae maxime molestias eaque officia corporis?
-                                    </p>
-                                    <span>- Nome do cliente, Cargo - Empresa</span>
+                                    <?php if( !empty($author_logo) ): ?>
+                                    <img src="<?php echo esc_url($author_logo['url']); ?>" alt="<?php echo esc_attr($author_logo['alt']); ?>">
+                                    <?php endif; ?>
+                                    <?php if( $text ): ?><p><?php echo nl2br(esc_html($text)); ?></p><?php endif; ?>
+                                    <?php if( $author_details ): ?><span><?php echo esc_html($author_details); ?></span><?php endif; ?>
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/favicon.png" alt="AI Agency & Technology HTML Template">
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit eius aliquam sunt ipsum, quod atque suscipit, reiciendis iste culpa magni similique adipisci possimus dolores. Recusandae maxime molestias eaque officia corporis?
-                                    </p>
-                                    <span>- Nome do cliente, Cargo - Empresa</span>
-                                </div>
+                                <?php endwhile; ?>
                             </div>
                             <div class="slider-btn">
                                 <!-- Navigation buttons -->
@@ -155,34 +172,45 @@ get_header();
                                 <div class="swiper-button-next"></div>
                             </div>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <div class="col-lg-5">
                         <div class="testimonial-content">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/treinamento-dpp-itk-scaled.webp" alt="AI Agency & Technology HTML Template">
+                            <?php if( !empty($testi_image) ): ?>
+                            <img src="<?php echo esc_url($testi_image['sizes']['bg-depoimentos']); ?>" alt="<?php echo esc_attr($testi_image['alt']); ?>">
+                            <?php endif; ?>
                             <div class="title-area2">
                                 <div class="sec-title white">
-                                    <span class="sub-title">depoimentos</span>
-                                    <h2 class="title animated-heading">Para quem é indicado os nossos treinamentos</h2>
+                                    <?php if( $testi_subtitle ): ?><span class="sub-title"><?php echo esc_html($testi_subtitle); ?></span><?php endif; ?>
+                                    <?php if( $testi_title ): ?><h2 class="title animated-heading"><?php echo esc_html($testi_title); ?></h2><?php endif; ?>
                                 </div>
-                                <p>Para pessoas que desejam encontrar seu propósito de vida e estão interessados em melhorar seu desenvolvimento emocional, pessoal e profissional. O ITK Treinamentos tem como principal objetivo direcionar as pessoas em uma jornada de descoberta e utilização de seu potencial interior, com foco no gerenciamento das emoções.</p>
+                                <?php if( $testi_desc ): ?><p><?php echo nl2br(esc_html($testi_desc)); ?></p><?php endif; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
         <!-- End testimonials-sec -->
 
         <!-- service-sec15 -->
+        <?php 
+        $courses_subtitle = get_field('courses_subtitle');
+        $courses_title = get_field('courses_title');
+        $courses_desc = get_field('courses_desc');
+        
+        if( have_rows('courses_list') || $courses_title ):
+        ?>
         <section class="service-sec15 ibt-section-gap bg-gray">
             <div class="title-area">
                 <div class="container">
                     <div class="row end">
                         <div class="col-lg-10">
                             <div class="sec-title mb-0">
-                                <span class="sub-title">Cursos e treinamentos</span>
-                                <h2 class="title animated-heading">Mais consciência, mais realização</h2>
-                                <p>Amplie sua percepção, sua consciência sobre o mundo, sobre si mesmo e lidere sua própria vida em direção à realização dos seus sonhos.</p>
+                                <?php if( $courses_subtitle ): ?><span class="sub-title"><?php echo esc_html($courses_subtitle); ?></span><?php endif; ?>
+                                <?php if( $courses_title ): ?><h2 class="title animated-heading"><?php echo esc_html($courses_title); ?></h2><?php endif; ?>
+                                <?php if( $courses_desc ): ?><p><?php echo nl2br(esc_html($courses_desc)); ?></p><?php endif; ?>
                             </div>
                         </div>
                         <div class="col-lg-2">
@@ -196,217 +224,225 @@ get_header();
                     </div>
                 </div>
             </div>
+            
+            <?php if( have_rows('courses_list') ): ?>
             <div class="container2">
                 <div class="swiper ser-slider15">
                     <div class="swiper-wrapper">
+                        <?php while( have_rows('courses_list') ): the_row(); 
+                            $course_image = get_sub_field('course_image');
+                            $course_link = get_sub_field('course_link');
+                            $link_url = $course_link ? esc_url($course_link['url']) : '#';
+                            $link_target = $course_link ? esc_attr($course_link['target'] ? $course_link['target'] : '_self') : '_self';
+                            $link_title = $course_link ? esc_attr($course_link['title']) : '';
+                        ?>
                         <div class="swiper-slide">
                             <div class="ser-card15">
                                 <div class="ser-img15">
-                                    <a href="#" title="">
-                                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Leader-Training.webp" alt="AI Agency & Technology HTML Template">
+                                    <a href="<?php echo $link_url; ?>" target="<?php echo $link_target; ?>" title="<?php echo $link_title; ?>">
+                                        <?php if( !empty($course_image) ): ?>
+                                        <img src="<?php echo esc_url($course_image['sizes']['card-curso']); ?>" alt="<?php echo esc_attr($course_image['alt']); ?>">
+                                        <?php endif; ?>
                                     </a>
                                 </div>
                                 <div class="ser-content15">
                                 </div>
-                                <a href="service-single.html" class="ser-btn">
+                                <a href="<?php echo $link_url; ?>" target="<?php echo $link_target; ?>" title="<?php echo $link_title; ?>" class="ser-btn">
                                     <i class="icon fontello icon-button-arrow"></i>
                                     <i class="icon2 fontello icon-button-arrow"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="ser-card15">
-                                <div class="ser-img15">
-                                    <a href="#" title="">
-                                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Leader-Training-2-1.jpg" alt="AI Agency & Technology HTML Template">
-                                    </a>
-                                </div>
-                                <div class="ser-content15">
-                                </div>
-                                <a href="service-single.html" class="ser-btn">
-                                    <i class="icon fontello icon-button-arrow"></i>
-                                    <i class="icon2 fontello icon-button-arrow"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ser-card15">
-                                <div class="ser-img15">
-                                    <a href="#" title="">
-                                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/transformacao.jpg" alt="AI Agency & Technology HTML Template">
-                                    </a>
-                                </div>
-                                <div class="ser-content15">
-                                </div>
-                                <a href="service-single.html" class="ser-btn">
-                                    <i class="icon fontello icon-button-arrow"></i>
-                                    <i class="icon2 fontello icon-button-arrow"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ser-card15">
-                                <div class="ser-img15">
-                                    <a href="#" title="">
-                                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/acreditando-em-voce.jpg" alt="AI Agency & Technology HTML Template">
-                                    </a>
-                                </div>
-                                <div class="ser-content15">
-                                </div>
-                                <a href="service-single.html" class="ser-btn">
-                                    <i class="icon fontello icon-button-arrow"></i>
-                                    <i class="icon2 fontello icon-button-arrow"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ser-card15">
-                                <div class="ser-img15">
-                                    <a href="#" title="">
-                                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/reiki.jpg" alt="AI Agency & Technology HTML Template">
-                                    </a>
-                                </div>
-                                <div class="ser-content15">
-                                </div>
-                                <a href="service-single.html" class="ser-btn">
-                                    <i class="icon fontello icon-button-arrow"></i>
-                                    <i class="icon2 fontello icon-button-arrow"></i>
-                                </a>
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </section>
+        <?php endif; ?>
         <!-- End service-sec15 -->
 
         <!-- service-sec17 -->
+        <?php 
+        $pv_subtitle = get_field('pv_subtitle');
+        $pv_title = get_field('pv_title');
+        
+        if( have_rows('pv_items') || $pv_title ):
+        ?>
     <section class="service-sec17 ibt-section-gapTop">
         <div class="container">
             <div class="sec-title">
-                <span class="sub-title">Para você</span>
-                <h2 class="title animated-heading">Materiais e experiências para você
-                </h2>
+                <?php if( $pv_subtitle ): ?><span class="sub-title"><?php echo esc_html($pv_subtitle); ?></span><?php endif; ?>
+                <?php if( $pv_title ): ?><h2 class="title animated-heading"><?php echo nl2br(esc_html($pv_title)); ?></h2><?php endif; ?>
             </div>
+            <?php if( have_rows('pv_items') ): ?>
             <div class="row">
+                <?php while( have_rows('pv_items') ): the_row(); 
+                    $icon = get_sub_field('icon');
+                    $title = get_sub_field('title');
+                    $desc = get_sub_field('desc');
+                    $link = get_sub_field('link');
+                ?>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="ser-card17">
-                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/service/ser2-2.svg" alt="AI Agency &amp; Technology HTML Template">
-                        <h4 class="title">Projeto de vida</h4>
-                        <p>Defina suas metas e construa o sucesso e a felicidade que você merece! Um projeto de vida é um guia, uma fonte, o caminho para transformar seus desejos e sonhos em realidade.
-                        </p>
-                        <a href="#" title="" class="ser-btn17">Acesse agora</a>
+                        <?php if( !empty($icon) ): ?>
+                        <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>">
+                        <?php endif; ?>
+                        <?php if( $title ): ?><h4 class="title"><?php echo esc_html($title); ?></h4><?php endif; ?>
+                        <?php if( $desc ): ?><p><?php echo nl2br(esc_html($desc)); ?></p><?php endif; ?>
+                        <?php if( $link ): ?>
+                        <a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target'] ? $link['target'] : '_self'); ?>" title="<?php echo esc_attr($link['title']); ?>" class="ser-btn17"><?php echo esc_html($link['title']); ?></a>
+                        <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="ser-card17">
-                        <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/service/ser2-3.svg" alt="AI Agency &amp; Technology HTML Template">
-                        <h4 class="title">Mandala</h4>
-                        <p>Mandalas são desenhos de formas geométricas concêntricas. Ou seja, que se desenvolvem a partir de um mesmo centro. Criar uma mandala pode ser um exercício relaxante, que promove serenidade, paz, harmonia.
-                        </p>
-                        <a href="#" title="" class="ser-btn17">Acesse agora</a>
-                    </div>
-                </div>
+                <?php endwhile; ?>
             </div>
+            <?php endif; ?>
         </div>
     </section>
+    <?php endif; ?>
     <!-- End service-sec17 -->
 
     <!-- service-sec25 -->
+    <?php 
+    $pv_banner_meditacao_img = get_field('pv_banner_meditacao_img');
+    $pv_banner_meditacao_link = get_field('pv_banner_meditacao_link');
+    
+    $pv_banner_loja_img = get_field('pv_banner_loja_img');
+    $pv_banner_loja_title = get_field('pv_banner_loja_title');
+    $pv_banner_loja_desc = get_field('pv_banner_loja_desc');
+    $pv_banner_loja_link = get_field('pv_banner_loja_link');
+    
+    if( $pv_banner_meditacao_img || $pv_banner_loja_img ):
+    ?>
     <section class="service-sec25 ibt-section-gapTop no-img-bg">
         <div class="container">
             <div class="row">
+                <?php if( $pv_banner_meditacao_img ): ?>
                 <div class="col-lg-6 col-md-6">
                     <div class="ser-card25">
-                       <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/meditacao-diaria.webp" alt="AI Agency & Technology HTML Template" class="layer"></a>
+                       <?php if($pv_banner_meditacao_link): ?><a href="<?php echo esc_url($pv_banner_meditacao_link['url']); ?>" target="<?php echo esc_attr($pv_banner_meditacao_link['target'] ? $pv_banner_meditacao_link['target'] : '_self'); ?>" title="<?php echo esc_attr($pv_banner_meditacao_link['title']); ?>"><?php endif; ?>
+                           <img src="<?php echo esc_url($pv_banner_meditacao_img['sizes']['banner-home-1']); ?>" alt="<?php echo esc_attr($pv_banner_meditacao_img['alt']); ?>" class="layer">
+                       <?php if($pv_banner_meditacao_link): ?></a><?php endif; ?>
                     </div>
                 </div>
+                <?php endif; ?>
+                
+                <?php if( $pv_banner_loja_img ): ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="ser-card25">
-                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/loja-virtual.webp" alt="AI Agency & Technology HTML Template" class="layer"></a>
+                        <?php if($pv_banner_loja_link): ?><a href="<?php echo esc_url($pv_banner_loja_link['url']); ?>" target="<?php echo esc_attr($pv_banner_loja_link['target'] ? $pv_banner_loja_link['target'] : '_self'); ?>" title="<?php echo esc_attr($pv_banner_loja_link['title']); ?>"><?php endif; ?>
+                            <img src="<?php echo esc_url($pv_banner_loja_img['sizes']['banner-home-2']); ?>" alt="<?php echo esc_attr($pv_banner_loja_img['alt']); ?>" class="layer">
+                        <?php if($pv_banner_loja_link): ?></a><?php endif; ?>
+                        
                         <div class="ser-content25">
-                            <h2 class="title3"><a href="#" title="">Pensado especialmente para você!</a></h2>
-                            <p>Conheça nossa loja virtual. Acesse já!</p>
+                            <?php if( $pv_banner_loja_title ): ?>
+                            <h2 class="title3">
+                                <?php if($pv_banner_loja_link): ?><a href="<?php echo esc_url($pv_banner_loja_link['url']); ?>" target="<?php echo esc_attr($pv_banner_loja_link['target'] ? $pv_banner_loja_link['target'] : '_self'); ?>" title="<?php echo esc_attr($pv_banner_loja_link['title']); ?>"><?php endif; ?>
+                                    <?php echo esc_html($pv_banner_loja_title); ?>
+                                <?php if($pv_banner_loja_link): ?></a><?php endif; ?>
+                            </h2>
+                            <?php endif; ?>
+                            <?php if( $pv_banner_loja_desc ): ?><p><?php echo nl2br(esc_html($pv_banner_loja_desc)); ?></p><?php endif; ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
+                
                 <div class="col-lg-2 col-md-6">
                     <div class="ser-card25_card3">
                         <div class="service-ai">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/favicon.png" alt="AI Agency & Technology HTML Template">
+                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/favicon.png" alt="Icon">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <!-- End service-sec25 -->
 
         <!-- blog-sec -->
+        <?php
+        $blog_subtitle = get_field('blog_subtitle');
+        $blog_title = get_field('blog_title');
+        $blog_link = get_field('blog_link');
+        
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+            'post_status' => 'publish'
+        );
+        $blog_query = new WP_Query($args);
+        
+        if( $blog_query->have_posts() || $blog_title ):
+        ?>
         <section class="blog-sec ibt-section-gap">
             <div class="container">
                 <div class="title-area">
                     <div class="row end">
                         <div class="col-lg-8">
                             <div class="sec-title mb-0">
-                                <span class="sub-title">Artigos e Notícias</span>
-                                <h2 class="title animated-heading">Fique por dentro das últimas matérias e novidades</h2>
+                                <?php if( $blog_subtitle ): ?><span class="sub-title"><?php echo esc_html($blog_subtitle); ?></span><?php endif; ?>
+                                <?php if( $blog_title ): ?><h2 class="title animated-heading"><?php echo esc_html($blog_title); ?></h2><?php endif; ?>
                             </div>
                         </div>
+                        <?php if( $blog_link ): ?>
                         <div class="col-lg-4">
                             <div class="sec-btn-box">
-                                <a href="#" title="" class="ibt-btn ibt-btn-outline">
-                                    <span>Acesse todos</span>
+                                <a href="<?php echo esc_url($blog_link['url']); ?>" target="<?php echo esc_attr($blog_link['target'] ? $blog_link['target'] : '_self'); ?>" title="<?php echo esc_attr($blog_link['title']); ?>" class="ibt-btn ibt-btn-outline">
+                                    <span><?php echo esc_html($blog_link['title']); ?></span>
                                     <i class="icon-arrow-top"></i>
                                 </a>
                             </div>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
+                
+                <?php if( $blog_query->have_posts() ): ?>
                 <div class="row">
+                    <?php 
+                    $post_count = 0;
+                    while( $blog_query->have_posts() ): $blog_query->the_post(); 
+                        $post_count++;
+                        $mb_class = ($post_count == 3) ? ' mb-0' : ''; // Para replicar a classe mb-0 no terceiro item
+                    ?>
                     <div class="col-lg-4 col-md-6">
-                        <div class="blog-card">
+                        <div class="blog-card<?php echo $mb_class; ?>">
                             <div class="blog-img">
-                                <a href="blog-single.html" title=""><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/blog1.webp" alt="AI Agency & Technology HTML Template"></a>
-                                <span class="blog-meta">23 de janeiro de 202</span>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                    <?php 
+                                    if( has_post_thumbnail() ) {
+                                        the_post_thumbnail('thumb-blog');
+                                    } else {
+                                        echo '<img src="' . get_template_directory_uri() . '/assets/images/blog' . $post_count . '.webp" alt="' . get_the_title() . '">';
+                                    }
+                                    ?>
+                                </a>
+                                <span class="blog-meta"><?php echo get_the_date(); ?></span>
                             </div>
                             <div class="blog-content">
-                                <h4 class="title"><a href="blog-single.html" title="">
-                                    Como se livrar de um vício psicológico</a>
+                                <h4 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                    <?php the_title(); ?></a>
                                 </h4>
-                                <span>Inteligência emocional</span>
+                                <span>
+                                    <?php
+                                    $categories = get_the_category();
+                                    if ( ! empty( $categories ) ) {
+                                        echo esc_html( $categories[0]->name );
+                                    }
+                                    ?>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="blog-single.html" title=""><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/blog2.webp" alt="AI Agency & Technology HTML Template"></a>
-                                <span class="blog-meta">17 de janeiro de 2024</span>
-                            </div>
-                            <div class="blog-content">
-                                <h4 class="title"><a href="blog-single.html" title="">O que é resiliência emocional e como desenvolver a sua</a>
-                                </h4>
-                                <span>Inteligência emocional</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-card mb-0">
-                            <div class="blog-img">
-                                <a href="blog-single.html" title=""><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/blog3.webp" alt="AI Agency & Technology HTML Template"></a>
-                                <span class="blog-meta">15 de janeiro de 2024</span>
-                            </div>
-                            <div class="blog-content">
-                                <h4 class="title"><a href="blog-single.html" title="">Ciúmes possessivo: conheça os sinais e o que fazer</a>
-                                </h4>
-                                <span>Inteligência emocional</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endwhile; wp_reset_postdata(); ?>
                 </div>
+                <?php endif; ?>
             </div>
         </section>
+        <?php endif; ?>
         <!-- End blog-sec -->
 
 <?php
