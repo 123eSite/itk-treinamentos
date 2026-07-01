@@ -8,7 +8,7 @@ Sua missão é converter o HTML estático em um Tema WordPress funcional, seguin
 # CONTEXTO E INSUMOS
 1. **HTML Estático:** Estarei fornecendo os arquivos HTML na pasta html.
 2. **Tema de Desenvolvimento:** Já copiei os assets do projeto que serão usados no tema da pasta html.
-2. **Tema de Referência:** Usaremos a estrutura de arquivos e lógica do tema de referência que anexarei (app/public/wp-content/themes/temareferencia).
+2. **Tema de Referência:** Usaremos a estrutura de arquivos e lógica do tema de referência que anexarei (wp-site/app/public/wp-content/themes/temareferencia).
 3. **Documentação:** Precisamos criar/atualizar um arquivo `DEV_GUIDE_WP.md` com as regras lógicas usadas (ex: convenções de nomes, estrutura de pastas), para replicar em projetos futuros. Gostaria de ao aplicar essa documentação em qualquer outro projeto como esse, mesmo com um layout diferente, não seja mais necessário explicar através desse prompt. Vou criar um padrão de criação de template de Wordpress.
 
 # REGRAS DE DESENVOLVIMENTO (MANDATÓRIAS)
