@@ -1,0 +1,119 @@
+{
+  "key": "group_mandalas",
+  "title": "Página Mandalas",
+  "fields": [
+    {
+      "key": "field_tab_man_banner",
+      "label": "Banner Principal",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_man_banner_bg_image",
+      "label": "Imagem de Fundo",
+      "name": "banner_bg_image",
+      "type": "image",
+      "instructions": "Proporção ideal 1920x500px (banner-internas)",
+      "return_format": "array"
+    },
+    {
+      "key": "field_man_banner_title",
+      "label": "Título do Banner",
+      "name": "banner_title",
+      "type": "text"
+    },
+    {
+      "key": "field_man_banner_watermark",
+      "label": "Marca D'água (Fundo)",
+      "name": "banner_watermark",
+      "type": "text",
+      "instructions": "Texto de fundo desfocado. Ex: ITK"
+    },
+    {
+      "key": "field_tab_man_about",
+      "label": "Sobre Mandalas",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_man_about_subtitle",
+      "label": "Subtítulo",
+      "name": "about_subtitle",
+      "type": "text",
+      "instructions": "Ex: Sobre"
+    },
+    {
+      "key": "field_man_about_title",
+      "label": "Título",
+      "name": "about_title",
+      "type": "text",
+      "instructions": "Ex: Você sabe o que são Mandalas?"
+    },
+    {
+      "key": "field_man_about_image",
+      "label": "Imagem",
+      "name": "about_image",
+      "type": "image",
+      "instructions": "Imagem que fica acima do título",
+      "return_format": "array"
+    },
+    {
+      "key": "field_man_about_text",
+      "label": "Texto",
+      "name": "about_text",
+      "type": "wysiwyg"
+    },
+    {
+      "key": "field_tab_man_download",
+      "label": "Download",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_man_download_subtitle",
+      "label": "Subtítulo",
+      "name": "download_subtitle",
+      "type": "text",
+      "instructions": "Ex: Download"
+    },
+    {
+      "key": "field_man_download_title",
+      "label": "Título",
+      "name": "download_title",
+      "type": "text",
+      "instructions": "Ex: Vamos construir Mandalas?"
+    },
+    {
+      "key": "field_man_download_form_shortcode",
+      "label": "Shortcode do Formulário",
+      "name": "download_form_shortcode",
+      "type": "text",
+      "instructions": "Cole o shortcode. Ex: [contact-form-7 id=\"123\"]"
+    },
+    {
+      "key": "field_man_download_info_title",
+      "label": "Título Lateral (Formulário)",
+      "name": "download_info_title",
+      "type": "text",
+      "instructions": "Ex: Preencha o formulário para receber a sua Mandala."
+    },
+    {
+      "key": "field_man_download_info_text",
+      "label": "Texto Lateral",
+      "name": "download_info_text",
+      "type": "wysiwyg"
+    }
+  ],
+  "location": [],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": ""
+}

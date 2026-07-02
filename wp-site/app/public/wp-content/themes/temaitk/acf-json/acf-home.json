@@ -1,0 +1,395 @@
+  {
+    "key": "group_home",
+    "title": "Home Page",
+    "fields": [
+      {
+        "key": "field_tab_hero",
+        "label": "Banner Principal",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_hero_slides",
+        "label": "Slides do Banner",
+        "name": "hero_slides",
+        "type": "repeater",
+        "layout": "block",
+        "button_label": "Adicionar Slide",
+        "sub_fields": [
+          {
+            "key": "field_hero_image",
+            "label": "Imagem de Fundo",
+            "name": "hero_image",
+            "type": "image",
+            "instructions": "Proporção ideal 1880x785px",
+            "return_format": "array"
+          },
+          {
+            "key": "field_hero_title",
+            "label": "Título",
+            "name": "hero_title",
+            "type": "textarea",
+            "rows": 3
+          },
+          {
+            "key": "field_hero_desc",
+            "label": "Descrição",
+            "name": "hero_desc",
+            "type": "textarea",
+            "rows": 2
+          },
+          {
+            "key": "field_hero_link",
+            "label": "Botão (Mais informações)",
+            "name": "hero_link",
+            "type": "link",
+            "return_format": "array"
+          },
+          {
+            "key": "field_hero_badge",
+            "label": "Texto Destaque (Badge)",
+            "name": "hero_badge",
+            "type": "text",
+            "instructions": "Ex: PRÓXIMA TURMA"
+          },
+          {
+            "key": "field_hero_date",
+            "label": "Data",
+            "name": "hero_date",
+            "type": "text",
+            "instructions": "Ex: 06 a 08 de Março"
+          },
+          {
+            "key": "field_hero_course_title",
+            "label": "Título do Curso em Destaque",
+            "name": "hero_course_title",
+            "type": "text"
+          },
+          {
+            "key": "field_hero_course_highlight",
+            "label": "Subtítulo do Curso",
+            "name": "hero_course_highlight",
+            "type": "text",
+            "instructions": "Ex: Últimas vagas para a imersão de março."
+          },
+          {
+            "key": "field_hero_course_link",
+            "label": "Botão do Curso",
+            "name": "hero_course_link",
+            "type": "link",
+            "return_format": "array"
+          }
+        ]
+      },
+      {
+        "key": "field_tab_about",
+        "label": "Sobre o Instituto",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_about_subtitle",
+        "label": "Subtítulo",
+        "name": "about_subtitle",
+        "type": "text"
+      },
+      {
+        "key": "field_about_title",
+        "label": "Título",
+        "name": "about_title",
+        "type": "textarea",
+        "rows": 2
+      },
+      {
+        "key": "field_about_counter_number",
+        "label": "Número do Contador",
+        "name": "about_counter_number",
+        "type": "text",
+        "instructions": "Ex: 100"
+      },
+      {
+        "key": "field_about_counter_prefix",
+        "label": "Prefixo do Contador",
+        "name": "about_counter_prefix",
+        "type": "text",
+        "instructions": "Ex: +"
+      },
+      {
+        "key": "field_about_counter_suffix",
+        "label": "Sufixo do Contador",
+        "name": "about_counter_suffix",
+        "type": "text",
+        "instructions": "Ex: mil"
+      },
+      {
+        "key": "field_about_counter_desc",
+        "label": "Descrição do Contador",
+        "name": "about_counter_desc",
+        "type": "text",
+        "instructions": "Ex: Pessoas transformadas"
+      },
+      {
+        "key": "field_about_text",
+        "label": "Texto sobre o Instituto",
+        "name": "about_text",
+        "type": "wysiwyg"
+      },
+      {
+        "key": "field_about_link",
+        "label": "Botão (Conheça o Instituto)",
+        "name": "about_link",
+        "type": "link",
+        "return_format": "array"
+      },
+      {
+        "key": "field_tab_testi",
+        "label": "Depoimentos",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_testi_subtitle",
+        "label": "Subtítulo",
+        "name": "testi_subtitle",
+        "type": "text"
+      },
+      {
+        "key": "field_testi_title",
+        "label": "Título",
+        "name": "testi_title",
+        "type": "text"
+      },
+      {
+        "key": "field_testi_desc",
+        "label": "Descrição",
+        "name": "testi_desc",
+        "type": "textarea",
+        "rows": 3
+      },
+      {
+        "key": "field_testi_image",
+        "label": "Imagem Lateral",
+        "name": "testi_image",
+        "type": "image",
+        "instructions": "Proporção ideal 763x569px",
+        "return_format": "array"
+      },
+      {
+        "key": "field_testimonials",
+        "label": "Depoimentos",
+        "name": "testimonials",
+        "type": "repeater",
+        "layout": "row",
+        "button_label": "Adicionar Depoimento",
+        "sub_fields": [
+          {
+            "key": "field_testi_logo",
+            "label": "Logo / Imagem",
+            "name": "author_logo",
+            "type": "image",
+            "return_format": "array"
+          },
+          {
+            "key": "field_testi_text",
+            "label": "Texto do Depoimento",
+            "name": "text",
+            "type": "textarea",
+            "rows": 3
+          },
+          {
+            "key": "field_testi_author",
+            "label": "Autor e Cargo",
+            "name": "author_details",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "key": "field_tab_courses",
+        "label": "Cursos e Treinamentos",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_courses_subtitle",
+        "label": "Subtítulo",
+        "name": "courses_subtitle",
+        "type": "text"
+      },
+      {
+        "key": "field_courses_title",
+        "label": "Título",
+        "name": "courses_title",
+        "type": "text"
+      },
+      {
+        "key": "field_courses_desc",
+        "label": "Descrição",
+        "name": "courses_desc",
+        "type": "textarea",
+        "rows": 2
+      },
+      {
+        "key": "field_courses_list",
+        "label": "Lista de Cursos",
+        "name": "courses_list",
+        "type": "repeater",
+        "layout": "table",
+        "button_label": "Adicionar Curso",
+        "sub_fields": [
+          {
+            "key": "field_course_image",
+            "label": "Imagem do Curso",
+            "name": "course_image",
+            "type": "image",
+            "instructions": "Proporção ideal 400x400px",
+            "return_format": "array"
+          },
+          {
+            "key": "field_course_link",
+            "label": "Link do Curso",
+            "name": "course_link",
+            "type": "link",
+            "return_format": "array"
+          }
+        ]
+      },
+      {
+        "key": "field_tab_pv",
+        "label": "Para Você",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_pv_subtitle",
+        "label": "Subtítulo",
+        "name": "pv_subtitle",
+        "type": "text"
+      },
+      {
+        "key": "field_pv_title",
+        "label": "Título",
+        "name": "pv_title",
+        "type": "text"
+      },
+      {
+        "key": "field_pv_items",
+        "label": "Itens (Projeto de Vida, Mandala, etc)",
+        "name": "pv_items",
+        "type": "repeater",
+        "layout": "block",
+        "button_label": "Adicionar Item",
+        "sub_fields": [
+          {
+            "key": "field_pv_icon",
+            "label": "Ícone / Imagem",
+            "name": "icon",
+            "type": "image",
+            "return_format": "array"
+          },
+          {
+            "key": "field_pv_item_title",
+            "label": "Título",
+            "name": "title",
+            "type": "text"
+          },
+          {
+            "key": "field_pv_item_desc",
+            "label": "Descrição",
+            "name": "desc",
+            "type": "textarea",
+            "rows": 3
+          },
+          {
+            "key": "field_pv_item_link",
+            "label": "Botão/Link",
+            "name": "link",
+            "type": "link",
+            "return_format": "array"
+          }
+        ]
+      },
+      {
+        "key": "field_pv_banner_meditacao_img",
+        "label": "Imagem Banner 1 (Ex: Meditação)",
+        "name": "pv_banner_meditacao_img",
+        "type": "image",
+        "instructions": "Proporção ideal 686x485px",
+        "return_format": "array"
+      },
+      {
+        "key": "field_pv_banner_meditacao_link",
+        "label": "Link Banner 1",
+        "name": "pv_banner_meditacao_link",
+        "type": "link",
+        "return_format": "array"
+      },
+      {
+        "key": "field_pv_banner_loja_img",
+        "label": "Imagem Banner 2 (Ex: Loja Virtual)",
+        "name": "pv_banner_loja_img",
+        "type": "image",
+        "instructions": "Proporção ideal 362x485px",
+        "return_format": "array"
+      },
+      {
+        "key": "field_pv_banner_loja_title",
+        "label": "Título Banner 2",
+        "name": "pv_banner_loja_title",
+        "type": "text"
+      },
+      {
+        "key": "field_pv_banner_loja_desc",
+        "label": "Descrição Banner 2",
+        "name": "pv_banner_loja_desc",
+        "type": "text"
+      },
+      {
+        "key": "field_pv_banner_loja_link",
+        "label": "Link Banner 2",
+        "name": "pv_banner_loja_link",
+        "type": "link",
+        "return_format": "array"
+      },
+      {
+        "key": "field_tab_blog",
+        "label": "Blog",
+        "name": "",
+        "type": "tab",
+        "placement": "top"
+      },
+      {
+        "key": "field_blog_subtitle",
+        "label": "Subtítulo",
+        "name": "blog_subtitle",
+        "type": "text"
+      },
+      {
+        "key": "field_blog_title",
+        "label": "Título",
+        "name": "blog_title",
+        "type": "text"
+      },
+      {
+        "key": "field_blog_link",
+        "label": "Botão (Acesse Todos)",
+        "name": "blog_link",
+        "type": "link",
+        "return_format": "array"
+      }
+    ],
+    "location": [],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }

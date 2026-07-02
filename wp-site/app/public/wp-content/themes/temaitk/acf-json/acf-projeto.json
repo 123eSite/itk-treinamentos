@@ -1,0 +1,165 @@
+{
+  "key": "group_projeto_vida",
+  "title": "Página Projeto de Vida",
+  "fields": [
+    {
+      "key": "field_tab_pv_banner",
+      "label": "Banner Principal",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_pv_banner_bg_image",
+      "label": "Imagem de Fundo",
+      "name": "banner_bg_image",
+      "type": "image",
+      "instructions": "Proporção ideal 1920x500px (banner-internas)",
+      "return_format": "array"
+    },
+    {
+      "key": "field_pv_banner_title",
+      "label": "Título do Banner",
+      "name": "banner_title",
+      "type": "text"
+    },
+    {
+      "key": "field_pv_banner_watermark",
+      "label": "Marca D'água (Fundo)",
+      "name": "banner_watermark",
+      "type": "text",
+      "instructions": "Texto de fundo desfocado. Ex: ITK"
+    },
+    {
+      "key": "field_tab_pv_hero",
+      "label": "Destaque Inicial (Hero)",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_pv_hero_title",
+      "label": "Título Hero",
+      "name": "hero_title",
+      "type": "text",
+      "instructions": "Ex: Defina suas metas..."
+    },
+    {
+      "key": "field_pv_hero_text",
+      "label": "Texto Hero",
+      "name": "hero_text",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Ex: Qual o seu sonho? O que você deseja realizar?"
+    },
+    {
+      "key": "field_tab_pv_about",
+      "label": "Propósito e Direção",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_pv_about_subtitle",
+      "label": "Subtítulo",
+      "name": "about_subtitle",
+      "type": "text",
+      "instructions": "Ex: Propósito e Direção"
+    },
+    {
+      "key": "field_pv_about_title",
+      "label": "Título",
+      "name": "about_title",
+      "type": "text",
+      "instructions": "Ex: Transforme seus sonhos em realidade"
+    },
+    {
+      "key": "field_pv_about_text",
+      "label": "Texto",
+      "name": "about_text",
+      "type": "wysiwyg"
+    },
+    {
+      "key": "field_pv_about_image",
+      "label": "Imagem",
+      "name": "about_image",
+      "type": "image",
+      "instructions": "Proporção ideal 750x750px (img-half)",
+      "return_format": "array"
+    },
+    {
+      "key": "field_tab_pv_steps",
+      "label": "Como Funciona & Formulário",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_pv_steps_subtitle",
+      "label": "Subtítulo",
+      "name": "steps_subtitle",
+      "type": "text",
+      "instructions": "Ex: Seu projeto de vida"
+    },
+    {
+      "key": "field_pv_steps_title",
+      "label": "Título",
+      "name": "steps_title",
+      "type": "text",
+      "instructions": "Ex: Como funciona?"
+    },
+    {
+      "key": "field_pv_steps_form_title",
+      "label": "Título do Formulário",
+      "name": "steps_form_title",
+      "type": "text",
+      "instructions": "Ex: Preencha o formulário para receber..."
+    },
+    {
+      "key": "field_pv_steps_form_shortcode",
+      "label": "Shortcode do Formulário",
+      "name": "steps_form_shortcode",
+      "type": "text",
+      "instructions": "Cole o shortcode do Contact Form 7 ou outro plugin. Ex: [contact-form-7 id=\"123\" title=\"Projeto\"]"
+    },
+    {
+      "key": "field_pv_steps_list",
+      "label": "Passos",
+      "name": "steps_list",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Adicionar Passo",
+      "sub_fields": [
+        {
+          "key": "field_pv_step_icon",
+          "label": "Ícone",
+          "name": "step_icon",
+          "type": "image",
+          "return_format": "array"
+        },
+        {
+          "key": "field_pv_step_title",
+          "label": "Título do Passo",
+          "name": "step_title",
+          "type": "text"
+        },
+        {
+          "key": "field_pv_step_text",
+          "label": "Texto do Passo",
+          "name": "step_text",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    }
+  ],
+  "location": [],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": ""
+}

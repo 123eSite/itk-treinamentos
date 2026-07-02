@@ -1,765 +1,226 @@
-﻿<?php
+<?php
 get_header();
 ?>
 
-<!-- page-banner9 -->
+        <!-- page-banner9 -->
+        <?php
+        $banner_bg_image = get_field('banner_bg_image');
+        $banner_title = get_field('banner_title');
+        $banner_watermark = get_field('banner_watermark');
+        
+        if ( $banner_title || $banner_bg_image ):
+        ?>
         <section class="bread-crums-section">
             <div class="container2">
                 <div class="page-banner11">
-                    <img class="bg" src="<?php bloginfo( 'template_url' ); ?>/assets/images/bg-banner-o-instituto.webp" alt="">
+                    <?php if( !empty($banner_bg_image) ): ?>
+                    <img class="bg" src="<?php echo esc_url($banner_bg_image['sizes']['banner-internas']); ?>" alt="<?php echo esc_attr($banner_bg_image['alt']); ?>">
+                    <?php endif; ?>
                     <div class="shape"></div>
                     <div class="shape3"></div>
-                    <div class="staff-text">ITK</div>
+                    <?php if( $banner_watermark ): ?>
+                    <div class="staff-text"><?php echo esc_html($banner_watermark); ?></div>
+                    <?php endif; ?>
                     <div class="page-content">
-                        <h1 class="title">O Instituto</h1>
+                        <?php if( $banner_title ): ?>
+                        <h1 class="title"><?php echo esc_html($banner_title); ?></h1>
+                        <?php endif; ?>
                     </div>
                     <ul class="breadcrumbs">
-                        <li><a href="index.html" title="">Home</a></li>
+                        <li><a href="<?php echo home_url(); ?>" title="Home">Home</a></li>
                         <li>/</li>
-                        <li>O Instituto</li>
+                        <li><?php echo $banner_title ? esc_html($banner_title) : get_the_title(); ?></li>
                     </ul>
                 </div>
             </div>
         </section>
+        <?php endif; ?>
         <!-- End page-banner9 -->
 
-        <!-- about-us-sec2 -->
-
         <!-- about-us-sec6 -->
+        <?php
+        $about_subtitle = get_field('about_subtitle');
+        $about_title = get_field('about_title');
+        $about_text = get_field('about_text');
+        
+        if ( have_rows('counters_list') || $about_title || $about_text ):
+        ?>
         <section class="about-us-sec6 ibt-section-gap">
             <div class="container">
                 <div class="row align-items-end">
+                    <?php if ( have_rows('counters_list') ): ?>
                     <div class="col-xl-4 col-lg-5">
                         <div class="about-counter6">
+                            <?php while( have_rows('counters_list') ): the_row(); 
+                                $counter_prefix = get_sub_field('counter_prefix');
+                                $counter_number = get_sub_field('counter_number');
+                                $counter_suffix = get_sub_field('counter_suffix');
+                                $counter_title = get_sub_field('counter_title');
+                            ?>
                             <div class="about-counter-content6">
                                 <div class="counter-box15">
-                                    <span class="counter-text">+</span>
-                                    <span class="counter-number percent-counter2" data-target="105">0</span>
-                                    <span class="counter-text">mil</span>
+                                    <?php if( $counter_prefix ): ?><span class="counter-text"><?php echo esc_html($counter_prefix); ?></span><?php endif; ?>
+                                    <span class="counter-number percent-counter2" data-target="<?php echo esc_attr($counter_number); ?>">0</span>
+                                    <?php if( $counter_suffix ): ?><span class="counter-text"><?php echo esc_html($counter_suffix); ?></span><?php endif; ?>
                                 </div>
-                                <span class="title">Pessoas treinadas</span>
+                                <?php if( $counter_title ): ?><span class="title"><?php echo esc_html($counter_title); ?></span><?php endif; ?>
                             </div>
-                            <div class="about-counter-content6">
-                                <div class="counter-box15">
-                                    <span class="counter-text">+</span>
-                                    <span class="counter-number percent-counter2" data-target="1200">0</span>
-                                </div>
-                                <span class="title">Treinamentos Leader Training</span>
-                            </div>
-                            <div class="about-counter-content6">
-                                <div class="counter-box15">
-                                    <span class="counter-text">+</span>
-                                    <span class="counter-number percent-counter2" data-target="450">0</span>
-                                    <span class="counter-text">mil</span>
-                                </div>
-                                <span class="title">Seguidores nas redes sociais</span>
-                            </div>
+                            <?php endwhile; ?>
                         </div>
                     </div>
-                    <div class="col-xl-8 col-lg-7">
+                    <?php endif; ?>
+                    
+                    <div class="<?php echo have_rows('counters_list') ? 'col-xl-8 col-lg-7' : 'col-12'; ?>">
                         <div class="about-content6">
                             <div class="sec-title">
-                                <span class="sub-title">Sobre</span>
-                                <h2 class="title animated-heading">Conheça a história do ITK Treinamentos
-                                </h2>
+                                <?php if( $about_subtitle ): ?><span class="sub-title"><?php echo esc_html($about_subtitle); ?></span><?php endif; ?>
+                                <?php if( $about_title ): ?><h2 class="title animated-heading"><?php echo nl2br(esc_html($about_title)); ?></h2><?php endif; ?>
                             </div>
-                            <p>A história do ITK Treinamentos tem início em 2001 e é, na essência, a história do
-                                seu idealizador e fundador, Tadashi Kadomoto.
-                                Desde 1982, Tadashi Kadomoto já ministrava treinamentos para a área comercial,
-                                quando então tomou consciência de sua missão de vida: contribuir efetivamente
-                                para despertar nas pessoas o desejo da vida e a sua capacidade de ser feliz.
-                            </p>
-                            <p>Para Tadashi, apenas o fato de existir já pressupõe um agradecimento que, para
-                                ele, deveria ser transformado em ajuda ao próximo, para que ele pudesse viver
-                                bem consigo mesmo e em grupo. Dessa forma, inicia-se uma trajetória plena de
-                                amor ao próximo.
-                            </p>
-                            <p>O auto-conhecimento é o cerne da história de Tadashi e do ITK. Nesse caminho, o
-                                Instituto busca, com sua equipe multidisciplinar qualificada, contribuir para
-                                que alguém respire melhor, seja por um sorriso, uma vivência, um abraço ou mesmo
-                                uma flor. Como visão de futuro, o Instituto almeja ser um agente catalizador das
-                                coisas boas, na esperança de trazer mais amor às pessoas e Paz ao mundo.
-                            </p>
-                            <p>Assim, toda sua equipe, coordenada e inspirada pelo exemplo do seu fundador,
-                                trabalha para fazer seu papel transformador na vida das pessoas que procuram o
-                                Instituto, construindo assim um alicerce sólido, baseado na afetividade, na
-                                permanente troca, na solidariedade e no bem-viver.
-                            </p>
+                            <?php echo $about_text; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End about-us-sec2 -->
+        <?php endif; ?>
+        <!-- End about-us-sec6 -->
 
-        <!-- service-sec15 -->
+        <!-- service-sec15 (Gallery) -->
+        <?php if( have_rows('gallery_images') ): ?>
         <div class="carousel-gallery">
             <div class="container2">
                 <div class="swiper">
                     <div class="swiper-wrapper">
+                        <?php while( have_rows('gallery_images') ): the_row(); 
+                            $image = get_sub_field('image');
+                            if( !empty($image) ):
+                        ?>
                         <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria1.jpg" alt="Galeria">
+                            <img src="<?php echo esc_url($image['sizes']['img-galeria']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                         </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria2.jpg" alt="Galeria">
+                        <?php 
+                            endif;
+                        endwhile; 
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <!-- End service-sec15 -->
+
+        <!-- service-sec22 -->
+        <?php
+        $transpessoal_title = get_field('transpessoal_title');
+        $transpessoal_text = get_field('transpessoal_text');
+        $transpessoal_quote = get_field('transpessoal_quote');
+        $transpessoal_image = get_field('transpessoal_image');
+        
+        if ( $transpessoal_title || $transpessoal_text || $transpessoal_image ):
+        ?>
+        <section class="service-sec22 ibt-section-gap">
+            <div class="container3">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="ser-card22">
+                            <div class="ser-content22">
+                                <?php if( $transpessoal_title ): ?><h4 class="title"><?php echo esc_html($transpessoal_title); ?></h4><?php endif; ?>
+                                <?php echo $transpessoal_text; ?>
+                            </div>
                         </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria3.jpg" alt="Galeria">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria4.jpg" alt="Galeria">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria1.jpg" alt="Galeria">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria2.jpg" alt="Galeria">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria3.jpg" alt="Galeria">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/galeria4.jpg" alt="Galeria">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="ser-card22 v2">
+                            <?php if( !empty($transpessoal_image) ): ?>
+                            <img src="<?php echo esc_url($transpessoal_image['sizes']['img-half']); ?>" alt="<?php echo esc_attr($transpessoal_image['alt']); ?>">
+                            <?php endif; ?>
+                            <?php if( $transpessoal_quote ): ?>
+                            <div class="inner-content2">
+                                <h4 class="profection">
+                                    <?php echo nl2br(esc_html($transpessoal_quote)); ?>
+                                </h4>
+                            </div>
+                            <?php endif; ?>
+                            <div class="ser-video-box">
+                                <!-- Box used for video/spacing optionally in layout -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </section>
-            <!-- End service-sec15 -->
+        </section>
+        <?php endif; ?>
+        <!-- End service-sec22 -->
 
-            <!-- service-sec22 -->
-            <section class="service-sec22 ibt-section-gap">
-                <div class="container3">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                            <div class="ser-card22">
-                                <div class="ser-content22">
-                                    <!-- <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/layers/corss2.png" alt="AI Agency & Technology HTML Template" class="cross"> -->
-                                    <h4 class="title">O que é Psicologia Transpessoal?</h4>
-                                    <p>A Psicologia Transpessoal estuda os diferentes níveis de consciência e suas
-                                        relações com a percepção de realidade, crenças, valores, ação, doença e saúde
-                                        das pessoas. Nesse processo, evidencia uma fase adiantada da evolução humana,
-                                        posterior à instintiva, emocional e mental. Fundamentada em 1986 por Abraham
-                                        Maslow, James Fadiman, S. Grof, Victor Frankl e Antony Sutich, propicia,
-                                        simultaneamente, uma nova perspectiva diante da ciência e da religião.
-
-
-                                    </p>
-                                    <p>Vê o homem como um ser bio-psico-social e cósmico, reestabelecendo a
-                                        possibilidade de se viver a unidade fundamental, homem-cosmo. Inclui os aspectos
-                                        do desenvolvimento psíquico já estabelecidos pela psicologia clássica,
-                                        ampliando-os. Trabalha com o ser humano, de forma ampla, permitindo sua plena
-                                        integração e constante evolução e transformação.
-                                    </p>
-                                    <p>Atuando com a Psicologia Transpessoal o profissional conta com o conhecimento e o
-                                        aprendizado dos conceitos de Psicologia e Psicoterapia Transpessoal, além do
-                                        contato com as várias dimensões da consciência humana e suas aplicações na
-                                        psicologia.</p>
-                                </div>
+        <!-- team-section2 -->
+        <?php
+        $team_subtitle = get_field('team_subtitle');
+        $team_title = get_field('team_title');
+        $team_text = get_field('team_text');
+        
+        if( have_rows('team_members') || $team_title ):
+        ?>
+        <section class="team-section2 ibt-section-gap">
+            <div class="container3">
+                <div class="title-area">
+                    <div class="row align-items-end mb-0">
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="sec-title">
+                                <?php if( $team_subtitle ): ?><span class="sub-title"><?php echo esc_html($team_subtitle); ?></span><?php endif; ?>
+                                <?php if( $team_title ): ?><h2 class="title animated-heading"><?php echo esc_html($team_title); ?></h2><?php endif; ?>
                             </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                            <div class="ser-card22 v2">
-                                <img src="<?php bloginfo( 'template_url' ); ?>/assets/images/imagens-site/750x750/750x750.png"
-                                    alt="AI Agency & Technology HTML Template">
-                                <div class="inner-content2">
-                                    <h4 class="profection">
-                                        “Que haja amor, compaixão e paz
-                                        entre todos os seres do universo.”
-                                    </h4>
-
-                                </div>
-                                <div class="ser-video-box">
-
-                                </div>
-                            </div>
+                            <?php if( $team_text ): ?><p><?php echo nl2br(esc_html($team_text)); ?></p><?php endif; ?>
                         </div>
                     </div>
                 </div>
-            </section>
-
-
-            <!-- team-section2 -->
-            <section class="team-section2 ibt-section-gap">
-                <div class="container3">
-                    <div class="title-area">
-                        <div class="row align-items-end mb-0">
-                            <div class="col-xl-8 col-lg-8">
-                                <div class="sec-title">
-                                    <span class="sub-title">Nosso time</span>
-                                    <h2 class="title animated-heading">Equipe ITK Treinamentos</h2>
-
+                
+                <?php if( have_rows('team_members') ): ?>
+                <div class="row justify-content-center">
+                    <?php while( have_rows('team_members') ): the_row(); 
+                        $member_image = get_sub_field('member_image');
+                        $member_name = get_sub_field('member_name');
+                        $member_role = get_sub_field('member_role');
+                        $member_linkedin = get_sub_field('member_linkedin');
+                        $member_instagram = get_sub_field('member_instagram');
+                    ?>
+                    <div class="col-lg-5-cols col-md-6 col-sm-6">
+                        <div class="team-member2">
+                            <div class="team-card">
+                                <div class="team-img">
+                                    <a href="#">
+                                        <?php if( !empty($member_image) ): ?>
+                                        <img src="<?php echo esc_url($member_image['sizes']['foto-equipe']); ?>" alt="<?php echo esc_attr($member_image['alt']); ?>">
+                                        <?php endif; ?>
+                                    </a>
+                                    <div class="team-shap"></div>
                                 </div>
-                                <p>Nossa equipe de terapeutas é apaixonada por ajudar pessoas a alcançar o bem-estar.
-                                    Com
-                                    experiência e compromisso, eles oferecem suporte terapêutico personalizado para
-                                    promover
-                                    transformação e crescimento pessoal.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Amine-Tarek-scaled.jpg"
-                                                alt="Equipe ITK - Amine Tarek"></a>
-                                        <div class="team-shap"></div>
+                                <div class="team-content">
+                                    <?php if( $member_linkedin || $member_instagram ): ?>
+                                    <div class="share-box">
+                                        <span class="share-icon fa fa-share-alt"></span>
+                                        <ul class="social-links">
+                                            <?php if( $member_linkedin ): ?>
+                                            <li><a href="<?php echo esc_url($member_linkedin); ?>" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                                            <?php endif; ?>
+                                            <?php if( $member_instagram ): ?>
+                                            <li><a href="<?php echo esc_url($member_instagram); ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                            <?php endif; ?>
+                                        </ul>
                                     </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Amine Tarek</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img
-                                                src="<?php bloginfo( 'template_url' ); ?>/assets/images/Bruno-Cesar-Malatrasi-Silva_Easy-Resize.com_-e1756331126781-773x1024.jpg"
-                                                alt="Equipe ITK - Bruno Malatrasi"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Bruno Malatrasi</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img
-                                                src="<?php bloginfo( 'template_url' ); ?>/assets/images/Carla-Nacif-Kadomoto_Easy-Resize.com_-e1756331143495-773x1024.jpg"
-                                                alt="Equipe ITK - Carla Nacif Kadomoto"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Carla Nacif Kadomoto</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img
-                                                src="<?php bloginfo( 'template_url' ); ?>/assets/images/Carlos-Roberto-S.-M.-Ciarlo_Easy-Resize.com_.jpg"
-                                                alt="Equipe ITK - Carlos Roberto S. M. Ciarlo"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Carlos Roberto S. M. Ciarlo</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Elaine-Lopes_Easy-Resize.com_.jpg"
-                                                alt="Equipe ITK - Elaine Lopes"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Elaine Lopes</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Evelin-Elias_Easy-Resize.com_.jpg"
-                                                alt="Equipe ITK - Evelin Elias"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Evelin Elias</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Faustto-Oswaldo-de-Rosa-scaled.jpg"
-                                                alt="Equipe ITK - Faustto Rosa"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Faustto Rosa</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Felipe-Zillo-scaled.jpg"
-                                                alt="Equipe ITK - Felipe Zillo"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Felipe Zillo</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/itk-treinamentos-equipe-flavia-tonissi.jpg"
-                                                alt="Equipe ITK - Flávia Tonissi Arnosti"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Flávia Tonissi Arnosti</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img
-                                                src="<?php bloginfo( 'template_url' ); ?>/assets/images/Gerson-Ramos-de-Almeida_Easy-Resize.com_.jpg"
-                                                alt="Equipe ITK - Gerson Ramos de Almeida"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Gerson Ramos de Almeida</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/itk-treinamentos-equipe-heloisa-helena.jpg"
-                                                alt="Equipe ITK - Heloisa Helena Lacerda Calil"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Heloisa Helena Lacerda Calil</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Ingrid-Prates-scaled.jpg"
-                                                alt="Equipe ITK - Ingrid Prates"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Ingrid Prates</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Ivana-Rodrigues_Easy-Resize.com_.jpg"
-                                                alt="Equipe ITK - Ivana Rodrigues"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Ivana Rodrigues</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Joao-de-Souza-Filho_Easy-Resize.com_.jpg"
-                                                alt="Equipe ITK - João de Souza Filho"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">João de Souza Filho</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Julia-Nacif-Kadomoto-scaled.jpg"
-                                                alt="Equipe ITK - Julia Kadomoto"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Julia Kadomoto</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/itk-treinamentos-equipe-maria-gomes.jpg"
-                                                alt="Equipe ITK - Maria Gomes de Carvalho Filha"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Maria Gomes de Carvalho Filha</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/itk-treinamentos-maria-tereza-vitor.jpg"
-                                                alt="Equipe ITK - Maria Tereza Vitor"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Maria Tereza Vitor</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Mariene-Rodrigues-scaled.jpg"
-                                                alt="Equipe ITK - Mariene Rodrigues"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Mariene Rodrigues</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Nielson-Roberto-Santana-scaled.jpg"
-                                                alt="Equipe ITK - Nielson Brambati"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Nielson Brambati</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img
-                                                src="<?php bloginfo( 'template_url' ); ?>/assets/images/Rafael-Kadomoto_Easy-Resize.com_-e1756331105600-773x1024.jpg"
-                                                alt="Equipe ITK - Rafael Kadomoto"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Rafael Kadomoto</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/itk-treinamentos-equipe-robson-hamuche.jpg"
-                                                alt="Equipe ITK - Robson Hamuche"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Robson Hamuche</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Tadashi-Kadomoto-scaled-e1756330599930.jpg"
-                                                alt="Equipe ITK - Tadashi Kadomoto"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Tadashi Kadomoto</a></h4>
-                                        <span class="designation">Cargo/Profissão</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5-cols col-md-6 col-sm-6">
-                            <div class="team-member2">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/assets/images/Valdir-Pinto-de-Souza-Junior-scaled.jpg"
-                                                alt="Equipe ITK - Valdir Pinto de Souza Júnior"></a>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.instagram.com/" target="_blank" title=""><i
-                                                            class="fab fa-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href="#" title="">Valdir Pinto de Souza Júnior</a></h4>
-                                        <span class="designation">Terapeuta</span>
-                                    </div>
+                                    <?php endif; ?>
+                                    <?php if( $member_name ): ?><h4 class="name"><a href="#" title=""><?php echo esc_html($member_name); ?></a></h4><?php endif; ?>
+                                    <?php if( $member_role ): ?><span class="designation"><?php echo esc_html($member_role); ?></span><?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php endwhile; ?>
                 </div>
-            </section>
-            <!-- End team-section2 -->
+                <?php endif; ?>
+            </div>
+        </section>
+        <?php endif; ?>
+        <!-- End team-section2 -->
 
 <?php
 get_footer();
