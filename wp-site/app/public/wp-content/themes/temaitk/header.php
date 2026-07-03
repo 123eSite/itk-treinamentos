@@ -16,6 +16,21 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php
+    // Opções Globais do Tema
+    $logo_header = get_field('logo_header', 'option');
+    $link_loja = get_field('link_loja', 'option');
+    $telefone_1 = get_field('telefone_1', 'option');
+    $telefone_2 = get_field('telefone_2', 'option');
+    $email_contato = get_field('email_contato', 'option');
+    
+    $url_facebook = get_field('url_facebook', 'option');
+    $url_instagram = get_field('url_instagram', 'option');
+    $url_youtube = get_field('url_youtube', 'option');
+    
+    // Fallback Logo
+    $logo_src = !empty($logo_header) ? $logo_header['url'] : get_template_directory_uri() . '/assets/images/logos/logo-itk-positivo.png';
+    ?>
     <div class="wrapper">
 
         <div class="video-modal">
@@ -27,9 +42,9 @@
         <!-- search-popup -->
         <div class="search-popup" data-popup="1">
             <div class="search-popup-content">
-                <form>
+                <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                    <input type="text" placeholder="O que está pesquisando?" required>
+                    <input type="text" name="s" placeholder="O que está pesquisando?" value="<?php echo get_search_query(); ?>" required>
                 </form>
             </div>
         </div>
@@ -50,15 +65,19 @@
             ?>
             <div class="menu-contact">
                 <span>Mais informações</span>
-                <a href="#" class="nmbr" title="(19) 99722-2250">(19) 99722-2250</a>
-                <a href="mailto:itk@itktreinamentos.com.br" title="" class="gmail">itk@itktreinamentos.com.br</a>
+                <?php if($telefone_2): ?>
+                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $telefone_2)); ?>" class="nmbr" title="<?php echo esc_attr($telefone_2); ?>"><?php echo esc_html($telefone_2); ?></a>
+                <?php endif; ?>
+                <?php if($email_contato): ?>
+                <a href="mailto:<?php echo esc_attr($email_contato); ?>" title="" class="gmail"><?php echo esc_html($email_contato); ?></a>
+                <?php endif; ?>
             </div>
             <div class="menu-links">
                 <span>Siga a gente:</span>
                 <ul class="social-icon">
-                    <li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#" title=""><i class="fab fa-youtube"></i></a></li>
+                    <?php if($url_facebook): ?><li><a href="<?php echo esc_url($url_facebook); ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                    <?php if($url_instagram): ?><li><a href="<?php echo esc_url($url_instagram); ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li><?php endif; ?>
+                    <?php if($url_youtube): ?><li><a href="<?php echo esc_url($url_youtube); ?>" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a></li><?php endif; ?>
                 </ul>
                 <a href="#contato" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
                     <span>Fale Conosco</span>
@@ -74,8 +93,8 @@
                 <div class="row gx-20 align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="#">
-                                <img width="300" src="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/logo-itk-positivo.png" alt="logo">
+                            <a href="<?php echo home_url(); ?>">
+                                <img width="300" src="<?php echo esc_url($logo_src); ?>" alt="logo">
                             </a>
                         </div>
                     </div>
@@ -115,23 +134,29 @@
                 <div class="container-fluid">
                     <div class="header-top-content4">
                         <ul class="top-bar-socials">
-                            <li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" title=""><i class="fab fa-youtube"></i></a></li>
+                            <?php if($url_facebook): ?><li><a href="<?php echo esc_url($url_facebook); ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                            <?php if($url_instagram): ?><li><a href="<?php echo esc_url($url_instagram); ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li><?php endif; ?>
+                            <?php if($url_youtube): ?><li><a href="<?php echo esc_url($url_youtube); ?>" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a></li><?php endif; ?>
                         </ul>
                         <ul class="top-bar-contacts">
+                            <?php if($telefone_2): ?>
                             <li>
                                 <i class="fab fa-whatsapp"></i>
-                                <a href="tel:+18005291037">(19) 99722-2250</a>
+                                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $telefone_2)); ?>"><?php echo esc_html($telefone_2); ?></a>
                             </li>
+                            <?php endif; ?>
+                            <?php if($email_contato): ?>
                             <li>
                                 <i class="far fa-envelope"></i>
-                                <a href="mailto:itk@itktreinamentos.com.br">itk@itktreinamentos.com.br</a>
+                                <a href="mailto:<?php echo esc_attr($email_contato); ?>"><?php echo esc_html($email_contato); ?></a>
                             </li>
+                            <?php endif; ?>
+                            <?php if($link_loja): ?>
                             <li>
                                 <i class="fas fa-bag-shopping"></i>
-                                <a href="#">Acesse nossa loja</a>
+                                <a href="<?php echo esc_url($link_loja['url']); ?>" target="<?php echo esc_attr($link_loja['target']); ?>"><?php echo esc_html($link_loja['title'] ?: 'Acesse nossa loja'); ?></a>
                             </li>
+                            <?php endif; ?>
                         </ul>
 
                     </div>
@@ -144,8 +169,8 @@
                         <div class="row gx-20 align-items-center justify-content-between">
                             <div class="col-auto">
                                 <div class="header-logo">
-                                    <a href="#">
-                                        <img width="300" src="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/logo-itk-positivo.png" alt="logo">
+                                    <a href="<?php echo home_url(); ?>">
+                                        <img width="300" src="<?php echo esc_url($logo_src); ?>" alt="logo">
                                     </a>
                                 </div>
                             </div>

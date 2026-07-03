@@ -1,20 +1,55 @@
 <?php
 /**
- * Script de Importação — Página Inicial (Home) TNS Summit
- * ========================================================
+ * Script de Importação — Página Inicial (Home) - ITK
+ * ====================================================
  * Como executar (no shell do LocalWP):
- *   wp eval-file "D:\Clientes\Localsites\TNS-Summit\_scripts\import-home.php" --path="D:\Clientes\Localsites\TNS-Summit\wp\app\public"
- *
- * Imagens, ícones e vídeos serão inseridos manualmente pelo painel.
+ *   wp eval-file "D:\Clientes\Localsites\itk-treinamentos\_scripts\import-home.php" --path="D:\Clientes\Localsites\itk-treinamentos\wp-site\app\public"
  */
+
+// ─── Helper de importação de imagem ──────────────────────────────────────────
+function _import_theme_image( string $filename, string $title ): int {
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+
+    // A pasta de imagens do tema ITK é /assets/images/
+    $src = get_template_directory() . '/assets/images/' . ltrim( $filename, '/' );
+    if ( ! file_exists( $src ) ) { echo "  ⚠  Não encontrado: $filename\n"; return 0; }
+
+    $slug     = sanitize_title( pathinfo( $filename, PATHINFO_FILENAME ) );
+    $existing = get_posts( [ 'post_type' => 'attachment', 'post_status' => 'any', 'name' => $slug, 'posts_per_page' => 1 ] );
+    if ( $existing ) { echo "  ↩  Já importado: $filename (ID: {$existing[0]->ID})\n"; return (int) $existing[0]->ID; }
+
+    // Permite SVG temporariamente
+    $allow_svg = function( $mimes ) { $mimes['svg'] = 'image/svg+xml'; return $mimes; };
+    add_filter( 'upload_mimes', $allow_svg );
+    add_filter( 'wp_check_filetype_and_ext', function( $data, $file, $filename ) {
+        if ( strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) ) === 'svg' ) {
+            $data['ext'] = 'svg'; $data['type'] = 'image/svg+xml';
+        }
+        return $data;
+    }, 10, 3 );
+
+    $upload = wp_upload_dir();
+    $dest   = trailingslashit( $upload['path'] ) . basename($filename);
+    if ( ! copy( $src, $dest ) ) { echo "  ✗  Erro ao copiar: $filename\n"; remove_filter( 'upload_mimes', $allow_svg ); return 0; }
+
+    $att_id = wp_insert_attachment( [ 'post_mime_type' => wp_check_filetype( $filename )['type'] ?: 'image/svg+xml', 'post_title' => $title, 'post_name' => $slug, 'post_status' => 'inherit' ], $dest );
+    if ( is_wp_error( $att_id ) ) { echo "  ✗  {$att_id->get_error_message()}\n"; remove_filter( 'upload_mimes', $allow_svg ); return 0; }
+
+    wp_update_attachment_metadata( $att_id, wp_generate_attachment_metadata( $att_id, $dest ) );
+    echo "  ✓  Importado: $filename (ID: $att_id)\n";
+    remove_filter( 'upload_mimes', $allow_svg );
+    return (int) $att_id;
+}
 
 // ─── 1. Localizar a página inicial ───────────────────────────────────────────
 echo "\n════════════════════════════════════════\n";
-echo "  IMPORT: Página Inicial (Home) — TNS Summit\n";
+echo "  IMPORT: Página Inicial (Home)\n";
 echo "════════════════════════════════════════\n\n";
 
 $pid = (int) get_option( 'page_on_front' );
-if ( ! $pid ) { echo "✗  Nenhuma página estática definida como inicial.\n   Vá em Configurações → Leitura e defina a página inicial.\n"; return; }
+if ( ! $pid ) { echo "✗  Nenhuma página estática definida como página inicial.\n   Vá em Configurações → Leitura e defina a página inicial no WordPress.\n"; return; }
 
 $page = get_post( $pid );
 echo "📄  Página encontrada: \"{$page->post_title}\" (ID: $pid)\n\n";
@@ -22,272 +57,152 @@ echo "📄  Página encontrada: \"{$page->post_title}\" (ID: $pid)\n\n";
 update_post_meta( $pid, '_wp_page_template', 'front-page.php' );
 echo "✓  Template: front-page.php\n";
 
-// ─── 2. Aba: Hero ────────────────────────────────────────────────────────────
-echo "\n── Aba: Hero ────────────────────────────\n";
+// ─── 2. Aba: Banner Principal ────────────────────────────────────────────────
+echo "\n── Aba: Banner Principal ────────────────\n";
 
-update_field( 'hero_subtitle', 'TNS Summit 2026', $pid );
-update_field( 'hero_title_normal', 'Mais que um evento.', $pid );
-update_field( 'hero_title_highlight', 'O ponto de encontro de quem move a logística.', $pid );
-update_field( 'hero_text', 'O evento da nstech para quem busca as melhores soluções de software para logística, transporte e supply chain, com foco em decisão, integração e negócios reais.', $pid );
-update_field( 'hero_countdown_title', 'Sua jornada na TNS começa aqui.', $pid );
-update_field( 'hero_btn_link', '#ingressos', $pid );
-update_field( 'hero_btn_text', 'Garanta seu ingresso', $pid );
-update_field( 'hero_date_label', '09 e 10 de setembro de 2026', $pid );
-update_field( 'hero_location_label', 'São Paulo - SP | Transamérica Expo', $pid );
-update_field( 'hero_countdown_date', '2026-09-09 23:59:59', $pid );
-echo "✓  hero_subtitle / hero_title_normal / hero_title_highlight\n";
-echo "✓  hero_text / hero_countdown_title / hero_countdown_date\n";
-echo "✓  hero_btn_link / hero_btn_text / hero_date_label / hero_location_label\n";
-echo "⚠  hero_video → inserir manualmente no painel\n";
+$slides = [
+    [
+        'hero_image'            => _import_theme_image( 'slider3.webp', 'Slider 1' ),
+        'hero_title'            => "Cursos e treinamentos\n de desenvolvimento \ne inteligência emocional",
+        'hero_desc'             => 'Aprimore suas habilidades pessoais e profissionais com formações práticas, humanas e aplicáveis no dia a dia.',
+        'hero_link'             => [ 'url' => '#', 'title' => 'Mais informações', 'target' => '_self' ],
+        'hero_badge'            => 'PRÓXIMA TURMA',
+        'hero_date'             => '06 a 08 de Março',
+        'hero_course_title'     => 'Leader Training — Desperte seu Lider Interior',
+        'hero_course_highlight' => "Últimas vagas para\n a imersão de março.",
+        'hero_course_link'      => [ 'url' => '#', 'title' => 'Garanta sua vaga', 'target' => '_self' ],
+    ],
+    [
+        'hero_image'            => _import_theme_image( 'slider2.webp', 'Slider 2' ),
+        'hero_title'            => "Aprenda, cresça e transforme sua forma de agir e liderar",
+        'hero_desc'             => 'Treinamentos pensados para fortalecer sua mente, sua comunicação e sua capacidade de tomar decisões com equilíbrio.',
+        'hero_link'             => [ 'url' => '#', 'title' => 'Mais informações', 'target' => '_self' ],
+        'hero_badge'            => 'PRÓXIMA TURMA',
+        'hero_date'             => '06 a 08 de Março',
+        'hero_course_title'     => 'Leader Training — Desperte seu Lider Interior',
+        'hero_course_highlight' => "Últimas vagas para\n a imersão de março.",
+        'hero_course_link'      => [ 'url' => '#', 'title' => 'Garanta sua vaga', 'target' => '_self' ],
+    ],
+];
 
-// ─── 3. Aba: Ticker ──────────────────────────────────────────────────────────
-echo "\n── Aba: Ticker ──────────────────────────\n";
+update_field( 'hero_slides', $slides, $pid );
+echo '✓  hero_slides: ' . count( $slides ) . " slides\n";
 
-update_field( 'ticker_items', [
-    [ 'title' => '600 pessoas'          ],
-    [ 'title' => 'Palcos temáticos'     ],
-    [ 'title' => 'Podcast'              ],
-    [ 'title' => 'Audiência qualificada'],
-    [ 'title' => 'Tecnologia'           ],
-    [ 'title' => 'Conexões'             ],
-    [ 'title' => 'Embarcadores'         ],
-    [ 'title' => 'transportadores'      ],
-    [ 'title' => 'operadores'           ],
-    [ 'title' => 'soluções'             ],
-    [ 'title' => 'Estratégias'          ],
-    [ 'title' => 'Logística'            ],
-    [ 'title' => 'Futuro'               ],
-    [ 'title' => 'IA'                   ],
-], $pid );
-echo "✓  ticker_items: 14 itens\n";
+// ─── 3. Aba: Sobre o Instituto ───────────────────────────────────────────────
+echo "\n── Aba: Sobre o Instituto ───────────────\n";
 
-// ─── 4. Aba: Sobre ───────────────────────────────────────────────────────────
-echo "\n── Aba: Sobre ───────────────────────────\n";
-
-update_field( 'sobre_subtitle', 'SOBRE O EVENTO', $pid );
-update_field( 'sobre_title_normal', 'O que é o', $pid );
-update_field( 'sobre_title_highlight', 'TNS Summit', $pid );
-update_field( 'sobre_desc', 'O TNS Summit acontece junto à Logística do Futuro, integrando-se ao maior ambiente de inovação logística do país com uma experiência própria, exclusiva e orientada a resultados.', $pid );
-update_field( 'sobre_list', [
-    [ 'text' => 'Enquanto a <strong>Logística do Futuro</strong> amplia o debate, no <strong>TNS Summit</strong> você decide.' ],
-    [ 'text' => 'Mais de <strong>2.500 líderes e decisores</strong> reunidos para conectar pessoas, dados, tecnologia e negócios em um único ecossistema.' ],
-], $pid );
-echo "✓  sobre_subtitle / sobre_title_normal / sobre_title_highlight\n";
-echo "✓  sobre_desc / sobre_list: 2 itens\n";
-echo "⚠  sobre_video → inserir manualmente no painel\n";
-
-// ─── 5. Aba: Por que participar ──────────────────────────────────────────────
-echo "\n── Aba: Por que participar ──────────────\n";
-
-update_field( 'pq_subtitle', 'POR QUE PARTICIPAR', $pid );
-update_field( 'pq_title_normal', 'Por que o TNS Summit é', $pid );
-update_field( 'pq_title_highlight', 'diferente?', $pid );
-update_field( 'pq_diferenciais', [
-    [ 'title' => 'Negócios reais',        'text' => 'Conecte-se com quem decide e contrata.'                                       ],
-    [ 'title' => 'Decisão mais rápida',   'text' => 'Compare soluções e estratégias em um único ambiente.'                         ],
-    [ 'title' => 'Conexões de alto nível','text' => 'Embarcadores, transportadores, operadores, seguradoras e tecnologia.'         ],
-    [ 'title' => 'Rede, não silos',       'text' => 'A logística funcionando como um ecossistema integrado.'                       ],
-], $pid );
-update_field( 'pq_footer_text',
-    '<p>A logística não é linear. Ela acontece quando <strong>pessoas</strong>,'
-    . ' <strong>dados</strong>, <strong>processos</strong> e <strong>tecnologia</strong> se'
-    . ' <strong>conectam</strong>.</p>',
+update_field( 'about_subtitle', 'Sobre', $pid );
+update_field( 'about_title', 'O ITK transformou a vida de milhares de pessoas nos últimos 30 anos', $pid );
+update_field( 'about_counter_number', '100', $pid );
+update_field( 'about_counter_prefix', '+', $pid );
+update_field( 'about_counter_suffix', 'mil', $pid );
+update_field( 'about_counter_desc', 'Pessoas transformadas', $pid );
+update_field( 'about_text',
+    '<p>O ITK Treinamentos é especializado em treinamento comportamental, desenvolvimento pessoal e crescimento, com a missão de ajudar os participantes a se conscientizarem de sua missão neste mundo. Nossos programas visam destacar as repercussões, tanto positivas quanto negativas, de cada ação, palavra e gesto, capacitando-os para gerar impactos significativos.</p>'
+    . '<p>Acreditamos no poder transformador das pessoas e buscamos guiá-las em sua jornada de autodescoberta e autodesenvolvimento, capacitando-as a criar um futuro mais promissor para si mesmas e para a sociedade como um todo.</p>',
     $pid
 );
-echo "✓  pq_subtitle / pq_title_normal / pq_title_highlight\n";
-echo "✓  pq_diferenciais: 4 itens / pq_footer_text\n";
-echo "⚠  pq_diferenciais → ícones de cada item: inserir manualmente no painel\n";
+update_field( 'about_link', [ 'url' => '#', 'title' => 'Conheça o Instituto', 'target' => '_self' ], $pid );
 
-// ─── 6. Aba: O que vai encontrar ─────────────────────────────────────────────
-echo "\n── Aba: O que vai encontrar ─────────────\n";
+echo "✓  about_subtitle / about_title / about_text / about_link\n";
+echo "✓  Campos de contador\n";
 
-update_field( 'oque_subtitle', 'O QUE VOCÊ VAI ENCONTRAR', $pid );
-update_field( 'oque_title_normal', 'Uma', $pid );
-update_field( 'oque_title_highlight', 'experiência pensada para quem decide', $pid );
-update_field( 'oque_list', [
-    [ 'text' => 'Audiência altamente qualificada'                   ],
-    [ 'text' => 'Conteúdo estratégico e aplicado'                   ],
-    [ 'text' => '8 palcos organizados por segmentos'                ],
-    [ 'text' => 'As principais empresas de tecnologia do setor'     ],
-], $pid );
-update_field( 'oque_text',
-    '<p>Aqui, a conversa não é sobre ferramenta.<br>'
-    . 'É sobre <strong>visão e impacto no negócio.</strong></p>',
-    $pid
-);
-update_field( 'oque_btn', [ 'url' => '#ingressos', 'title' => 'Garanta seu ingresso', 'target' => '_self' ], $pid );
-echo "✓  oque_subtitle / oque_title_normal / oque_title_highlight\n";
-echo "✓  oque_list: 4 itens / oque_text / oque_btn\n";
-echo "⚠  oque_img_1 / oque_img_2 → inserir manualmente no painel\n";
+// ─── 4. Aba: Depoimentos ─────────────────────────────────────────────────────
+echo "\n── Aba: Depoimentos ─────────────────────\n";
 
-// ─── 7. Aba: Trilhas ─────────────────────────────────────────────────────────
-echo "\n── Aba: Trilhas ─────────────────────────\n";
+update_field( 'testi_subtitle', 'depoimentos', $pid );
+update_field( 'testi_title', 'Para quem é indicado os nossos treinamentos', $pid );
+update_field( 'testi_desc', 'Para pessoas que desejam encontrar seu propósito de vida e estão interessados em melhorar seu desenvolvimento emocional, pessoal e profissional. O ITK Treinamentos tem como principal objetivo direcionar as pessoas em uma jornada de descoberta e utilização de seu potencial interior, com foco no gerenciamento das emoções.', $pid );
 
-update_field( 'trilhas_subtitle', 'TRILHAS DE CONTEÚDO', $pid );
-update_field( 'trilhas_title_normal', 'Palcos temáticos para facilitar', $pid );
-update_field( 'trilhas_title_highlight', 'aprendizado, comparação e decisão.', $pid );
-update_field( 'trilhas_lista', [
-    [ 'title' => 'Agro Frigorificado',                    'text' => 'Debates sobre logística de cargas refrigeradas, rastreabilidade e controle de temperatura. Cases e estratégias para garantir qualidade, eficiência e segurança na cadeia de proteínas e perecíveis.' ],
-    [ 'title' => 'Granel + Químico',                      'text' => 'Conteúdos sobre transporte de granéis sólidos e líquidos, gestão de riscos, compliance e segurança operacional. Discussões sobre eficiência logística em cadeias industriais críticas.' ],
-    [ 'title' => 'Alimentos e Bens de Consumo',           'text' => 'Estratégias para operações de alta escala, distribuição eficiente e visibilidade da cadeia. Como reduzir custos e melhorar nível de serviço no transporte de bens de consumo.' ],
-    [ 'title' => 'Indústria de Base + Automotivo',        'text' => 'Painéis sobre logística industrial, integração com manufatura e resiliência da cadeia automotiva. Boas práticas para operações complexas e altamente sincronizadas.' ],
-    [ 'title' => 'Farma / Cosméticos',                    'text' => 'Debates sobre rastreabilidade, exigências regulatórias e integridade da cadeia logística. Soluções para transporte seguro de produtos sensíveis e de alto valor.' ],
-    [ 'title' => 'Tecnologia / E-commerce',               'text' => 'Inovação aplicada à logística digital, integração de plataformas, dados e automação. Discussões sobre eficiência, escalabilidade e desafios do crescimento do e-commerce.' ],
-    [ 'title' => 'Transformação Digital do Embarcador',   'text' => 'Como embarcadores estão utilizando tecnologia, dados e inteligência logística para ganhar eficiência, visibilidade e maior controle sobre suas operações.' ],
-    [ 'title' => 'Transformação Digital do Transportador','text' => 'Conteúdos sobre digitalização das transportadoras, gestão de frota, produtividade e uso de tecnologia para aumentar competitividade e eficiência operacional.' ],
-], $pid );
-echo "✓  trilhas_subtitle / trilhas_title_normal / trilhas_title_highlight\n";
-echo "✓  trilhas_lista: 8 trilhas\n";
-echo "⚠  trilhas_lista → imagem de cada trilha: inserir manualmente no painel\n";
+$testi_img = _import_theme_image( 'treinamento-dpp-itk-scaled.webp', 'Para quem é indicado' );
+if ( $testi_img ) { update_field( 'testi_image', $testi_img, $pid ); echo "✓  testi_image\n"; }
 
-// ─── 8. Aba: Estrutura ───────────────────────────────────────────────────────
-echo "\n── Aba: Estrutura ───────────────────────\n";
+$testi_logo = _import_theme_image( 'logos/favicon.png', 'Logo Autor Depoimento' );
 
-update_field( 'est_subtitle', 'ESTRUTURA DO EVENTO', $pid );
-update_field( 'est_title_normal', 'O', $pid );
-update_field( 'est_title_highlight', 'TNS Summit 2026 em números', $pid );
-update_field( 'est_desc',
-    '<p>O TNS Summit é a TNS acontecendo ao vivo:'
-    . ' um <strong>ecossistema</strong> real, <strong>conectado</strong> e em <strong>movimento</strong>.</p>',
-    $pid
-);
-update_field( 'est_numbers', [
-    [ 'number' => '8',  'label' => 'trilhas'         ],
-    [ 'number' => '8',  'label' => 'palcos temáticos'],
-    [ 'number' => '30', 'label' => 'patrocinadores'  ],
-], $pid );
-update_field( 'est_vip_list', [
-    [ 'text' => 'Área VIP para clientes e convidados' ],
-    [ 'text' => 'Estúdio de podcast'                  ],
-], $pid );
-echo "✓  est_subtitle / est_title_normal / est_title_highlight / est_desc\n";
-echo "✓  est_numbers: 3 itens / est_vip_list: 2 itens\n";
-
-// ─── 9. Aba: Para quem é ─────────────────────────────────────────────────────
-echo "\n── Aba: Para quem é ─────────────────────\n";
-
-update_field( 'pqm_subtitle', 'PARA QUEM É', $pid );
-update_field( 'pqm_title_normal', 'Este evento é para', $pid );
-update_field( 'pqm_title_highlight', 'você que:', $pid );
-update_field( 'pqm_items', [
-    [ 'title' => 'Atua em logística, supply chain, operações ou tecnologia'      ],
-    [ 'title' => 'Lidera decisões em embarcadores, transportadores e operadores' ],
-    [ 'title' => 'Enxerga a logística como vantagem competitiva'                 ],
-    [ 'title' => 'Se conectar é o novo competir, este é o seu lugar.'            ],
-], $pid );
-echo "✓  pqm_subtitle / pqm_title_normal / pqm_title_highlight\n";
-echo "✓  pqm_items: 4 itens\n";
-echo "⚠  pqm_items → ícone de cada item: inserir manualmente no painel\n";
-echo "⚠  pqm_img_1 / pqm_img_2 → inserir manualmente no painel\n";
-
-// ─── 10. Aba: Ingressos ──────────────────────────────────────────────────────
-echo "\n── Aba: Ingressos ───────────────────────\n";
-
-update_field( 'ingr_subtitle', 'INGRESSOS', $pid );
-update_field( 'ingr_title_normal', 'Garanta sua', $pid );
-update_field( 'ingr_title_highlight', 'participação', $pid );
-update_field( 'ingr_desc', 'Escolha sua experiência e faça parte do maior ponto de encontro da logística no Brasil.', $pid );
-update_field( 'ingr_plans', [
+$testimonials = [
     [
-        'title'          => 'Ingresso Simple Pass',
-        'desc'           => 'Para quem quer conhecer o evento em um dia.',
-        'price'          => 'R$ 220',
-        'price_suffix'   => ' /por pessoa',
-        'includes_title' => 'O que está incluso:',
-        'includes_list'  => [
-            [ 'text' => '1 dia de entrada para o evento'        ],
-            [ 'text' => 'Acesso às plenárias e conteúdos do dia'],
-            [ 'text' => 'Participação nas atividades do evento' ],
-        ],
-        'button' => [ 'url' => 'https://euvou.events/tnssummit2026', 'title' => 'Garantir Ingresso Básico', 'target' => '_blank' ],
+        'author_logo'    => $testi_logo,
+        'text'           => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit eius aliquam sunt ipsum, quod atque suscipit, reiciendis iste culpa magni similique adipisci possimus dolores. Recusandae maxime molestias eaque officia corporis?',
+        'author_details' => '- Nome do cliente, Cargo - Empresa',
     ],
     [
-        'title'          => 'Ingresso Full Pass',
-        'desc'           => 'Para quem quer viver a experiência completa do TNS Summit.',
-        'price'          => 'R$ 690',
-        'price_suffix'   => ' /por pessoa',
-        'includes_title' => 'O que está incluso:',
-        'includes_list'  => [
-            [ 'text' => '2 dias de entrada para o evento'      ],
-            [ 'text' => 'Acesso a todos os palcos e conteúdos' ],
-            [ 'text' => 'Experiência completa do evento'        ],
-        ],
-        'button' => [ 'url' => 'https://euvou.events/tnssummit2026', 'title' => 'Garantir Full Pass', 'target' => '_blank' ],
+        'author_logo'    => $testi_logo,
+        'text'           => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit eius aliquam sunt ipsum, quod atque suscipit, reiciendis iste culpa magni similique adipisci possimus dolores. Recusandae maxime molestias eaque officia corporis?',
+        'author_details' => '- Nome do cliente, Cargo - Empresa',
     ],
-    [
-        'title'          => 'Ingresso VIP Pass',
-        'desc'           => 'Experiência premium para quem busca mais conforto e networking qualificado.',
-        'price'          => 'R$ 890',
-        'price_suffix'   => ' /por pessoa',
-        'includes_title' => 'O que está incluso:',
-        'includes_list'  => [
-            [ 'text' => '2 dias de entrada para o evento'          ],
-            [ 'text' => 'Acesso à Área VIP (almoços e happy hour)' ],
-            [ 'text' => 'Espaço reservado na plenária principal'   ],
-            [ 'text' => 'Credenciamento exclusivo'                 ],
-        ],
-        'button' => [ 'url' => 'https://euvou.events/tnssummit2026', 'title' => 'Garantir VIP Pass', 'target' => '_blank' ],
-    ],
-    [
-        'title'          => 'TNS Full Pass (clientes nstech)',
-        'desc'           => 'Ingresso exclusivo para empresas que fazem parte do ecossistema nstech.',
-        'price'          => 'R$ 390',
-        'price_suffix'   => ' /por pessoa',
-        'includes_title' => 'O que está incluso:',
-        'includes_list'  => [
-            [ 'text' => '2 dias de entrada para o evento'         ],
-            [ 'text' => 'Acesso completo à programação do evento' ],
-        ],
-        'button' => [ 'url' => 'https://euvou.events/tnssummit2026@tnsfull', 'title' => 'Garantir TNS Full Pass', 'target' => '_blank' ],
-    ],
-    [
-        'title'          => 'Pacotes Corporativos',
-        'desc'           => 'Condições especiais para empresas que desejam levar equipes ao evento.',
-        'price'          => '',
-        'price_suffix'   => '',
-        'includes_title' => 'Preços por quantidade (2 dias):',
-        'includes_list'  => [
-            [ 'text' => '20 ingressos (2 dias): R$ 414 por pessoa'],
-            [ 'text' => '10 ingressos (2 dias): R$ 483 por pessoa'],
-            [ 'text' => '5 ingressos (2 dias): R$ 552 por pessoa' ],
-        ],
-        'button' => [ 'url' => 'https://euvou.events/tnssummit2026@ingressocorporativo', 'title' => 'Solicitar Pacote Corporativo', 'target' => '_blank' ],
-    ],
-], $pid );
-echo "✓  ingr_subtitle / ingr_title_normal / ingr_title_highlight / ingr_desc\n";
-echo "✓  ingr_plans: 5 planos (Simple Pass, Full Pass, VIP Pass, TNS Full Pass, Corporativo)\n";
-echo "⚠  ingr_plans → ícone de cada plano: inserir manualmente no painel\n";
+];
 
-// ─── 11. Aba: Call to Action ─────────────────────────────────────────────────
-echo "\n── Aba: Call to Action ──────────────────\n";
+update_field( 'testimonials', $testimonials, $pid );
+echo '✓  testimonials: ' . count( $testimonials ) . " depoimentos\n";
+echo "⚠  Depoimentos estão como Lorem Ipsum (vindos do HTML) — preencher no painel!\n";
 
-update_field( 'cta_subtitle', 'Faça parte da rede', $pid );
-update_field( 'cta_title_normal', 'Parece mágica. É', $pid );
-update_field( 'cta_title_highlight', 'TNS ao vivo.', $pid );
-update_field( 'cta_text',
-    '<p>O futuro da logística não será construído por sistemas isolados.<br>'
-    . 'Será construído por pessoas conectadas.</p>',
-    $pid
-);
-update_field( 'cta_button', [
-    'url'    => 'https://share.hsforms.com/1D1uzlJI3RxSZJE1WVCUeVAdy1fw',
-    'title'  => 'Seja um patrocinador do TNS Summit',
-    'target' => '_blank',
-], $pid );
-echo "✓  cta_subtitle / cta_title_normal / cta_title_highlight\n";
-echo "✓  cta_text / cta_button\n";
+// ─── 5. Aba: Cursos e Treinamentos ───────────────────────────────────────────
+echo "\n── Aba: Cursos e Treinamentos ───────────\n";
+
+update_field( 'courses_subtitle', 'Cursos e treinamentos', $pid );
+update_field( 'courses_title', 'Mais consciência, mais realização', $pid );
+update_field( 'courses_desc', 'Amplie sua percepção, sua consciência sobre o mundo, sobre si mesmo e lidere sua própria vida em direção à realização dos seus sonhos.', $pid );
+
+$courses = [
+    [ 'course_image' => _import_theme_image( 'Leader-Training.webp', 'Leader Training' ), 'course_link' => [ 'url' => '#', 'title' => '', 'target' => '_self' ] ],
+    [ 'course_image' => _import_theme_image( 'Leader-Training-2-1.jpg', 'Leader Training 2' ), 'course_link' => [ 'url' => '#', 'title' => '', 'target' => '_self' ] ],
+    [ 'course_image' => _import_theme_image( 'transformacao.jpg', 'Transformação' ), 'course_link' => [ 'url' => '#', 'title' => '', 'target' => '_self' ] ],
+    [ 'course_image' => _import_theme_image( 'acreditando-em-voce.jpg', 'Acreditando em você' ), 'course_link' => [ 'url' => '#', 'title' => '', 'target' => '_self' ] ],
+    [ 'course_image' => _import_theme_image( 'reiki.jpg', 'Reiki' ), 'course_link' => [ 'url' => '#', 'title' => '', 'target' => '_self' ] ],
+];
+
+update_field( 'courses_list', $courses, $pid );
+echo '✓  courses_list: ' . count( $courses ) . " cursos\n";
+
+// ─── 6. Aba: Para Você ───────────────────────────────────────────────────────
+echo "\n── Aba: Para Você ───────────────────────\n";
+
+update_field( 'pv_subtitle', 'Para você', $pid );
+update_field( 'pv_title', 'Materiais e experiências para você', $pid );
+
+$pv_items = [
+    [
+        'icon'  => _import_theme_image( 'service/ser2-2.svg', 'Ícone Projeto de vida' ),
+        'title' => 'Projeto de vida',
+        'desc'  => 'Defina suas metas e construa o sucesso e a felicidade que você merece! Um projeto de vida é um guia, uma fonte, o caminho para transformar seus desejos e sonhos em realidade.',
+        'link'  => [ 'url' => '#', 'title' => 'Acesse agora', 'target' => '_self' ],
+    ],
+    [
+        'icon'  => _import_theme_image( 'service/ser2-3.svg', 'Ícone Mandala' ),
+        'title' => 'Mandala',
+        'desc'  => 'Mandalas são desenhos de formas geométricas concêntricas. Ou seja, que se desenvolvem a partir de um mesmo centro. Criar uma mandala pode ser um exercício relaxante, que promove serenidade, paz, harmonia.',
+        'link'  => [ 'url' => '#', 'title' => 'Acesse agora', 'target' => '_self' ],
+    ],
+];
+
+update_field( 'pv_items', $pv_items, $pid );
+echo "✓  pv_subtitle / pv_title / pv_items\n";
+
+$banner_med_img = _import_theme_image( 'meditacao-diaria.webp', 'Meditação Diária' );
+if ( $banner_med_img ) { update_field( 'pv_banner_meditacao_img', $banner_med_img, $pid ); echo "✓  pv_banner_meditacao_img\n"; }
+update_field( 'pv_banner_meditacao_link', [ 'url' => '#', 'title' => '', 'target' => '_self' ], $pid );
+
+$banner_loja_img = _import_theme_image( 'loja-virtual.webp', 'Loja Virtual' );
+if ( $banner_loja_img ) { update_field( 'pv_banner_loja_img', $banner_loja_img, $pid ); echo "✓  pv_banner_loja_img\n"; }
+update_field( 'pv_banner_loja_title', 'Pensado especialmente para você!', $pid );
+update_field( 'pv_banner_loja_desc', 'Conheça nossa loja virtual. Acesse já!', $pid );
+update_field( 'pv_banner_loja_link', [ 'url' => '#', 'title' => '', 'target' => '_self' ], $pid );
+
+// ─── 7. Aba: Blog ────────────────────────────────────────────────────────────
+echo "\n── Aba: Blog ────────────────────────────\n";
+
+update_field( 'blog_subtitle', 'Artigos e Notícias', $pid );
+update_field( 'blog_title', 'Fique por dentro das últimas matérias e novidades', $pid );
+update_field( 'blog_link', [ 'url' => '#', 'title' => 'Acesse todos', 'target' => '_self' ], $pid );
+
+echo "✓  blog_subtitle / blog_title / blog_link\n";
 
 // ─── Resultado ────────────────────────────────────────────────────────────────
 echo "\n════════════════════════════════════════\n";
 echo "✅  Concluído! Página ID: $pid\n";
 echo '🔗  ' . get_permalink( $pid ) . "\n";
 echo "════════════════════════════════════════\n";
-echo "\n📋  PENDÊNCIAS PARA O PAINEL (inserir manualmente):\n";
-echo "   • hero_video (vídeo de fundo do Hero)\n";
-echo "   • sobre_video (vídeo manifesto)\n";
-echo "   • oque_img_1 / oque_img_2 (bloco O que vai encontrar)\n";
-echo "   • trilhas_lista → imagem de cada trilha (8 imagens)\n";
-echo "   • pq_diferenciais → ícone de cada diferencial (4 ícones)\n";
-echo "   • pqm_items → ícone de cada item (4 ícones)\n";
-echo "   • pqm_img_1 / pqm_img_2 (bloco Para quem é)\n";
-echo "   • ingr_plans → ícone de cada plano (5 ícones)\n\n";
+echo "\n📋  PENDÊNCIAS PARA O PAINEL:\n";
+echo "   • Atualizar os links (vários botões e banners estão com o link '#')\n";
+echo "   • Substituir os depoimentos 'Lorem Ipsum' por textos reais\n\n";
+

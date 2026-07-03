@@ -75,3 +75,21 @@ function temaitk_setup()
 	add_image_size('img-half', 750, 750, true);        // Imagens de half
 }
 add_action('after_setup_theme', 'temaitk_setup');
+
+// ==============================================================================
+// ACF OPTIONS PAGE (Opções do Tema)
+// ==============================================================================
+if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_page(array(
+        'page_title'    => 'Opções do Tema',
+        'menu_title'    => 'Opções do Tema',
+        'menu_slug'     => 'opcoes-do-tema',
+        'capability'    => 'edit_posts',
+        'redirect'      => false,
+        'position'      => 2,
+        'icon_url'      => 'dashicons-admin-generic',
+    ));
+    
+}
+

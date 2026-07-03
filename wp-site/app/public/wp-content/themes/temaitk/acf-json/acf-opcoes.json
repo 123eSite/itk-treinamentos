@@ -1,0 +1,161 @@
+{
+  "key": "group_opcoes_tema",
+  "title": "Opções do Tema",
+  "fields": [
+    {
+      "key": "field_tab_geral",
+      "label": "Geral & Cabeçalho",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_opt_logo_header",
+      "label": "Logo Principal",
+      "name": "logo_header",
+      "type": "image",
+      "return_format": "array"
+    },
+    {
+      "key": "field_opt_link_loja",
+      "label": "Link da Loja",
+      "name": "link_loja",
+      "type": "link",
+      "instructions": "Link para o botão 'Acesse nossa loja'"
+    },
+    {
+      "key": "field_tab_contatos",
+      "label": "Contatos",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_opt_telefone_1",
+      "label": "Telefone 1",
+      "name": "telefone_1",
+      "type": "text"
+    },
+    {
+      "key": "field_opt_telefone_2",
+      "label": "Telefone 2",
+      "name": "telefone_2",
+      "type": "text"
+    },
+    {
+      "key": "field_opt_email_contato",
+      "label": "E-mail",
+      "name": "email_contato",
+      "type": "email"
+    },
+    {
+      "key": "field_opt_endereco",
+      "label": "Endereço",
+      "name": "endereco",
+      "type": "textarea",
+      "new_lines": "br"
+    },
+    {
+      "key": "field_tab_redes_sociais",
+      "label": "Redes Sociais",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_opt_url_facebook",
+      "label": "Facebook (URL)",
+      "name": "url_facebook",
+      "type": "url"
+    },
+    {
+      "key": "field_opt_url_instagram",
+      "label": "Instagram (URL)",
+      "name": "url_instagram",
+      "type": "url"
+    },
+    {
+      "key": "field_opt_url_youtube",
+      "label": "YouTube (URL)",
+      "name": "url_youtube",
+      "type": "url"
+    },
+    {
+      "key": "field_tab_rodape_form",
+      "label": "Rodapé - Formulário",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_opt_footer_contact_title",
+      "label": "Título do Contato",
+      "name": "footer_contact_title",
+      "type": "text",
+      "default_value": "Dê o próximo passo na sua jornada"
+    },
+    {
+      "key": "field_opt_footer_contact_text",
+      "label": "Texto do Contato",
+      "name": "footer_contact_text",
+      "type": "textarea",
+      "new_lines": "br",
+      "default_value": "Estamos prontos para entender suas necessidades e indicar o treinamento ideal para você ou para sua empresa. Entre em contato e fale com a nossa equipe."
+    },
+    {
+      "key": "field_opt_footer_contact_shortcode",
+      "label": "Shortcode do Formulário (Rodapé)",
+      "name": "footer_contact_shortcode",
+      "type": "text"
+    },
+    {
+      "key": "field_tab_rodape_news",
+      "label": "Rodapé - Newsletter",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_opt_footer_news_title",
+      "label": "Título da Newsletter",
+      "name": "footer_news_title",
+      "type": "text",
+      "default_value": "Cadastre-se para receber nossas novidades"
+    },
+    {
+      "key": "field_opt_footer_news_shortcode",
+      "label": "Shortcode da Newsletter",
+      "name": "footer_news_shortcode",
+      "type": "text"
+    },
+    {
+      "key": "field_opt_link_politica_cookies",
+      "label": "Link da Política de Cookies",
+      "name": "link_politica_cookies",
+      "type": "link"
+    },
+    {
+      "key": "field_opt_link_politica_privacidade",
+      "label": "Link da Política de Privacidade",
+      "name": "link_politica_privacidade",
+      "type": "link"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "opcoes-do-tema"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": ""
+}
