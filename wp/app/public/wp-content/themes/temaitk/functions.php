@@ -10,7 +10,7 @@ add_image_size('itk-feature-square', 750, 1200, false); // Imagem quadrada de se
 add_image_size('itk-feature-wide', 790, 1200, false); // Imagem de feature com tabs
 add_image_size('itk-blog-card', 400, 300, true); // Cards de blog (col-lg-4)
 add_image_size('itk-icon', 80, 80, true); // Ícones de features
-add_image_size('itk-team-member', 361, 372, true); // Fotos da equipe
+add_image_size('itk-team-member', 500, 662, true); // Fotos da equipe
 
 register_nav_menus(array(
     'menu-principal' => __('Menu principal', 'temaitk'),
@@ -85,59 +85,65 @@ require_once get_template_directory() . '/inc/clint-webhook.php';
  * IDs dos formulários CF7 que enviam dados para a Clint.
  * Substitua pelos IDs reais (Contato → Formulários de contato).
  */
-add_filter( 'temaitk_clint_cf7_form_ids', function () {
+add_filter('temaitk_clint_cf7_form_ids', function () {
     return [
         164, // Formulário de Contato — LP Leader Training
     ];
-} );
+});
 
 // ─── Helper: classes CSS de seção para layouts da LP ─────────────────────────
 
-function temaitk_lp_espaco_class() {
-    switch ( get_sub_field( 'espaco' ) ) {
-        case 'superior': return 'ibt-section-gapTop';
-        case 'inferior': return 'ibt-section-gapBottom';
-        case 'ambos':    return 'ibt-section-gap';
+function temaitk_lp_espaco_class()
+{
+    switch (get_sub_field('espaco')) {
+        case 'superior':
+            return 'ibt-section-gapTop';
+        case 'inferior':
+            return 'ibt-section-gapBottom';
+        case 'ambos':
+            return 'ibt-section-gap';
     }
     return '';
 }
 
-function temaitk_lp_section_classes( $base = '', $apply_espaco = true, $apply_cor = true ) {
-    $classes = $base ? [ $base ] : [];
-    if ( $apply_espaco ) {
+function temaitk_lp_section_classes($base = '', $apply_espaco = true, $apply_cor = true)
+{
+    $classes = $base ? [$base] : [];
+    if ($apply_espaco) {
         $espaco = temaitk_lp_espaco_class();
-        if ( $espaco ) {
+        if ($espaco) {
             $classes[] = $espaco;
         }
     }
-    if ( $apply_cor && get_sub_field( 'cor_fundo' ) === 'cinza' ) {
+    if ($apply_cor && get_sub_field('cor_fundo') === 'cinza') {
         $classes[] = 'bg-gray';
     }
-    return implode( ' ', array_filter( $classes ) );
+    return implode(' ', array_filter($classes));
 }
 
 /**
  * Converte URL do YouTube (watch, shorts, youtu.be, embed) para URL de embed do iframe.
  */
-function temaitk_youtube_embed_url( $url ) {
-    $url = trim( (string) $url );
-    if ( $url === '' ) {
+function temaitk_youtube_embed_url($url)
+{
+    $url = trim((string) $url);
+    if ($url === '') {
         return '';
     }
 
     $video_id = '';
 
-    if ( preg_match( '#(?:youtube\.com/embed/|youtube-nocookie\.com/embed/)([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+    if (preg_match('#(?:youtube\.com/embed/|youtube-nocookie\.com/embed/)([a-zA-Z0-9_-]{11})#', $url, $match)) {
         $video_id = $match[1];
-    } elseif ( preg_match( '#youtube\.com/shorts/([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+    } elseif (preg_match('#youtube\.com/shorts/([a-zA-Z0-9_-]{11})#', $url, $match)) {
         $video_id = $match[1];
-    } elseif ( preg_match( '#youtu\.be/([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+    } elseif (preg_match('#youtu\.be/([a-zA-Z0-9_-]{11})#', $url, $match)) {
         $video_id = $match[1];
-    } elseif ( preg_match( '#(?:[?&]v=|/v/)([a-zA-Z0-9_-]{11})#', $url, $match ) ) {
+    } elseif (preg_match('#(?:[?&]v=|/v/)([a-zA-Z0-9_-]{11})#', $url, $match)) {
         $video_id = $match[1];
     }
 
-    if ( $video_id === '' ) {
+    if ($video_id === '') {
         return '';
     }
 

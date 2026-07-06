@@ -14389,7 +14389,7 @@ ul {
 .hero-style8 .logo-leader-training {
   margin: 0 0 10px -6px;
 }
-.hero-style8::before {
+/* .hero-style8::before {
   content: '';
   width: 100%;
   height: 100%;
@@ -14397,7 +14397,7 @@ ul {
   position: absolute;
   width: 100%;
   height: 100%;
-}
+} */
 /* @media (max-width: 1440px) {
   .hero-style8 {
     padding: 181px 0 111px;

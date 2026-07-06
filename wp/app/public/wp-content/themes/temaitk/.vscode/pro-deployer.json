@@ -1,0 +1,42 @@
+{
+	"enableStatusBarItem": true,
+	"enableQuickPick": true,
+	"uploadOnSave": true,
+	"autoDelete": true,
+	"checkGitignore": false,
+	"activeTargets": [
+		"My SFTP"
+	],
+	"concurrency": 5,
+	"ignore": [
+		".git/**/*",
+		".vscode/**/*"
+	],
+	"include": [],
+	"targets": [
+		{
+			"name": "My SFTP",
+			"type": "ftp",
+			"host": "103.204.193.11",
+			"port": 21,
+			"user": "victor@lp.itktreinamentos.com.br",
+			"password": "izH-1dB%g3G14=Wg",
+			"dir": "/public_html/wp-content/themes/temaitk",
+			"baseDir": "/",
+			"privateKey": null,
+			"passphrase": null
+		},
+		{
+			"name": "My FTP",
+			"type": "ftp",
+			"host": "localhost",
+			"port": 21,
+			"user": "admin",
+			"password": "123456",
+			"dir": "/",
+			"baseDir": "/",
+			"transferDataType": "binary",
+			"secure": false
+		}
+	]
+}
