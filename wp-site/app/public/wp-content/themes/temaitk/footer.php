@@ -4,18 +4,18 @@
         $telefone_2 = get_field('telefone_2', 'option');
         $email_contato = get_field('email_contato', 'option');
         $endereco = get_field('endereco', 'option');
-        
+
         $url_facebook = get_field('url_facebook', 'option');
         $url_instagram = get_field('url_instagram', 'option');
         $url_youtube = get_field('url_youtube', 'option');
-        
+
         $footer_contact_title = get_field('footer_contact_title', 'option') ?: 'Dê o próximo passo na sua jornada';
         $footer_contact_text = get_field('footer_contact_text', 'option');
         $footer_contact_shortcode = get_field('footer_contact_shortcode', 'option');
-        
+
         $footer_news_title = get_field('footer_news_title', 'option') ?: 'Cadastre-se para receber nossas novidades';
         $footer_news_shortcode = get_field('footer_news_shortcode', 'option');
-        
+
         $link_politica_cookies = get_field('link_politica_cookies', 'option');
         $link_politica_privacidade = get_field('link_politica_privacidade', 'option');
         ?>
@@ -108,11 +108,11 @@
                     <div class="container">
                         <div class="footer-content5">
                             <h2 class="title"><?php echo esc_html($footer_news_title); ?></h2>
-                            <div class="form-box5">
+                            <div class="form-box5 footer-form5">
                                 <?php if($footer_news_shortcode): ?>
                                     <?php echo do_shortcode($footer_news_shortcode); ?>
                                 <?php else: ?>
-                                <form method="get" class="footer-form5">
+                                <form method="get">
                                     <input type="text" placeholder="Email" required="">
                                     <button class="ibt-btn">
                                         <span>Subscribe</span>

@@ -70,7 +70,7 @@ function temaitk_setup()
 	add_image_size('thumb-blog', 421, 221, true);         // Miniaturas do blog
 	add_image_size('banner-home-1', 686, 485, true);         // Banner 1 home
 	add_image_size('banner-home-2', 362, 485, true);         // Banner 2 home
-	add_image_size('foto-equipe', 284, 292, true);        // Fotos do time (quadrado)
+	add_image_size('foto-equipe', 500, 662, true);        // Fotos do time (quadrado)
 	add_image_size('img-galeria', 444, 296, true);        // Imagens de galerias
 	add_image_size('img-half', 750, 750, true);        // Imagens de half
 }
@@ -79,17 +79,16 @@ add_action('after_setup_theme', 'temaitk_setup');
 // ==============================================================================
 // ACF OPTIONS PAGE (Opções do Tema)
 // ==============================================================================
-if( function_exists('acf_add_options_page') ) {
-    
-    acf_add_options_page(array(
-        'page_title'    => 'Opções do Tema',
-        'menu_title'    => 'Opções do Tema',
-        'menu_slug'     => 'opcoes-do-tema',
-        'capability'    => 'edit_posts',
-        'redirect'      => false,
-        'position'      => 2,
-        'icon_url'      => 'dashicons-admin-generic',
-    ));
-    
-}
+if (function_exists('acf_add_options_page')) {
 
+	acf_add_options_page(array(
+		'page_title' => 'Opções do Tema',
+		'menu_title' => 'Opções do Tema',
+		'menu_slug' => 'opcoes-do-tema',
+		'capability' => 'edit_posts',
+		'redirect' => false,
+		'position' => 2,
+		'icon_url' => 'dashicons-admin-generic',
+	));
+
+}

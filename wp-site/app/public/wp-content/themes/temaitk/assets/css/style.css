@@ -11161,10 +11161,29 @@ header .ibt-btn {
 }
 .footer-form5 .ibt-btn {
   position: absolute;
-  bottom: 3px;
+  bottom: 30px;
   right: 0;
   color: var(--color-content-white);
   background: none;
+  outline: none;
+  border: none;
+}
+/* Fix para as mensagens de erro do CF7 não empurrarem o botão para baixo */
+.footer-form5 .wpcf7-not-valid-tip {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    font-size: 12px;
+    margin-top: 4px;
+}
+.footer-form5 .wpcf7-response-output {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 30px 0 0 0 !important;
+    width: 100%;
+    color: #fff;
+    border: none !important;
 }
 .footer-form5 .ibt-btn:hover {
   background: none;
@@ -13353,6 +13372,7 @@ ul {
   margin-bottom: 0;
   font-family: var(--font-primary);
   color: var(--color-content-white);
+  white-space: nowrap;
 }
 .exp-box p {
   display: inline-block;
@@ -38268,6 +38288,9 @@ blockquote {
 .social-icon li a {
   color: var(--color-content-white);
 }
+.contact-sec .social-icon li a:hover {
+  color: var(--color-content-white);
+}
 
 .contact-form {
   background-color: var(--color-content-white);
@@ -38286,6 +38309,7 @@ blockquote {
 }
 .contact-form .ibt-btn-outline {
   outline: none;
+  margin-top: 30px;
 }
 .contact-form .ibt-btn-outline i {
   text-indent: 0em;
@@ -38315,6 +38339,19 @@ blockquote {
   font-size: 14px;
   color: #898989;
   padding: 18px;
+}
+.custom-form textarea {
+  margin-bottom: 20px !important;
+}
+.custom-form p {
+  margin-bottom: 0;
+}
+.custom-form form .wpcf7-response-output {
+  border: none;
+}
+.custom-form .wpcf7-not-valid-tip {
+  margin-top: -20px;
+  font-size: 14px;
 }
 .custom-form select {
   padding: 0 18px;
