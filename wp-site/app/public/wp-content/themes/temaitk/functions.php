@@ -14,7 +14,8 @@ add_filter('nav_menu_item_title', 'temaitk_nav_menu_spans', 10, 4);
 function temaitk_nav_menu_spans($title, $item, $args, $depth)
 {
 	// Adiciona o efeito apenas para itens de nível principal (depth == 0) no menu desktop
-	if (isset($args->theme_location) && $args->theme_location === 'menu-principal' && $depth === 0) {
+	// Se a flag 'is_mobile_menu' estiver presente, não duplica o texto
+	if (isset($args->theme_location) && $args->theme_location === 'menu-principal' && $depth === 0 && empty($args->is_mobile_menu)) {
 		return '<span class="menu-item">' . $title . '</span><span class="menu-item2">' . $title . '</span>';
 	}
 	return $title;

@@ -2212,7 +2212,7 @@ document.addEventListener("DOMContentLoaded", function () {
   HorizontalScroll.init();
   PriceFilter.init();
   SearchPopup.init();
-  ActiveMenu.init();
+  // ActiveMenu.init(); // Removido pois estava causando conflito com o WordPress expandindo todos os submenus
   CounterAnimation.init();
   IsotopeFilter.init();
 });

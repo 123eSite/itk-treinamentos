@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Preconnect for faster font loading (PUT THIS FIRST!) -->
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="<?php bloginfo( 'template_url' ); ?>/assets/images/logos/icon.png">
+    <link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/assets/images/logos/icon.png">
 
     <?php wp_head(); ?>
 </head>
@@ -23,11 +23,11 @@
     $telefone_1 = get_field('telefone_1', 'option');
     $telefone_2 = get_field('telefone_2', 'option');
     $email_contato = get_field('email_contato', 'option');
-    
+
     $url_facebook = get_field('url_facebook', 'option');
     $url_instagram = get_field('url_instagram', 'option');
     $url_youtube = get_field('url_youtube', 'option');
-    
+
     // Fallback Logo
     $logo_src = !empty($logo_header) ? $logo_header['url'] : get_template_directory_uri() . '/assets/images/logos/logo-itk-positivo.png';
     ?>
@@ -42,9 +42,10 @@
         <!-- search-popup -->
         <div class="search-popup" data-popup="1">
             <div class="search-popup-content">
-                <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                    <input type="text" name="s" placeholder="O que está pesquisando?" value="<?php echo get_search_query(); ?>" required>
+                    <input type="text" name="s" placeholder="O que está pesquisando?"
+                        value="<?php echo get_search_query(); ?>" required>
                 </form>
             </div>
         </div>
@@ -57,27 +58,40 @@
             </div>
 
             <?php
-            wp_nav_menu( array(
-                'theme_location' => 'menu-mobile',
-                'container'      => false,
-                'fallback_cb'    => false,
-            ) );
+            $mobile_menu = wp_nav_menu(array(
+                'theme_location' => 'menu-principal',
+                'container' => false,
+                'items_wrap' => '<ul>%3$s</ul>',
+                'fallback_cb' => false,
+                'echo' => false,
+                'is_mobile_menu' => true,
+            ));
+            // Garante que nenhuma <div> extra envolva a <ul>, pois o CSS do tema exige .side-menu2 > ul
+            echo preg_replace(array('#^<div[^>]*>#', '#</div>$#'), '', trim($mobile_menu));
             ?>
             <div class="menu-contact">
                 <span>Mais informações</span>
-                <?php if($telefone_2): ?>
-                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $telefone_2)); ?>" class="nmbr" title="<?php echo esc_attr($telefone_2); ?>"><?php echo esc_html($telefone_2); ?></a>
+                <?php if ($telefone_2): ?>
+                    <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $telefone_2)); ?>" class="nmbr"
+                        title="<?php echo esc_attr($telefone_2); ?>"><?php echo esc_html($telefone_2); ?></a>
                 <?php endif; ?>
-                <?php if($email_contato): ?>
-                <a href="mailto:<?php echo esc_attr($email_contato); ?>" title="" class="gmail"><?php echo esc_html($email_contato); ?></a>
+                <?php if ($email_contato): ?>
+                    <a href="mailto:<?php echo esc_attr($email_contato); ?>" title=""
+                        class="gmail"><?php echo esc_html($email_contato); ?></a>
                 <?php endif; ?>
             </div>
             <div class="menu-links">
                 <span>Siga a gente:</span>
                 <ul class="social-icon">
-                    <?php if($url_facebook): ?><li><a href="<?php echo esc_url($url_facebook); ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
-                    <?php if($url_instagram): ?><li><a href="<?php echo esc_url($url_instagram); ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li><?php endif; ?>
-                    <?php if($url_youtube): ?><li><a href="<?php echo esc_url($url_youtube); ?>" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a></li><?php endif; ?>
+                    <?php if ($url_facebook): ?>
+                        <li><a href="<?php echo esc_url($url_facebook); ?>" target="_blank" title="Facebook"><i
+                                    class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                    <?php if ($url_instagram): ?>
+                        <li><a href="<?php echo esc_url($url_instagram); ?>" target="_blank" title="Instagram"><i
+                                    class="fab fa-instagram"></i></a></li><?php endif; ?>
+                    <?php if ($url_youtube): ?>
+                        <li><a href="<?php echo esc_url($url_youtube); ?>" target="_blank" title="Youtube"><i
+                                    class="fab fa-youtube"></i></a></li><?php endif; ?>
                 </ul>
                 <a href="#contato" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
                     <span>Fale Conosco</span>
@@ -101,11 +115,14 @@
                     <div class="col-auto">
                         <nav class="main-menu menu-style1">
                             <?php
-                            wp_nav_menu( array(
+                            $sticky_menu = wp_nav_menu(array(
                                 'theme_location' => 'menu-principal',
-                                'container'      => false,
-                                'fallback_cb'    => false,
-                            ) );
+                                'container' => false,
+                                'items_wrap' => '<ul>%3$s</ul>',
+                                'fallback_cb' => false,
+                                'echo' => false,
+                            ));
+                            echo preg_replace(array('#^<div[^>]*>#', '#</div>$#'), '', trim($sticky_menu));
                             ?>
                         </nav>
                     </div>
@@ -134,28 +151,37 @@
                 <div class="container-fluid">
                     <div class="header-top-content4">
                         <ul class="top-bar-socials">
-                            <?php if($url_facebook): ?><li><a href="<?php echo esc_url($url_facebook); ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
-                            <?php if($url_instagram): ?><li><a href="<?php echo esc_url($url_instagram); ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li><?php endif; ?>
-                            <?php if($url_youtube): ?><li><a href="<?php echo esc_url($url_youtube); ?>" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a></li><?php endif; ?>
+                            <?php if ($url_facebook): ?>
+                                <li><a href="<?php echo esc_url($url_facebook); ?>" target="_blank" title="Facebook"><i
+                                            class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                            <?php if ($url_instagram): ?>
+                                <li><a href="<?php echo esc_url($url_instagram); ?>" target="_blank" title="Instagram"><i
+                                            class="fab fa-instagram"></i></a></li><?php endif; ?>
+                            <?php if ($url_youtube): ?>
+                                <li><a href="<?php echo esc_url($url_youtube); ?>" target="_blank" title="Youtube"><i
+                                            class="fab fa-youtube"></i></a></li><?php endif; ?>
                         </ul>
                         <ul class="top-bar-contacts">
-                            <?php if($telefone_2): ?>
-                            <li>
-                                <i class="fab fa-whatsapp"></i>
-                                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $telefone_2)); ?>"><?php echo esc_html($telefone_2); ?></a>
-                            </li>
+                            <?php if ($telefone_2): ?>
+                                <li>
+                                    <i class="fab fa-whatsapp"></i>
+                                    <a
+                                        href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $telefone_2)); ?>"><?php echo esc_html($telefone_2); ?></a>
+                                </li>
                             <?php endif; ?>
-                            <?php if($email_contato): ?>
-                            <li>
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:<?php echo esc_attr($email_contato); ?>"><?php echo esc_html($email_contato); ?></a>
-                            </li>
+                            <?php if ($email_contato): ?>
+                                <li>
+                                    <i class="far fa-envelope"></i>
+                                    <a
+                                        href="mailto:<?php echo esc_attr($email_contato); ?>"><?php echo esc_html($email_contato); ?></a>
+                                </li>
                             <?php endif; ?>
-                            <?php if($link_loja): ?>
-                            <li>
-                                <i class="fas fa-bag-shopping"></i>
-                                <a href="<?php echo esc_url($link_loja['url']); ?>" target="<?php echo esc_attr($link_loja['target']); ?>"><?php echo esc_html($link_loja['title'] ?: 'Acesse nossa loja'); ?></a>
-                            </li>
+                            <?php if ($link_loja): ?>
+                                <li>
+                                    <i class="fas fa-bag-shopping"></i>
+                                    <a href="<?php echo esc_url($link_loja['url']); ?>"
+                                        target="<?php echo esc_attr($link_loja['target']); ?>"><?php echo esc_html($link_loja['title'] ?: 'Acesse nossa loja'); ?></a>
+                                </li>
                             <?php endif; ?>
                         </ul>
 
@@ -177,11 +203,14 @@
                             <div class="col-auto p-0">
                                 <nav class="main-menu menu-style1">
                                     <?php
-                                    wp_nav_menu( array(
+                                    $normal_menu = wp_nav_menu(array(
                                         'theme_location' => 'menu-principal',
-                                        'container'      => false,
-                                        'fallback_cb'    => false,
-                                    ) );
+                                        'container' => false,
+                                        'items_wrap' => '<ul>%3$s</ul>',
+                                        'fallback_cb' => false,
+                                        'echo' => false,
+                                    ));
+                                    echo preg_replace(array('#^<div[^>]*>#', '#</div>$#'), '', trim($normal_menu));
                                     ?>
                                 </nav>
                             </div>

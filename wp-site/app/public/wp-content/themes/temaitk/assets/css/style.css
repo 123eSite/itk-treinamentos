@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /**
  * Template Name: Aiero | AI Agency & Technology HTML Template
  * Description: AI Agency, tech startup, chat bot, data science, digital agency, consulting, IT solutions, voiceover, video voiceover, robotics, science, industry, machine learning, neural network or other modern technology business template.
@@ -7850,7 +7850,8 @@ input[type=submit]:hover {
 }
 .side-menu2 > ul > li > a {
   position: relative;
-  display: block;
+  display: inline-block;
+  width: calc(100% - 40px);
   height: 29px;
   font-size: 14px;
   font-weight: 700;
@@ -7862,22 +7863,7 @@ input[type=submit]:hover {
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-.side-menu2 > ul > li > a::before {
-  content: "\e82b" !important;
-  position: absolute;
-  right: 0;
-  font: 400 normal 5px/20px "fontello";
-  line-height: inherit;
-  display: inline-block;
-  margin: 0;
-  vertical-align: top;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  color: inherit;
-  background: transparent;
+.side-menu2 > ul > li.menu-item-has-children > a::before {
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
@@ -7930,10 +7916,11 @@ input[type=submit]:hover {
 .side-menu2 > ul ul .active .active {
   color: var(--color-primary);
 }
-.side-menu2 .sub-menu {
+.side-menu2 li.menu-item-has-children {
   position: relative;
+  cursor: pointer;
 }
-.side-menu2 .sub-menu::before {
+.side-menu2 li.menu-item-has-children::before {
   content: "\e82b" !important;
   position: absolute;
   right: 0;
@@ -7951,22 +7938,22 @@ input[type=submit]:hover {
   color: inherit;
   background: transparent;
 }
-.side-menu2 .sub-menu ul {
+.side-menu2 li.menu-item-has-children > ul {
   opacity: 0;
   visibility: hidden;
   height: 0;
   padding: 7px 0 0 42px;
 }
-.side-menu2 .sub-menu.active > a {
+.side-menu2 li.menu-item-has-children.active > a {
   color: var(--color-primary);
 }
-.side-menu2 .sub-menu.active::before {
+.side-menu2 li.menu-item-has-children.active::before {
   color: var(--color-primary);
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
 }
-.side-menu2 .sub-menu.active ul {
+.side-menu2 li.menu-item-has-children.active > ul {
   opacity: 1;
   visibility: visible;
   height: 100%;
@@ -11132,6 +11119,10 @@ header .ibt-btn {
 .footer-form5 {
   position: relative;
 }
+.footer-form5 p {
+  margin: 0;
+  padding: 0;
+}
 .footer-form5 input {
   background-color: unset;
   border: 0;
@@ -11161,7 +11152,8 @@ header .ibt-btn {
 }
 .footer-form5 .ibt-btn {
   position: absolute;
-  bottom: 30px;
+  top: -5px;
+  bottom: auto;
   right: 0;
   color: var(--color-content-white);
   background: none;
