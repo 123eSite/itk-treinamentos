@@ -39,7 +39,7 @@ $banner_watermark = get_field('banner_watermark', $blog_page_id);
             <button class="sidebar-toggle"></button>
             <!-- Overlay -->
             <div class="sidebar-overlay"></div>
-            
+
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-8">
@@ -47,17 +47,17 @@ $banner_watermark = get_field('banner_watermark', $blog_page_id);
                         <div class="blog-single-content">
                             <div class="blog-img4 mb-5">
                                 <?php if ( has_post_thumbnail() ): ?>
-                                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', ['alt' => get_the_title()]); ?></a>
+                                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog', ['alt' => get_the_title()]); ?></a>
                                 <?php endif; ?>
                                 <span class="blog-meta4"><?php echo get_the_date('j M. Y'); ?> / <?php the_author(); ?></span>
                             </div>
-                            
+
                             <div class="entry-content clr" itemprop="text">
                                 <h2 class="mb-4"><?php the_title(); ?></h2>
                                 <?php the_content(); ?>
                             </div>
                         </div>
-                        
+
                         <div class="post-meta2 mt-5">
                             <h4 class="name">Por <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><?php the_author(); ?></a></h4>
                             <ul class="tag-list">
@@ -78,7 +78,7 @@ $banner_watermark = get_field('banner_watermark', $blog_page_id);
                         </div>
                         <?php endwhile; endif; ?>
                     </div>
-                    
+
                     <div class="offset-lg-1 col-lg-4">
                         <?php get_sidebar(); ?>
                     </div>
