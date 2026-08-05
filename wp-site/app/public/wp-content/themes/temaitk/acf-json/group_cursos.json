@@ -174,7 +174,7 @@
                     "required": false,
                     "conditional_logic": false,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -192,7 +192,7 @@
                 },
                 {
                     "key": "field_curso_link",
-                    "label": "Link e Texto do Botão",
+                    "label": "Link do Curso",
                     "name": "course_link",
                     "aria-label": "",
                     "type": "link",
@@ -200,11 +200,53 @@
                     "required": false,
                     "conditional_logic": false,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
+                    "parent_repeater": "field_cursos_list"
+                },
+                {
+                    "key": "field_curso_tag",
+                    "label": "Tag",
+                    "name": "course_tag",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Ex: 15/03/2026 ou Em breve",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Em breve",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_cursos_list"
+                },
+                {
+                    "key": "field_curso_text",
+                    "label": "Texto",
+                    "name": "course_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Texto livre. Quebras de linha serão respeitadas.",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
                     "parent_repeater": "field_cursos_list"
                 }
             ]
@@ -233,5 +275,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1783100593
+    "modified": 1785948920
 }

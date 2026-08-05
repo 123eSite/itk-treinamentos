@@ -261,6 +261,11 @@ if (have_rows('courses_list') || $courses_title):
                             the_row();
                             $course_image = get_sub_field('course_image');
                             $course_link = get_sub_field('course_link');
+                            $course_tag = get_sub_field('course_tag');
+                            $course_text = get_sub_field('course_text');
+                            $course_img_alt = !empty($course_image['alt'])
+                                ? $course_image['alt']
+                                : wp_strip_all_tags($course_tag ? $course_tag : ($course_text ? $course_text : ''));
                             ?>
                             <div class="swiper-slide">
                                 <div class="ser-card15">
@@ -271,14 +276,22 @@ if (have_rows('courses_list') || $courses_title):
                                         <?php endif; ?>
                                             <?php if (!empty($course_image)): ?>
                                                 <img src="<?php echo esc_url($course_image['sizes']['card-curso']); ?>"
-                                                    alt="<?php echo esc_attr($course_image['alt']); ?>">
+                                                    alt="<?php echo esc_attr($course_img_alt); ?>">
                                             <?php endif; ?>
                                         <?php if ($course_link): ?>
                                         </a>
                                         <?php endif; ?>
                                     </div>
+                                    <?php if ($course_tag || $course_text): ?>
                                     <div class="ser-content15">
+                                        <?php if ($course_tag): ?>
+                                            <span class="badge"><?php echo esc_html($course_tag); ?></span>
+                                        <?php endif; ?>
+                                        <?php if ($course_text): ?>
+                                            <p><?php echo nl2br(esc_html($course_text)); ?></p>
+                                        <?php endif; ?>
                                     </div>
+                                    <?php endif; ?>
                                     <?php if ($course_link): ?>
                                     <a href="<?php echo esc_url($course_link['url']); ?>" target="<?php echo esc_attr($course_link['target'] ? $course_link['target'] : '_self'); ?>"
                                         title="<?php echo esc_attr($course_link['title']); ?>" class="ser-btn">

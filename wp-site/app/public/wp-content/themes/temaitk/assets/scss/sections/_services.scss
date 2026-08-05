@@ -2323,6 +2323,25 @@
     @include ms {
         padding: 42px 6px 51px;
     }
+    .badge {
+        display: inline-block;
+        background-color: var(--color-primary);
+        color: var(--color-content-white);
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+    }
+    > p {
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--color-body);
+    }
     .title {
         font-size: 30px;
         font-weight: 400;

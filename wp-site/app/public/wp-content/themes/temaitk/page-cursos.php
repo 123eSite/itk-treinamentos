@@ -8,7 +8,7 @@ get_header();
         $banner_bg_image = get_field('banner_bg_image');
         $banner_title = get_field('banner_title');
         $banner_watermark = get_field('banner_watermark');
-        
+
         if ( $banner_title || $banner_bg_image ):
         ?>
         <section class="bread-crums-section">
@@ -42,7 +42,7 @@ get_header();
         <?php
         $courses_title = get_field('courses_title');
         $courses_text = get_field('courses_text');
-        
+
         if( $courses_title || $courses_text || have_rows('courses_list') ):
         ?>
         <section class="service-sec15 ibt-section-gap bg-gray">
@@ -62,37 +62,47 @@ get_header();
                     </div>
                 </div>
             </div>
-            
+
             <?php if( have_rows('courses_list') ): ?>
             <div class="container2">
                 <div class="row">
-                    <?php while( have_rows('courses_list') ): the_row(); 
+                    <?php while( have_rows('courses_list') ): the_row();
                         $course_image = get_sub_field('course_image');
                         $course_link = get_sub_field('course_link');
+                        $course_tag = get_sub_field('course_tag');
+                        $course_text = get_sub_field('course_text');
+                        $course_img_alt = !empty($course_image['alt'])
+                            ? $course_image['alt']
+                            : wp_strip_all_tags($course_tag ? $course_tag : ($course_text ? $course_text : ''));
                     ?>
                     <div class="col-lg-3 mb-5">
                         <div class="ser-card15">
                             <div class="ser-img15">
                                 <?php if( $course_link ): ?>
-                                <a href="<?php echo esc_url($course_link['url']); ?>" target="<?php echo esc_attr($course_link['target'] ? $course_link['target'] : '_self'); ?>">
+                                <a href="<?php echo esc_url($course_link['url']); ?>" target="<?php echo esc_attr($course_link['target'] ? $course_link['target'] : '_self'); ?>" title="<?php echo esc_attr($course_link['title']); ?>">
                                 <?php endif; ?>
-                                
+
                                     <?php if( !empty($course_image) ): ?>
-                                    <img src="<?php echo esc_url($course_image['sizes']['card-curso']); ?>" alt="<?php echo esc_attr($course_image['alt']); ?>">
+                                    <img src="<?php echo esc_url($course_image['sizes']['card-curso']); ?>" alt="<?php echo esc_attr($course_img_alt); ?>">
                                     <?php endif; ?>
-                                
+
                                 <?php if( $course_link ): ?>
                                 </a>
                                 <?php endif; ?>
                             </div>
+                            <?php if( $course_tag || $course_text ): ?>
                             <div class="ser-content15">
-                                <?php if( $course_link ): ?>
-                                <h4 class="title"><a href="<?php echo esc_url($course_link['url']); ?>" target="<?php echo esc_attr($course_link['target'] ? $course_link['target'] : '_self'); ?>"><?php echo esc_html($course_link['title']); ?></a></h4>
+                                <?php if( $course_tag ): ?>
+                                <span class="badge"><?php echo esc_html($course_tag); ?></span>
+                                <?php endif; ?>
+                                <?php if( $course_text ): ?>
+                                <p><?php echo nl2br(esc_html($course_text)); ?></p>
                                 <?php endif; ?>
                             </div>
-                            
+                            <?php endif; ?>
+
                             <?php if( $course_link ): ?>
-                            <a href="<?php echo esc_url($course_link['url']); ?>" target="<?php echo esc_attr($course_link['target'] ? $course_link['target'] : '_self'); ?>" class="ser-btn">
+                            <a href="<?php echo esc_url($course_link['url']); ?>" target="<?php echo esc_attr($course_link['target'] ? $course_link['target'] : '_self'); ?>" title="<?php echo esc_attr($course_link['title']); ?>" class="ser-btn">
                                 <i class="icon fontello icon-button-arrow"></i>
                                 <i class="icon2 fontello icon-button-arrow"></i>
                             </a>

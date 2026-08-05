@@ -1291,7 +1291,7 @@ var SwiperSliders = {
         loop: true,
         slidesPerView: 4.3,
         spaceBetween: 20,
-        autoplay: { delay: 3000, disableOnInteraction: false },
+        autoplay: { delay: 6000, disableOnInteraction: false },
         navigation: {
           nextEl: ".slider-btn5 .swiper-button-next",
           prevEl: ".slider-btn5 .swiper-button-prev",
