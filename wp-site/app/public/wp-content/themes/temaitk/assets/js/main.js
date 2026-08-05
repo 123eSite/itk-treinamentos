@@ -1289,7 +1289,7 @@ var SwiperSliders = {
     if (document.querySelector(".ser-slider15")) {
       new Swiper(".ser-slider15", {
         loop: true,
-        slidesPerView: 4.3,
+        slidesPerView: 1,
         spaceBetween: 20,
         autoplay: { delay: 6000, disableOnInteraction: false },
         navigation: {
@@ -1297,14 +1297,9 @@ var SwiperSliders = {
           prevEl: ".slider-btn5 .swiper-button-prev",
         },
         breakpoints: {
-          1920: { slidesPerView: 4.3 },
-          1440: { slidesPerView: 4.3 },
-          1366: { slidesPerView: 3.3 },
-          1201: { slidesPerView: 3.3 },
           769: { slidesPerView: 2.3 },
-          577: { slidesPerView: 1.3 },
-          480: { slidesPerView: 1.3 },
-          375: { slidesPerView: 1.2 },
+          1201: { slidesPerView: 3.3 },
+          1440: { slidesPerView: 4.3 },
         },
       });
     }

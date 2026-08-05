@@ -66,7 +66,7 @@ get_header();
                                         <?php endif; ?>
 
                                         <?php if ($hero_course_highlight || $hero_course_link): ?>
-                                            <div class="d-flex align-items-center justify-content-between">
+                                            <div class="d-lg-flex align-items-center justify-content-between">
                                                 <?php if ($hero_course_highlight): ?>
                                                     <p class="text-secondary mb-0"><?php echo nl2br(esc_html($hero_course_highlight)); ?>
                                                     </p>

@@ -13327,13 +13327,11 @@ ul {
 @media (max-width: 820px) {
   .exp-box {
     width: 451px;
-    padding-left: 224px;
   }
 }
 @media (max-width: 769px) {
   .exp-box {
     width: 457px;
-    padding-left: 230px;
     right: auto;
     left: 20px;
     bottom: 20px;
@@ -14057,18 +14055,8 @@ ul {
 .hero-style6 .exp-box {
   z-index: 9999;
 }
-@media (max-width: 1201px) {
-  .hero-style6 .exp-box {
-    width: 426px;
-    padding-left: 221px;
-  }
-}
-@media (max-width: 820px) {
-  .hero-style6 .exp-box {
-    right: auto;
-    left: 18px;
-  }
-}
+
+
 @media (max-width: 577px) {
   .hero-style6 .exp-box {
     width: 500px;
@@ -14196,6 +14184,9 @@ ul {
   .hero-sec-info3 .title {
     font-size: 48px;
     line-height: 57px;
+  }
+  .hero-sec-info3 .title br {
+    display: none;
   }
 }
 @media (max-width: 480px) {
@@ -40108,12 +40099,107 @@ blockquote {
     padding: 0 35px 0 14px;
   }
 }
-
+@media (max-width: 1199px) {
+  .side-menu2 > ul ul li a {
+    height: auto;
+  }
+  .side-menu2 li.menu-item-has-children > ul {
+    padding-left: 10px;
+  }
+}
+@media (max-width: 991px) {
+  .hero-sec-info3 {
+    max-width: 100%;
+  }
+  .exp-box {
+    width: 95%;
+    max-width: 100%;
+  }
+  .exp-box p {
+    display: block;
+    margin-bottom: 10px !important;
+  }
+}
+@media (max-width: 767px) {
+  .hero-sec-info3 .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .hero-sec-info3 p {
+    max-width: 222px;
+    line-height: 26px;
+  }
+  .hero-sec-info3 {
+    padding: 20px 38px 10px 12px;
+  }
+  .hero-style6 .exp-box {
+    width: 302px;
+    padding: 20px 0 20px 0;
+}
+.hero-sec-info3 p {
+  max-width: 100%;
+  line-height: 25px;
+}
+.hero-style6 .slider-btn {
+  right: -49px;
+  padding: 0;
+  height: 48px;
+}
+.hero-btn2 a.ibt-btn.ibt-btn-secondary {
+  max-width: 100%;
+}
+.hero-btn2 a.ibt-btn.ibt-btn-secondary i[class=icon-arrow-top]  {
+  margin-left: 0;
+}
+.about-counter {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.title-area2 .sec-title {
+  margin-bottom: 18px;
+}
+.title-area2 {
+  max-width: 90%;
+}
+.testimonial-content {
+  max-height: none;
+}
+.title-area2 {
+  top: 40px;
+}
+.form-box5 {
+  padding: 0;
+}
+.bread-crums-section {
+  padding-top: 125px;
+}
+.counter-box15 .counter-number, .counter-box15 .counter-text {
+  font-size: 60px;
+  line-height: 58px;
+}
+.header-logo {
+  max-width: 90%;
+}
+.hero-style1 {
+  padding-top: 24px;
+}
+.about-us-sec10 {
+  padding-top: 24px;
+}
+section.service-sec15.ibt-section-gap.bg-gray {
+  padding-top: 24px;
+}
+.ser-card22 .inner-content2 {
+  left: 20px;
+  max-width: 90%;
+}
+}
 @media (min-width: 992px) {
   .col-lg-5-cols {
     flex: 0 0 20%;
     max-width: 20%;
   }
+
 }
 
 .carousel-gallery .swiper-wrapper {
