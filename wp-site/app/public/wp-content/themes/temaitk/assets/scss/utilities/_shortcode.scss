@@ -560,10 +560,12 @@ $font-weights: (
   @include xs{
     margin-top: 56px;
   }
-  .page-item{
+    .page-item{
     border: 0;
     margin: 0 0 0 12px;
     .page-link{
+      position: relative;
+      display: inline-block;
       padding: 0 20px;
       height: 51px;
       line-height: 50px;
@@ -603,6 +605,14 @@ $font-weights: (
       &:hover{
         background: linear-gradient(45deg, #7061c8, #4875c8);
         color: var(--color-content-white);
+      }
+    }
+    &.active .page-link,
+    .page-link.current{
+      background: linear-gradient(45deg, #7061c8, #4875c8);
+      color: var(--color-content-white);
+      &::before{
+        display: none;
       }
     }
     .page-link.v1{

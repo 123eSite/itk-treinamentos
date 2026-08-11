@@ -481,14 +481,12 @@ if ($blog_query->have_posts() || $blog_title):
                         $mb_class = ($post_count == 3) ? ' mb-0' : ''; // Para replicar a classe mb-0 no terceiro item
                         ?>
                         <div class="col-lg-4 col-md-6">
-                            <div class="blog-card<?php echo $mb_class; ?>">
-                                <div class="blog-img">
+                            <div class="blog-card">
+                                <div class="blog-img<?php echo ! has_post_thumbnail() ? ' no-thumb' : ''; ?>">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                                         <?php
-                                        if (has_post_thumbnail()) {
-                                            the_post_thumbnail('thumb-blog');
-                                        } else {
-                                            echo '<img src="' . get_template_directory_uri() . '/assets/images/blog' . $post_count . '.webp" alt="' . get_the_title() . '">';
+                                        if ( has_post_thumbnail() ) {
+                                            the_post_thumbnail( 'thumb-blog' );
                                         }
                                         ?>
                                     </a>

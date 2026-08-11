@@ -33,8 +33,6 @@
         <div class="recent-post">
             <?php if ( has_post_thumbnail() ): ?>
                 <?php the_post_thumbnail('thumbnail'); ?>
-            <?php else: ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog1.webp" alt="<?php the_title_attribute(); ?>">
             <?php endif; ?>
             <span class="sub-title"><?php echo get_the_date('j M. Y'); ?></span>
             <h4 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>

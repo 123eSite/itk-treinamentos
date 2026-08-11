@@ -1,23 +1,38 @@
 <?php
 get_header();
 
-// Fetch banner fields from the Blog page options if available
-$blog_page_id = get_option('page_for_posts');
-$banner_bg_image = get_field('banner_bg_image', $blog_page_id);
-$banner_watermark = get_field('banner_watermark', $blog_page_id);
+// Página Blog (template blog.php) — não usa page_for_posts do WP
+$blog_page_id = (int) get_option( 'page_for_posts' );
+if ( ! $blog_page_id ) {
+	$blog_pages = get_posts( array(
+		'post_type'      => 'page',
+		'meta_key'       => '_wp_page_template',
+		'meta_value'     => 'blog.php',
+		'posts_per_page' => 1,
+		'fields'         => 'ids',
+	) );
+	$blog_page_id = ! empty( $blog_pages ) ? (int) $blog_pages[0] : 24;
+}
+
+$banner_bg_image  = get_field( 'banner_bg_image', $blog_page_id );
+$banner_watermark = get_field( 'banner_watermark', $blog_page_id );
 ?>
 
         <!-- page-banner9 -->
         <section class="bread-crums-section">
             <div class="container2">
                 <div class="page-banner11">
-                    <?php if( !empty($banner_bg_image) ): ?>
-                    <img class="bg" src="<?php echo esc_url($banner_bg_image['sizes']['banner-internas']); ?>" alt="<?php echo esc_attr($banner_bg_image['alt']); ?>">
+                    <?php if ( ! empty( $banner_bg_image ) ): ?>
+                    <img class="bg" src="<?php echo esc_url( $banner_bg_image['sizes']['banner-internas'] ); ?>" alt="<?php echo esc_attr( $banner_bg_image['alt'] ); ?>">
+                    <?php else: ?>
+                    <img class="bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-blog.webp" alt="">
                     <?php endif; ?>
                     <div class="shape"></div>
                     <div class="shape3"></div>
-                    <?php if( $banner_watermark ): ?>
-                    <div class="staff-text"><?php echo esc_html($banner_watermark); ?></div>
+                    <?php if ( $banner_watermark ): ?>
+                    <div class="staff-text"><?php echo esc_html( $banner_watermark ); ?></div>
+                    <?php else: ?>
+                    <div class="staff-text">ITK</div>
                     <?php endif; ?>
                     <div class="page-content">
                         <h1 class="title">Blog</h1>
@@ -25,7 +40,7 @@ $banner_watermark = get_field('banner_watermark', $blog_page_id);
                     <ul class="breadcrumbs">
                         <li><a href="<?php echo home_url(); ?>" title="Home">Home</a></li>
                         <li>/</li>
-                        <li><a href="<?php echo get_permalink($blog_page_id); ?>" title="Blog">Blog</a></li>
+                        <li><a href="<?php echo get_permalink( $blog_page_id ); ?>" title="Blog">Blog</a></li>
                         <li>/</li>
                         <li><?php the_title(); ?></li>
                     </ul>

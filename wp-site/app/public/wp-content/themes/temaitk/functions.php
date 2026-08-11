@@ -77,6 +77,17 @@ function temaitk_setup()
 }
 add_action('after_setup_theme', 'temaitk_setup');
 
+// 12 posts por página em arquivos (categoria, tag, data, autor)
+add_action( 'pre_get_posts', 'temaitk_archive_posts_per_page' );
+function temaitk_archive_posts_per_page( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+	if ( $query->is_category() || $query->is_tag() || $query->is_date() || $query->is_author() ) {
+		$query->set( 'posts_per_page', 12 );
+	}
+}
+
 // ==============================================================================
 // ACF OPTIONS PAGE (Opções do Tema)
 // ==============================================================================

@@ -8,7 +8,7 @@ get_header();
         $banner_bg_image = get_field('banner_bg_image');
         $banner_title = get_field('banner_title');
         $banner_watermark = get_field('banner_watermark');
-        
+
         if( $banner_title || $banner_bg_image ):
         ?>
         <section class="bread-crums-section">
@@ -42,7 +42,7 @@ get_header();
         <?php
         $hero_title = get_field('hero_title');
         $hero_text = get_field('hero_text');
-        
+
         if( $hero_title || $hero_text ):
         ?>
         <section class="hero-style1">
@@ -58,15 +58,15 @@ get_header();
                         </div>
                         <div class="col-lg-4">
                             <div class="hero-content">
-                                <?php 
-                                if( $hero_text ): 
+                                <?php
+                                if( $hero_text ):
                                     $lines = explode("\n", $hero_text);
                                     foreach($lines as $line) {
                                         if(trim($line)) {
                                             echo '<h4>' . esc_html(trim($line)) . '</h4>';
                                         }
                                     }
-                                endif; 
+                                endif;
                                 ?>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ get_header();
         $about_title = get_field('about_title');
         $about_text = get_field('about_text');
         $about_image = get_field('about_image');
-        
+
         if( $about_title || $about_text || $about_image ):
         ?>
         <section class="feature-sec9 ibt-section-gapBottom bg-gray">
@@ -121,7 +121,7 @@ get_header();
         $steps_title = get_field('steps_title');
         $steps_form_title = get_field('steps_form_title');
         $steps_form_shortcode = get_field('steps_form_shortcode');
-        
+
         if( $steps_title || have_rows('steps_list') || $steps_form_shortcode ):
         ?>
         <section class="feature-sec1 ibt-section-gap">
@@ -137,16 +137,16 @@ get_header();
                                 <?php if( $steps_form_title ): ?>
                                 <h2 class="mb-4"><?php echo esc_html($steps_form_title); ?></h2>
                                 <?php endif; ?>
-                                
+
                                 <?php if( $steps_form_shortcode ): ?>
-                                    <?php echo do_shortcode($steps_form_shortcode); ?>
+                                    <?php echo $steps_form_shortcode; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="row">
-                            <?php if( have_rows('steps_list') ): while( have_rows('steps_list') ): the_row(); 
+                            <?php if( have_rows('steps_list') ): while( have_rows('steps_list') ): the_row();
                                 $step_icon = get_sub_field('step_icon');
                                 $step_title = get_sub_field('step_title');
                                 $step_text = get_sub_field('step_text');
