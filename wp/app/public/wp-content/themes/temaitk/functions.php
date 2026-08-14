@@ -78,18 +78,8 @@ add_action('wp_enqueue_scripts', 'temaitk_enqueue_assets');
 // Contact Form 7: não envolver campos em <p>
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-// Clint CRM: webhook ao enviar formulário da LP Leader Training
+// Clint CRM: webhook ao enviar formulário (URL por página via ACF `url_webhook_clint`)
 require_once get_template_directory() . '/inc/clint-webhook.php';
-
-/**
- * IDs dos formulários CF7 que enviam dados para a Clint.
- * Substitua pelos IDs reais (Contato → Formulários de contato).
- */
-add_filter('temaitk_clint_cf7_form_ids', function () {
-    return [
-        164, // Formulário de Contato — LP Leader Training
-    ];
-});
 
 // ─── Helper: classes CSS de seção para layouts da LP ─────────────────────────
 

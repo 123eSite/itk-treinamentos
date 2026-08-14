@@ -1,0 +1,42 @@
+{
+    "key": "group_clint_webhook",
+    "title": "Integração Clint",
+    "fields": [
+        {
+            "key": "field_clint_url_webhook",
+            "label": "URL do webhook Clint",
+            "name": "url_webhook_clint",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Cole a URL gerada em Clint → Integrações → Webhook. Cada página deve ter um webhook próprio para categorizar os leads corretamente.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://functions-api.clint.digital/endpoints/integration/webhook/..."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Webhook da Clint usado pelos formulários CF7 desta página.",
+    "show_in_rest": 0,
+    "modified": 1786730663
+}
