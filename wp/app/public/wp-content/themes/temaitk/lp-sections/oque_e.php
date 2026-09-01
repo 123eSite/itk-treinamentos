@@ -6,6 +6,11 @@ $logo_marca = get_sub_field( 'logo_marca' );
 $par1       = get_sub_field( 'paragrafo_1' );
 $botao      = get_sub_field( 'botao_texto' );
 $classes    = temaitk_lp_section_classes( 'about-us-sec9' );
+$estilo_botao = temaitk_lp_btn_style_attr();
+$cor_video_sombra = get_sub_field( 'cor_video_sombra' );
+$estilo_video = $cor_video_sombra
+    ? temaitk_lp_inline_style_attr( [ 'box-shadow' => '5px 5px 0 ' . $cor_video_sombra ] )
+    : '';
 ?>
 <!-- about-us-sec9 -->
 <section id="oque-e" class="<?php echo esc_attr( $classes ); ?>">
@@ -21,7 +26,7 @@ $classes    = temaitk_lp_section_classes( 'about-us-sec9' );
         <div class="row">
             <div class="col-lg-6 d-lg-flex align-items-center">
                 <div class="anxiety-video-wrap">
-                    <video id="anxietyVideo" class="w-100" autoplay loop muted playsinline controls>
+                    <video id="anxietyVideo" class="w-100" autoplay loop muted playsinline controls<?php echo $estilo_video; ?>>
                         <source src="<?php echo esc_url( $video['url'] ); ?>" type="video/mp4">
                     </video>
                     <button class="anxiety-video-play-btn" type="button" data-video-target="anxietyVideo"
@@ -35,7 +40,7 @@ $classes    = temaitk_lp_section_classes( 'about-us-sec9' );
                     <?php if ( $par1 ) : ?><p><?php echo $par1; ?></p><?php endif; ?>
                     <div class="d-xl-flex justify-content-center align-items-center gap-3">
                         <?php if ( $botao ) : ?>
-                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id">
+                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id"<?php echo $estilo_botao; ?>>
                             <span><?php echo esc_html( $botao ); ?></span>
                         </a>
                         <?php endif; ?>

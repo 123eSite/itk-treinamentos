@@ -111,6 +111,32 @@ function temaitk_lp_section_classes($base = '', $apply_espaco = true, $apply_cor
     return implode(' ', array_filter($classes));
 }
 
+function temaitk_lp_inline_style_attr(array $declarations)
+{
+    $parts = [];
+
+    foreach ($declarations as $property => $value) {
+        $value = trim((string) $value);
+        if ($value !== '') {
+            $parts[] = $property . ': ' . $value;
+        }
+    }
+
+    if (!$parts) {
+        return '';
+    }
+
+    return ' style="' . esc_attr(implode('; ', $parts)) . '"';
+}
+
+function temaitk_lp_btn_style_attr($fundo_field = 'cor_botao_fundo', $texto_field = 'cor_botao_texto')
+{
+    return temaitk_lp_inline_style_attr([
+        'background-color' => get_sub_field($fundo_field),
+        'color' => get_sub_field($texto_field),
+    ]);
+}
+
 /**
  * Converte URL do YouTube (watch, shorts, youtu.be, embed) para URL de embed do iframe.
  */

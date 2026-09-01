@@ -5,6 +5,7 @@ $texto     = get_sub_field( 'paragrafos' );
 $imagem    = get_sub_field( 'imagem' );
 $botao     = get_sub_field( 'botao_texto' );
 $classes   = temaitk_lp_section_classes( 'feature-sec9' );
+$estilo_botao = temaitk_lp_btn_style_attr();
 $alt       = ( is_array( $imagem ) && ! empty( $imagem['alt'] ) ) ? $imagem['alt'] : wp_strip_all_tags( $titulo );
 ?>
 <!-- feature-sec9 -->
@@ -22,7 +23,7 @@ $alt       = ( is_array( $imagem ) && ! empty( $imagem['alt'] ) ) ? $imagem['alt
                         <?php echo wp_kses_post( $texto ); ?>
                         <?php endif; ?>
                         <?php if ( $botao ) : ?>
-                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id mt-4">
+                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id mt-4"<?php echo $estilo_botao; ?>>
                             <span><?php echo esc_html( $botao ); ?></span>
                         </a>
                         <?php endif; ?>

@@ -4,6 +4,7 @@ $titulo    = get_sub_field( 'titulo' );
 $texto     = get_sub_field( 'texto' );
 $botao     = get_sub_field( 'botao_texto' );
 $classes   = temaitk_lp_section_classes( 'feature-sec1' );
+$estilo_botao = temaitk_lp_btn_style_attr();
 ?>
 <!-- feature-sec1 -->
 <section class="<?php echo esc_attr( $classes ); ?>">
@@ -38,7 +39,7 @@ $classes   = temaitk_lp_section_classes( 'feature-sec1' );
                     <?php endwhile; endif; ?>
                     <?php if ( $botao ) : ?>
                     <div class="col-lg-12 col-md-12 col-sm-12 mb-5 mb-lg-0">
-                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id">
+                        <a href="#inscricao" class="ibt-btn ibt-btn-secondary scroll-to-id"<?php echo $estilo_botao; ?>>
                             <span><?php echo esc_html( $botao ); ?></span>
                         </a>
                     </div>

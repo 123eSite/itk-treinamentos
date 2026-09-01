@@ -7,6 +7,11 @@ $texto = get_sub_field('texto');
 $botao_texto = get_sub_field('botao_texto');
 $cor_titulo = get_sub_field('cor_titulo');
 $cor_texto = get_sub_field('cor_texto');
+$cor_data_fundo = get_sub_field('cor_data_fundo');
+$estilo_data = temaitk_lp_inline_style_attr([
+    'background-color' => $cor_data_fundo,
+]);
+$estilo_botao = temaitk_lp_btn_style_attr();
 ?>
 <!-- hero-style8 -->
 <section class="hero-style8">
@@ -21,7 +26,7 @@ $cor_texto = get_sub_field('cor_texto');
             <div class="col-lg-9">
                 <div class="hero-content8 text-center">
                     <?php if ($data_evento): ?>
-                        <div class="date"><?php echo esc_html($data_evento); ?></div>
+                        <div class="date"<?php echo $estilo_data; ?>><?php echo esc_html($data_evento); ?></div>
                     <?php endif; ?>
                     <?php if ($logo_principal): ?>
                         <img width="400" src="<?php echo esc_url($logo_principal['url']); ?>"
@@ -33,7 +38,7 @@ $cor_texto = get_sub_field('cor_texto');
                             <?php echo nl2br(esc_html($texto)); ?></p>
                         <?php endif; ?>
                         <?php if ($botao_texto): ?>
-                            <a href="#oque-e" class="ibt-btn scroll-to-id">
+                            <a href="#oque-e" class="ibt-btn scroll-to-id"<?php echo $estilo_botao; ?>>
                                 <span><?php echo esc_html($botao_texto); ?></span>
                             </a>
                         <?php endif; ?>

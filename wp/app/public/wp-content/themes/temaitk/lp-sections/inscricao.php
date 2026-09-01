@@ -3,8 +3,13 @@ $subtitulo         = get_sub_field( 'subtitulo' );
 $titulo            = get_sub_field( 'titulo' );
 $titulo_formulario = get_sub_field( 'titulo_formulario' );
 $data_formulario   = get_sub_field( 'data_formulario' );
+$cor_data_formulario = get_sub_field( 'cor_data_formulario' );
 $texto_formulario  = get_sub_field( 'texto_formulario' );
 $shortcode         = get_sub_field( 'shortcode_formulario' );
+$cor_botao_fundo   = get_sub_field( 'cor_botao_fundo' );
+$cor_botao_texto   = get_sub_field( 'cor_botao_texto' );
+$cor_icones_fundo  = get_sub_field( 'cor_icones_fundo' );
+$cor_secao_fundo   = get_sub_field( 'cor_secao_fundo' );
 
 $infos = [];
 if ( have_rows( 'infos' ) ) {
@@ -18,11 +23,31 @@ if ( have_rows( 'infos' ) ) {
     }
 }
 $total         = count( $infos );
-$inner_classes = trim( 'contact-sec ' . temaitk_lp_section_classes( '', true, false ) );
+$inner_classes = 'contact-sec ibt-section-gapTop';
+$estilo_data_formulario = $cor_data_formulario
+    ? temaitk_lp_inline_style_attr( [ 'color' => $cor_data_formulario ] )
+    : ' style="color: var(--color-primary);"';
+$estilos_inscricao = [];
+
+if ( $cor_secao_fundo ) {
+    $estilos_inscricao[] = '#lp-inscricao-sec.main-sec.v6{background:' . esc_attr( $cor_secao_fundo ) . '}';
+}
+if ( $cor_icones_fundo ) {
+    $estilos_inscricao[] = '#lp-inscricao-sec .call-center__icon{background-color:' . esc_attr( $cor_icones_fundo ) . '}';
+}
+if ( $cor_botao_fundo ) {
+    $estilos_inscricao[] = '#lp-inscricao-sec .wpcf7-submit.ibt-btn-secondary{background-color:' . esc_attr( $cor_botao_fundo ) . '}';
+}
+if ( $cor_botao_texto ) {
+    $estilos_inscricao[] = '#lp-inscricao-sec .wpcf7-submit.ibt-btn-secondary{color:' . esc_attr( $cor_botao_texto ) . '}';
+}
 ?>
+<?php if ( $estilos_inscricao ) : ?>
+<style><?php echo implode( '', $estilos_inscricao ); ?></style>
+<?php endif; ?>
 <!-- main-sec v6 / inscricao -->
-<section class="main-sec v6">
-    <div id="inscricao" class="<?php echo esc_attr( $inner_classes ); ?>  ibt-section-gapTop">
+<section id="lp-inscricao-sec" class="main-sec v6">
+    <div id="inscricao" class="<?php echo esc_attr( $inner_classes ); ?>">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -57,7 +82,7 @@ $inner_classes = trim( 'contact-sec ' . temaitk_lp_section_classes( '', true, fa
                         <h2 style="font-size: 28px; line-height: 1.3;">
                             <?php echo esc_html( $titulo_formulario ); ?>
                             <?php if ( $data_formulario ) : ?>
-                            <span style="color: var(--color-primary);"><?php echo esc_html( $data_formulario ); ?></span>
+                            <span<?php echo $estilo_data_formulario; ?>><?php echo esc_html( $data_formulario ); ?></span>
                             <?php endif; ?>
                         </h2>
                         <?php if ( $texto_formulario ) : ?>

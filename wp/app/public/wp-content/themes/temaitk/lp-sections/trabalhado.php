@@ -6,6 +6,10 @@ $legenda = get_sub_field( 'legenda_contador' );
 $numero  = get_sub_field( 'numero_contador' );
 $classes = temaitk_lp_section_classes( 'service-sec22' );
 $alt     = ( is_array( $imagem ) && ! empty( $imagem['alt'] ) ) ? $imagem['alt'] : wp_strip_all_tags( $titulo );
+$cor_conteudo_fundo = get_sub_field( 'cor_conteudo_fundo' );
+$estilo_conteudo = $cor_conteudo_fundo
+    ? temaitk_lp_inline_style_attr( [ 'background' => $cor_conteudo_fundo ] )
+    : '';
 ?>
 <!-- service-sec22 -->
 <section class="<?php echo esc_attr( $classes ); ?>">
@@ -13,7 +17,7 @@ $alt     = ( is_array( $imagem ) && ! empty( $imagem['alt'] ) ) ? $imagem['alt']
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="ser-card22">
-                    <div class="ser-content22">
+                    <div class="ser-content22"<?php echo $estilo_conteudo; ?>>
                         <h4 class="title"><?php echo esc_html( $titulo ); ?></h4>
                         <?php if ( $par1 ) : ?><p><?php echo $par1; ?></p><?php endif; ?>
                     </div>
